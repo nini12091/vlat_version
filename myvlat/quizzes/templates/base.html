@@ -1,0 +1,82 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+    <script src="https://d3js.org/d3.v4.js"></script>
+    <script src="https://d3js.org/d3-scale-chromatic.v1.min.js"></script>
+    <script src="https://d3js.org/d3-geo-projection.v2.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/d3-legend/2.25.6/d3-legend.min.js"></script>
+
+    <!-- Custom styles for this template -->
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="{% static 'css/normalize.css' %}"
+    />
+    
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="{% static 'css/style.css' %}"
+     />
+
+    <title>VLAT | 시각화 능력 평가 테스트</title>
+</head>
+
+<body>
+    <!-- Header -->
+    <header class="header">
+      <div class="container">
+        <h1 class="logo"><a href="/">VLAT</a></h1>
+        <!--Navigation -->
+        <nav class="nav">
+          <ul class="list">
+            <li class="list-item"><a href="/">Home</a></li>
+            <li class="list-item"><a href="/result">Result</a></li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+    <!-- Main -->
+    <main class="main">
+        {% block content %} {% endblock %}
+    </main>
+    <script type="text/javascript">
+      $(document).ready(function(){
+        // OS
+        var os = "Unknown OS"; 
+              if (navigator.userAgent.indexOf("Win") != -1) os =  
+                "Windows OS"; 
+              if (navigator.userAgent.indexOf("Mac") != -1) os =  
+                "Mac OS"; 
+              if (navigator.userAgent.indexOf("Linux") != -1) os =  
+                "Linux OS"; 
+              if (navigator.userAgent.indexOf("Android") != -1) os =  
+                "Android OS"; 
+              if (navigator.userAgent.indexOf("like Mac") != -1) os =  
+                "iOS"; 
+        // WEBTYPE
+        var browser = navigator.userAgent.toLowerCase(); 
+              
+          if( (navigator.appName == 'Netscape' && browser.indexOf('trident') != -1) || (browser.indexOf("msie") != -1)) {
+               browser = "Internet Explorer";
+          }else if( browser.indexOf("chrome") != -1 ){
+              browser = "Chrome";
+          } else if ( browser.indexOf("safari") != -1 ){
+              browser = "Safari";
+          } else if ( browser.indexOf("firefox") != -1 ){
+              browser = "Firefox";
+      }
+        // SCREENSIZE
+        var screensize = screen.width + "x" + screen.height;
+      
+        $('input[name=os]').attr('value', os);
+        $('input[name=webtype]').attr('value', browser);
+        $('input[name=screensize]').attr('value', screensize);
+      });
+      </script>
+</body>
+</html>

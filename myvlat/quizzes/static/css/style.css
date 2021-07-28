@@ -1,0 +1,288 @@
+/* 공통 속성 */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+html {
+  font-size: 10px;
+}
+body {
+  min-width: 1060px;
+  font-size: 1.8rem;
+  line-height: 1.6;
+}
+a {
+  text-decoration: none;
+}
+
+/* HEADER */
+.header {
+    height: 72px;
+    padding: 15px 0 4px;
+    border-bottom: 1px solid #cccccc;
+  }
+
+.container {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 20px;
+  position: relative;
+}
+.container-float {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 20px;
+  position: relative;
+}
+.container-float::after {
+  display: block;
+  content: "";
+  clear: both;
+}
+.logo {
+    margin: 0;
+    padding-left: inherit;
+    position: absolute;
+    text-transform: uppercase;
+    left: 0;
+  }
+.logo > a {
+  color: black;
+  display: block;
+  padding: 0px;
+}
+.logo > a:hover {
+  color: #555555;
+}
+.nav {
+  text-align: right;
+}
+.list {
+  margin: 0;
+  font-size: 0;
+}
+.list-item {
+  font-weight: 700;
+  display: inline-block;
+  font-size: 1.7rem;
+  text-transform: uppercase;
+}
+.list-item > a {
+  color: black;
+  display: block;
+  padding: 10px;
+}
+.list-item > a:hover {
+  color: #555555;
+}
+
+/* MAIN */
+/* cta */
+.cta {
+  font-weight: 400;
+  display: block;
+  border-radius: 8px;
+}
+
+/* index */
+.hero-section {
+  text-align: center;
+  padding: 50px 0;
+}
+.intro-desc {
+  margin: 40px auto 50px;
+  width: 550px;
+  font-weight: 300;
+  font-size: 2rem;
+  line-height: 1.3;
+}
+.hero-cta {
+  width: 300px;
+  margin: 0 auto 60px;
+  padding: 20px 50px;
+  background: #4444ff;
+  color: white;
+}
+.hero-cta:hover {
+  background: #2222ff;
+}
+
+/* quiz */
+.chart-content {
+  float: left;
+  width: 55%;
+}
+.chart-title {
+  padding: 20px 20px 0 50px;
+  font-weight: 600;
+  font-size: 2.7rem;
+  letter-spacing: -1px;
+}
+.chart {
+  width: 100%;
+  height: 480px;
+}
+.quiz-content {
+  float: right;
+  width: 45%;
+  padding-top: 50px;
+}
+.answer-content {
+  width: 100%;
+  height: 90%;
+}
+.quiz-title {
+  height: 40px;
+  font-weight: 400;
+  font-size: 2.5rem;
+  letter-spacing: -1px;
+}
+.answer-list {
+  padding: 0px 0px 45px 0px;
+}
+.answer-set {
+  height: 50px;
+  font-size: 2rem;
+  padding: 30px 20px;
+}
+.answer-lable {
+  color: #000000;
+}
+.answer-label:hover {
+  color: #999999;
+}
+.next-form-btn {
+  margin: 30px;
+  padding: 20px 200px;
+  border: 1px solid #cccccc;
+  border-radius: 4px;
+  font-size: 2rem;
+  background: transparent;
+  color: #000000;
+  cursor: pointer;
+}
+
+/* quiz_result */
+.page-info {
+  margin-bottom: 50px;
+}
+.page-title {
+  font-size: 4.5rem;
+  text-align: center;
+  margin-bottom: 5px;
+}
+.user-id{
+  text-align: center;
+  font-size: 2rem;
+}
+/*팝업창*/
+#popup {
+  display: none; /*숨기기*/
+  text-align: center;
+  position: absolute;
+  width: 65%;
+  height: 60%;
+  left: 18%;
+  background: rgba(0,0,0,0.9);
+}
+
+#popmenu {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-140%,-110%);
+  width: 300px;
+  height: 200px;
+  background: #fff;
+}
+
+.exit {
+  position: absolute;
+  left: 50%;
+  bottom: 10px;
+  transform: translate(430%,850%);
+  width: 60px;
+  height: 30px;
+  text-align: center;
+  line-height: 30px;
+  background: rgb(240, 200, 69);
+  cursor: pointer;
+}
+
+/*본문내용*/
+#contents {
+  width: 100px;
+  height: 40px;
+  left: 50%;
+  text-align: center;
+  line-height: 40px;
+  color: #fff;
+  background: rgb(240, 200, 69);
+  cursor: pointer;
+  margin-left: 46.5%;
+}
+
+.result-desc {
+  font-size: 2.5rem;
+  font-weight: 350;
+  text-align: center;
+  margin: 0px;
+}
+.detail-title {
+  font-size: 2.8rem;
+  font-weight: 800;
+  margin-bottom: 5px;
+}
+.mean-title {
+  font-size: 2.8rem;
+  font-weight: 800;
+  margin-bottom: 5px;
+}
+.mean-value {
+  font-size: 4rem;
+  font-weight: 500;
+  margin-top: 0;
+}
+.correct-mean {
+  float: left;
+  height: 90%;
+  width: 50%;
+  text-align: center;
+}
+.percent-mean {
+  float: left;
+  height: 90%;
+  width: 50%;
+  text-align: center;
+  border-left: 1px solid #cccccc;
+}
+#result_chart {
+  text-align: center;
+}
+.chart-mean{
+  text-align: center;
+  font-size: 2rem;
+}
+.chart-detail{
+  text-align: center;
+  font-size: 2rem;
+}
+
+/* FOOTER */
+.footer {
+  clear: both;
+}
+.copyright {
+  padding-top: 10px;
+  text-align: center;
+  font-size: 1.7rem;
+  font-weight: 400;
+  color: #222222;
+}
+.copyright > a {
+  color: #222222;
+}
+.copyright > a:hover {
+  color: #555555;
+}

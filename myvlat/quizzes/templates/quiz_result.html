@@ -1,0 +1,1172 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="container">
+    <div class="page-info">
+        <h2 class="page-title">결 과</h2>
+        <p class="user-id">
+          수고하셨습니다! <br>
+          사용자 아이디 : {{ userID }}
+        </p>
+        <p class="user-id" style="color: red;">사용자 아이디를 통해 테스트 결과를 메뉴 상단의 RESULT 페이지에서 다시 확인하실 수 있습니다.</p>
+
+        <!--pop up-->
+        <div id="popup">
+          <div id="popmenu">
+              <img src="/static/img/popup.png">
+              <div class="exit" style="color: white">닫기</div>
+          </div>
+        </div>
+
+        <!--contents-->
+          <div id="contents">자세히 보기</div>
+        <script>
+          $(document).ready(function(){
+                $("#contents").click(function(){
+                    $("#popup").fadeIn();
+                });
+                $("#popup").click(function(){
+                    $("#popup").fadeOut();
+                  });
+            });
+        </script>
+    </div>
+    <div class="detail-score">
+      <div class="correct-mean">
+        <p class="mean-title">정답 수</p>
+        <p class="mean-value">{{ correct_num }}/53</p>
+      </div>
+      <div class="percent-mean">
+        <p class="mean-title">총 정답률</p>
+        <p class="mean-value">{{ percent|floatformat }}%</p>
+      </div>
+    </div>
+    <div id="result_chart" class="chart" ></div>
+    <script>
+      //quiz_id, status 값 가져오기
+      var quiz_id = "{{ quiz_id }}"
+      var status = "{{ status }}".replace(/&#x27;/g, "\"");
+      console.log(status)
+      console.log(typeof(status))
+
+      quiz_id = JSON.parse(quiz_id)
+      status_1 = JSON.parse(status)
+      console.log(quiz_id)
+      console.log(status_1) 
+
+      //quiz_id, status를 key, value로 저장
+      dataset = []
+      for(var i=0; i < quiz_id.length; i++) {
+          dataset.push({'quiz_id': quiz_id[i], 'value': status_1[i]});     
+      }
+      console.log(dataset)
+      
+      // create svg element:
+      var svg = d3.select("#result_chart").append("svg").attr("width", 1000).attr("height", 800)
+
+      var x = 500
+      var y = 170
+
+      var line_chart = 0
+      var Bar_chart = 0
+      var Stacked_Bar_chart = 0
+      var Stacked_Bar_chart_100 = 0
+      var Pie_chart = 0
+      var Historgram = 0
+      var Scatterplot = 0
+      var Area_chart = 0
+      var Stacked_Area_chart = 0
+      var Bubble_chart = 0
+      var Choropleth = 0
+      var Tree_map = 0
+
+      // 부가 설명
+      svg.append('text')
+          .attr('x', x-140)
+          .attr('y', y-100)
+          .attr("font-size", "21px")
+          .text("아래의 상자는 각 문제에 해당합니다.");
+        
+      svg.append('text')
+          .attr('x', x-120)
+          .attr('y', y-60)
+          .attr("font-size", "21px")
+          .text("정답: 초록, 오답: 빨강으로 표시");
+
+      // Add the path using this helper function
+      //Line Chart
+      svg.append('text')
+        .attr('x', x-262)
+        .attr('y', y+35)
+        .attr("font-size", "28px")
+        .text("Line Chart");
+      
+      //사각형 그리기
+      svg.append('rect')
+        .attr('x', x)
+        .attr('y', y)
+        .attr('width', 50)
+        .attr('height', 50)
+        .attr('stroke', 'black')
+        .attr('fill', function(d){
+          if(dataset[0].value == "True"){
+            line_chart = line_chart + 1
+            return "green"
+          }
+          else{
+            return "red"
+          }
+        });
+
+      svg.append('rect')
+        .attr('x', x+50)
+        .attr('y', y)
+        .attr('width', 50)
+        .attr('height', 50)
+        .attr('stroke', 'black')
+        .attr('fill', function(d){
+          if(dataset[1].value == "True"){
+            line_chart = line_chart + 1
+            return "green"
+          }
+          else{
+            return "red"
+          }
+        });
+
+      svg.append('rect')
+        .attr('x', x+100)
+        .attr('y', y)
+        .attr('width', 50)
+        .attr('height', 50)
+        .attr('stroke', 'black')
+        .attr('fill', function(d){
+          if(dataset[2].value == "True"){
+            line_chart = line_chart + 1
+            return "green"
+          }
+          else{
+            return "red"
+          }
+        });
+
+      svg.append('rect')
+        .attr('x', x+150)
+        .attr('y', y)
+        .attr('width', 50)
+        .attr('height', 50)
+        .attr('stroke', 'black')
+        .attr('fill', function(d){
+          if(dataset[3].value == "True"){
+            line_chart = line_chart + 1
+            return "green"
+          }
+          else{
+            return "red"
+          }
+        });
+
+      svg.append('rect')
+        .attr('x', x+200)
+        .attr('y', y)
+        .attr('width', 50)
+        .attr('height', 50)
+        .attr('stroke', 'black')
+        .attr('fill', function(d){
+          if(dataset[4].value == "True"){
+            line_chart = line_chart + 1
+            return "green"
+          }
+          else{
+            return "red"
+          }
+        });
+
+      // % 표시하기
+      svg.append('text')
+        .attr('x', x-70)
+        .attr('y', y+35)
+        .attr("font-size", "25px")
+        .text(line_chart/5*100+"%   ");
+
+      // (/) 표시하기
+      svg.append('text')
+        .attr('x', x+270)
+        .attr('y', y+35)
+        .attr("font-size", "25px")
+        .text("("+line_chart+"/5)");
+
+      // Add the path using this helper function
+      // Bar Chart
+      svg.append('text')
+        .attr('x', x-252)
+        .attr('y', y+85)
+        .attr("font-size", "28px")
+        .text("Bar Chart");
+
+      svg.append('rect')
+        .attr('x', x)
+        .attr('y', y+50)
+        .attr('width', 50)
+        .attr('height', 50)
+        .attr('stroke', 'black')
+        .attr('fill', function(d){
+          if(dataset[5].value == "True"){
+            Bar_chart = Bar_chart + 1
+            return "green"
+          }
+          else{
+            return "red"
+          }
+        });
+
+      svg.append('rect')
+        .attr('x', x+50)
+        .attr('y', y+50)
+        .attr('width', 50)
+        .attr('height', 50)
+        .attr('stroke', 'black')
+        .attr('fill', function(d){
+          if(dataset[6].value == "True"){
+            Bar_chart = Bar_chart + 1
+            return "green"
+          }
+          else{
+            return "red"
+          }
+        });
+
+      svg.append('rect')
+        .attr('x', x+100)
+        .attr('y', y+50)
+        .attr('width', 50)
+        .attr('height', 50)
+        .attr('stroke', 'black')
+        .attr('fill', function(d){
+          if(dataset[7].value == "True"){
+            Bar_chart = Bar_chart + 1
+            return "green"
+          }
+          else{
+            return "red"
+          }
+        });
+
+      svg.append('rect')
+        .attr('x', x+150)
+        .attr('y', y+50)
+        .attr('width', 50)
+        .attr('height', 50)
+        .attr('stroke', 'black')
+        .attr('fill', function(d){
+          if(dataset[8].value == "True"){
+            Bar_chart = Bar_chart + 1
+            return "green"
+          }
+          else{
+            return "red"
+          }
+        });
+
+      svg.append('text')
+        .attr('x', x-70)
+        .attr('y', y+85)
+        .attr("font-size", "25px")
+        .text(Bar_chart/4*100+"%   ");
+
+      svg.append('text')
+        .attr('x', x+220)
+        .attr('y', y+85)
+        .attr("font-size", "25px")
+        .text("("+Bar_chart+"/4)");
+
+      // Add the path using this helper function
+      // Stacked Bar Chart
+      svg.append('text')
+        .attr('x', x-352)
+        .attr('y', y+135)
+        .attr("font-size", "28px")
+        .text("Stacked Bar Chart");
+
+      svg.append('rect')
+        .attr('x', x)
+        .attr('y', y+100)
+        .attr('width', 50)
+        .attr('height', 50)
+        .attr('stroke', 'black')
+        .attr('fill', function(d){
+          if(dataset[9].value == "True"){
+            Stacked_Bar_chart = Stacked_Bar_chart + 1
+            return "green"
+          }
+          else{
+            return "red"
+          }
+        });
+
+      svg.append('rect')
+        .attr('x', x+50)
+        .attr('y', y+100)
+        .attr('width', 50)
+        .attr('height', 50)
+        .attr('stroke', 'black')
+        .attr('fill', function(d){
+          if(dataset[10].value == "True"){
+            Stacked_Bar_chart = Stacked_Bar_chart + 1
+            return "green"
+          }
+          else{
+            return "red"
+          }
+        });
+      
+      svg.append('rect')
+        .attr('x', x+100)
+        .attr('y', y+100)
+        .attr('width', 50)
+        .attr('height', 50)
+        .attr('stroke', 'black')
+        .attr('fill', function(d){
+          if(dataset[11].value == "True"){
+            Stacked_Bar_chart = Stacked_Bar_chart + 1
+            return "green"
+          }
+          else{
+            return "red"
+          }
+        });
+
+      svg.append('rect')
+        .attr('x', x+150)
+        .attr('y', y+100)
+        .attr('width', 50)
+        .attr('height', 50)
+        .attr('stroke', 'black')
+        .attr('fill', function(d){
+          if(dataset[12].value == "True"){
+            Stacked_Bar_chart = Stacked_Bar_chart + 1
+            return "green"
+          }
+          else{
+            return "red"
+          }
+        });
+
+      svg.append('rect')
+        .attr('x', x+200)
+        .attr('y', y+100)
+        .attr('width', 50)
+        .attr('height', 50)
+        .attr('stroke', 'black')
+        .attr('fill', function(d){
+          if(dataset[13].value == "True"){
+            Stacked_Bar_chart = Stacked_Bar_chart + 1
+            return "green"
+          }
+          else{
+            return "red"
+          }
+        });
+
+      svg.append('text')
+        .attr('x', x-70)
+        .attr('y', y+135)
+        .attr("font-size", "25px")
+        .text(Stacked_Bar_chart/5*100+"%   ");
+
+      svg.append('text')
+        .attr('x', x+270)
+        .attr('y', y+135)
+        .attr("font-size", "25px")
+        .text("("+Stacked_Bar_chart+"/5)");
+
+      // Add the path using this helper function
+      // 100% Stacked Bar Chart
+      svg.append('text')
+        .attr('x', x-428)
+        .attr('y', y+185)
+        .attr("font-size", "28px")
+        .text("100% Stacked Bar Chart");
+
+      svg.append('rect')
+        .attr('x', x)
+        .attr('y', y+150)
+        .attr('width', 50)
+        .attr('height', 50)
+        .attr('stroke', 'black')
+        .attr('fill', function(d){
+          if(dataset[14].value == "True"){
+            Stacked_Bar_chart_100 = Stacked_Bar_chart_100 + 1
+            return "green"
+          }
+          else{
+            return "red"
+          }
+        });
+      
+      svg.append('rect')
+        .attr('x', x+50)
+        .attr('y', y+150)
+        .attr('width', 50)
+        .attr('height', 50)
+        .attr('stroke', 'black')
+        .attr('fill', function(d){
+          if(dataset[15].value == "True"){
+            Stacked_Bar_chart_100 = Stacked_Bar_chart_100 + 1
+            return "green"
+          }
+          else{
+            return "red"
+          }
+        });
+
+      svg.append('rect')
+        .attr('x', x+100)
+        .attr('y', y+150)
+        .attr('width', 50)
+        .attr('height', 50)
+        .attr('stroke', 'black')
+        .attr('fill', function(d){
+          if(dataset[16].value == "True"){
+            Stacked_Bar_chart_100 = Stacked_Bar_chart_100 + 1
+            return "green"
+          }
+          else{
+            return "red"
+          }
+        });
+
+      svg.append('text')
+        .attr('x', x-70)
+        .attr('y', y+185)
+        .attr("font-size", "25px")
+        .text(Math.round(Stacked_Bar_chart_100/3*100)+"%   ");
+
+      svg.append('text')
+        .attr('x', x+170)
+        .attr('y', y+185)
+        .attr("font-size", "25px")
+        .text("("+Stacked_Bar_chart_100+"/3)");
+
+      // Add the path using this helper function
+      // Pie Chart
+      svg.append('text')
+        .attr('x', x-249)
+        .attr('y', y+235)
+        .attr("font-size", "28px")
+        .text("Pie Chart");
+
+      svg.append('rect')
+        .attr('x', x)
+        .attr('y', y+200)
+        .attr('width', 50)
+        .attr('height', 50)
+        .attr('stroke', 'black')
+        .attr('fill', function(d){
+          if(dataset[17].value == "True"){
+            Pie_chart = Pie_chart + 1
+            return "green"
+          }
+          else{
+            return "red"
+          }
+        });
+      
+      svg.append('rect')
+        .attr('x', x+50)
+        .attr('y', y+200)
+        .attr('width', 50)
+        .attr('height', 50)
+        .attr('stroke', 'black')
+        .attr('fill', function(d){
+          if(dataset[18].value == "True"){
+            Pie_chart = Pie_chart + 1
+            return "green"
+          }
+          else{
+            return "red"
+          }
+        });
+
+      svg.append('rect')
+        .attr('x', x+100)
+        .attr('y', y+200)
+        .attr('width', 50)
+        .attr('height', 50)
+        .attr('stroke', 'black')
+        .attr('fill', function(d){
+          if(dataset[19].value == "True"){
+            Pie_chart = Pie_chart + 1
+            return "green"
+          }
+          else{
+            return "red"
+          }
+        });
+
+      svg.append('text')
+        .attr('x', x-70)
+        .attr('y', y+235)
+        .attr("font-size", "25px")
+        .text(Math.round(Pie_chart/3*100)+"%   ");
+
+      svg.append('text')
+        .attr('x', x+170)
+        .attr('y', y+235)
+        .attr("font-size", "25px")
+        .text("("+Pie_chart+"/3)");
+
+      // Add the path using this helper function
+      // Historgram
+      svg.append('text')
+        .attr('x', x-272)
+        .attr('y', y+285)
+        .attr("font-size", "28px")
+        .text("Historgram");
+
+      svg.append('rect')
+        .attr('x', x)
+        .attr('y', y+250)
+        .attr('width', 50)
+        .attr('height', 50)
+        .attr('stroke', 'black')
+        .attr('fill', function(d){
+          if(dataset[20].value == "True"){
+            Historgram = Historgram + 1
+            return "green"
+          }
+          else{
+            return "red"
+          }
+        });
+
+      svg.append('rect')
+        .attr('x', x+50)
+        .attr('y', y+250)
+        .attr('width', 50)
+        .attr('height', 50)
+        .attr('stroke', 'black')
+        .attr('fill', function(d){
+          if(dataset[21].value == "True"){
+            Historgram = Historgram + 1
+            return "green"
+          }
+          else{
+            return "red"
+          }
+        });
+
+      svg.append('rect')
+        .attr('x', x+100)
+        .attr('y', y+250)
+        .attr('width', 50)
+        .attr('height', 50)
+        .attr('stroke', 'black')
+        .attr('fill', function(d){
+          if(dataset[22].value == "True"){
+            Historgram = Historgram + 1
+            return "green"
+          }
+          else{
+            return "red"
+          }
+        });
+
+      svg.append('text')
+        .attr('x', x-70)
+        .attr('y', y+285)
+        .attr("font-size", "25px")
+        .text(Math.round(Historgram/3*100)+"%   ");
+
+      svg.append('text')
+        .attr('x', x+170)
+        .attr('y', y+285)
+        .attr("font-size", "25px")
+        .text("("+Historgram+"/3)");
+
+      // Add the path using this helper function
+      // Scatterplot
+      svg.append('text')
+        .attr('x', x-272)
+        .attr('y', y+335)
+        .attr("font-size", "28px")
+        .text("Scatterplot");
+
+      svg.append('rect')
+        .attr('x', x)
+        .attr('y', y+300)
+        .attr('width', 50)
+        .attr('height', 50)
+        .attr('stroke', 'black')
+        .attr('fill', function(d){
+          if(dataset[23].value == "True"){
+            Scatterplot = Scatterplot + 1
+            return "green"
+          }
+          else{
+            return "red"
+          }
+        });
+
+      svg.append('rect')
+        .attr('x', x+50)
+        .attr('y', y+300)
+        .attr('width', 50)
+        .attr('height', 50)
+        .attr('stroke', 'black')
+        .attr('fill', function(d){
+          if(dataset[24].value == "True"){
+            Scatterplot = Scatterplot + 1
+            return "green"
+          }
+          else{
+            return "red"
+          }
+        });
+
+      svg.append('rect')
+        .attr('x', x+100)
+        .attr('y', y+300)
+        .attr('width', 50)
+        .attr('height', 50)
+        .attr('stroke', 'black')
+        .attr('fill', function(d){
+          if(dataset[25].value == "True"){
+            Scatterplot = Scatterplot + 1
+            return "green"
+          }
+          else{
+            return "red"
+          }
+        });
+
+      svg.append('rect')
+        .attr('x', x+150)
+        .attr('y', y+300)
+        .attr('width', 50)
+        .attr('height', 50)
+        .attr('stroke', 'black')
+        .attr('fill', function(d){
+          if(dataset[26].value == "True"){
+            Scatterplot = Scatterplot + 1
+            return "green"
+          }
+          else{
+            return "red"
+          }
+        });
+
+      svg.append('rect')
+        .attr('x', x+200)
+        .attr('y', y+300)
+        .attr('width', 50)
+        .attr('height', 50)
+        .attr('stroke', 'black')
+        .attr('fill', function(d){
+          if(dataset[27].value == "True"){
+            Scatterplot = Scatterplot + 1
+            return "green"
+          }
+          else{
+            return "red"
+          }
+        });
+
+      svg.append('rect')
+        .attr('x', x+250)
+        .attr('y', y+300)
+        .attr('width', 50)
+        .attr('height', 50)
+        .attr('stroke', 'black')
+        .attr('fill', function(d){
+          if(dataset[28].value == "True"){
+            Scatterplot = Scatterplot + 1
+            return "green"
+          }
+          else{
+            return "red"
+          }
+        });
+
+      svg.append('rect')
+        .attr('x', x+300)
+        .attr('y', y+300)
+        .attr('width', 50)
+        .attr('height', 50)
+        .attr('stroke', 'black')
+        .attr('fill', function(d){
+          if(dataset[29].value == "True"){
+            Scatterplot = Scatterplot + 1
+            return "green"
+          }
+          else{
+            return "red"
+          }
+        });
+
+      svg.append('text')
+        .attr('x', x-70)
+        .attr('y', y+335)
+        .attr("font-size", "25px")
+        .text(Math.round(Scatterplot/7*100)+"%   ");
+
+      svg.append('text')
+        .attr('x', x+370)
+        .attr('y', y+335)
+        .attr("font-size", "25px")
+        .text("("+Scatterplot+"/7)");
+
+      // Add the path using this helper function
+      // Area Chart
+      svg.append('text')
+        .attr('x', x-267)
+        .attr('y', y+385)
+        .attr("font-size", "28px")
+        .text("Area Chart");
+
+      svg.append('rect')
+        .attr('x', x)
+        .attr('y', y+350)
+        .attr('width', 50)
+        .attr('height', 50)
+        .attr('stroke', 'black')
+        .attr('fill', function(d){
+          if(dataset[30].value == "True"){
+            Area_chart = Area_chart + 1
+            return "green"
+          }
+          else{
+            return "red"
+          }
+        });
+
+      svg.append('rect')
+        .attr('x', x+50)
+        .attr('y', y+350)
+        .attr('width', 50)
+        .attr('height', 50)
+        .attr('stroke', 'black')
+        .attr('fill', function(d){
+          if(dataset[31].value == "True"){
+            Area_chart = Area_chart + 1
+            return "green"
+          }
+          else{
+            return "red"
+          }
+        });
+
+      svg.append('rect')
+        .attr('x', x+100)
+        .attr('y', y+350)
+        .attr('width', 50)
+        .attr('height', 50)
+        .attr('stroke', 'black')
+        .attr('fill', function(d){
+          if(dataset[32].value == "True"){
+            Area_chart = Area_chart + 1
+            return "green"
+          }
+          else{
+            return "red"
+          }
+        });
+
+      svg.append('text')
+        .attr('x', x-70)
+        .attr('y', y+385)
+        .attr("font-size", "25px")
+        .text(Math.round(Area_chart/3*100)+"%   ");
+
+      svg.append('text')
+        .attr('x', x+170)
+        .attr('y', y+385)
+        .attr("font-size", "25px")
+        .text("("+Area_chart+"/3)");
+
+      // Add the path using this helper function
+      // Stacked Area Chart
+      svg.append('text')
+        .attr('x', x-367)
+        .attr('y', y+435)
+        .attr("font-size", "28px")
+        .text("Stacked Area Chart");
+
+      svg.append('rect')
+        .attr('x', x)
+        .attr('y', y+400)
+        .attr('width', 50)
+        .attr('height', 50)
+        .attr('stroke', 'black')
+        .attr('fill', function(d){
+          if(dataset[33].value == "True"){
+            Stacked_Area_chart = Stacked_Area_chart + 1
+            return "green"
+          }
+          else{
+            return "red"
+          }
+        });
+
+      svg.append('rect')
+        .attr('x', x+50)
+        .attr('y', y+400)
+        .attr('width', 50)
+        .attr('height', 50)
+        .attr('stroke', 'black')
+        .attr('fill', function(d){
+          if(dataset[34].value == "True"){
+            Stacked_Area_chart = Stacked_Area_chart + 1
+            return "green"
+          }
+          else{
+            return "red"
+          }
+        });
+
+      svg.append('rect')
+        .attr('x', x+100)
+        .attr('y', y+400)
+        .attr('width', 50)
+        .attr('height', 50)
+        .attr('stroke', 'black')
+        .attr('fill', function(d){
+          if(dataset[35].value == "True"){
+            Stacked_Area_chart = Stacked_Area_chart + 1
+            return "green"
+          }
+          else{
+            return "red"
+          }
+        });
+
+      svg.append('rect')
+        .attr('x', x+150)
+        .attr('y', y+400)
+        .attr('width', 50)
+        .attr('height', 50)
+        .attr('stroke', 'black')
+        .attr('fill', function(d){
+          if(dataset[36].value == "True"){
+            Stacked_Area_chart = Stacked_Area_chart + 1
+            return "green"
+          }
+          else{
+            return "red"
+          }
+        });
+
+      svg.append('rect')
+        .attr('x', x+200)
+        .attr('y', y+400)
+        .attr('width', 50)
+        .attr('height', 50)
+        .attr('stroke', 'black')
+        .attr('fill', function(d){
+          if(dataset[37].value == "True"){
+            Stacked_Area_chart = Stacked_Area_chart + 1
+            return "green"
+          }
+          else{
+            return "red"
+          }
+        });
+
+      svg.append('rect')
+        .attr('x', x+250)
+        .attr('y', y+400)
+        .attr('width', 50)
+        .attr('height', 50)
+        .attr('stroke', 'black')
+        .attr('fill', function(d){
+          if(dataset[38].value == "True"){
+            Stacked_Area_chart = Stacked_Area_chart + 1
+            return "green"
+          }
+          else{
+            return "red"
+          }
+        });
+
+      svg.append('text')
+        .attr('x', x-70)
+        .attr('y', y+435)
+        .attr("font-size", "25px")
+        .text(Math.round(Stacked_Area_chart/6*100)+"%   ");
+
+      svg.append('text')
+        .attr('x', x+320)
+        .attr('y', y+435)
+        .attr("font-size", "25px")
+        .text("("+Stacked_Area_chart+"/6)");
+
+      // Add the path using this helper function
+      // Bubble Chart
+      svg.append('text')
+        .attr('x', x-295)
+        .attr('y', y+485)
+        .attr("font-size", "28px")
+        .text("Bubble Chart");
+
+      svg.append('rect')
+        .attr('x', x)
+        .attr('y', y+450)
+        .attr('width', 50)
+        .attr('height', 50)
+        .attr('stroke', 'black')
+        .attr('fill', function(d){
+          if(dataset[39].value == "True"){
+            Bubble_chart = Bubble_chart + 1
+            return "green"
+          }
+          else{
+            return "red"
+          }
+        });
+
+      svg.append('rect')
+        .attr('x', x+50)
+        .attr('y', y+450)
+        .attr('width', 50)
+        .attr('height', 50)
+        .attr('stroke', 'black')
+        .attr('fill', function(d){
+          if(dataset[40].value == "True"){
+            Bubble_chart = Bubble_chart + 1
+            return "green"
+          }
+          else{
+            return "red"
+          }
+        });
+
+      svg.append('rect')
+        .attr('x', x+100)
+        .attr('y', y+450)
+        .attr('width', 50)
+        .attr('height', 50)
+        .attr('stroke', 'black')
+        .attr('fill', function(d){
+          if(dataset[41].value == "True"){
+            Bubble_chart = Bubble_chart + 1
+            return "green"
+          }
+          else{
+            return "red"
+          }
+        });
+
+      svg.append('rect')
+        .attr('x', x+150)
+        .attr('y', y+450)
+        .attr('width', 50)
+        .attr('height', 50)
+        .attr('stroke', 'black')
+        .attr('fill', function(d){
+          if(dataset[42].value == "True"){
+            Bubble_chart = Bubble_chart + 1
+            return "green"
+          }
+          else{
+            return "red"
+          }
+        });
+
+      svg.append('rect')
+        .attr('x', x+200)
+        .attr('y', y+450)
+        .attr('width', 50)
+        .attr('height', 50)
+        .attr('stroke', 'black')
+        .attr('fill', function(d){
+          if(dataset[43].value == "True"){
+            Bubble_chart = Bubble_chart + 1
+            return "green"
+          }
+          else{
+            return "red"
+          }
+        });
+
+      svg.append('rect')
+        .attr('x', x+250)
+        .attr('y', y+450)
+        .attr('width', 50)
+        .attr('height', 50)
+        .attr('stroke', 'black')
+        .attr('fill', function(d){
+          if(dataset[44].value == "True"){
+            Bubble_chart = Bubble_chart + 1
+            return "green"
+          }
+          else{
+            return "red"
+          }
+        });
+
+      svg.append('rect')
+        .attr('x', x+300)
+        .attr('y', y+450)
+        .attr('width', 50)
+        .attr('height', 50)
+        .attr('stroke', 'black')
+        .attr('fill', function(d){
+          if(dataset[45].value == "True"){
+            Bubble_chart = Bubble_chart + 1
+            return "green"
+          }
+          else{
+            return "red"
+          }
+        });
+        
+      svg.append('text')
+        .attr('x', x-70)
+        .attr('y', y+485)
+        .attr("font-size", "25px")
+        .text(Math.round(Bubble_chart/7*100)+"%   ");
+
+      svg.append('text')
+        .attr('x', x+370)
+        .attr('y', y+485)
+        .attr("font-size", "25px")
+        .text("("+Bubble_chart+"/7)");
+
+      // Add the path using this helper function
+      // Choropleth Map
+      svg.append('text')
+        .attr('x', x-331)
+        .attr('y', y+535)
+        .attr("font-size", "28px")
+        .text("Choropleth Map");
+
+      svg.append('rect')
+        .attr('x', x)
+        .attr('y', y+500)
+        .attr('width', 50)
+        .attr('height', 50)
+        .attr('stroke', 'black')
+        .attr('fill', function(d){
+          if(dataset[46].value == "True"){
+            Choropleth = Choropleth + 1
+            return "green"
+          }
+          else{
+            return "red"
+          }
+        });
+
+      svg.append('rect')
+        .attr('x', x+50)
+        .attr('y', y+500)
+        .attr('width', 50)
+        .attr('height', 50)
+        .attr('stroke', 'black')
+        .attr('fill', function(d){
+          if(dataset[47].value == "True"){
+            Choropleth = Choropleth + 1
+            return "green"
+          }
+          else{
+            return "red"
+          }
+        });
+
+      svg.append('rect')
+        .attr('x', x+100)
+        .attr('y', y+500)
+        .attr('width', 50)
+        .attr('height', 50)
+        .attr('stroke', 'black')
+        .attr('fill', function(d){
+          if(dataset[48].value == "True"){
+            Choropleth = Choropleth + 1
+            return "green"
+          }
+          else{
+            return "red"
+          }
+        });
+
+      svg.append('text')
+        .attr('x', x-70)
+        .attr('y', y+535)
+        .attr("font-size", "25px")
+        .text(Math.round(Choropleth/3*100)+"%   ");
+
+      svg.append('text')
+        .attr('x', x+170)
+        .attr('y', y+535)
+        .attr("font-size", "25px")
+        .text("("+Choropleth+"/3)");
+
+      // Add the path using this helper function
+      // Tree Map
+      svg.append('text')
+        .attr('x', x-253)
+        .attr('y', y+585)
+        .attr("font-size", "28px")
+        .text("Tree Map");
+
+      svg.append('rect')
+        .attr('x', x)
+        .attr('y', y+550)
+        .attr('width', 50)
+        .attr('height', 50)
+        .attr('stroke', 'black')
+        .attr('fill', function(d){
+          if(dataset[49].value == "True"){
+            Tree_map = Tree_map + 1
+            return "green"
+          }
+          else{
+            return "red"
+          }
+        });
+
+      svg.append('rect')
+        .attr('x', x+50)
+        .attr('y', y+550)
+        .attr('width', 50)
+        .attr('height', 50)
+        .attr('stroke', 'black')
+        .attr('fill', function(d){
+          if(dataset[50].value == "True"){
+            Tree_map = Tree_map + 1
+            return "green"
+          }
+          else{
+            return "red"
+          }
+        });
+
+      svg.append('rect')
+        .attr('x', x+100)
+        .attr('y', y+550)
+        .attr('width', 50)
+        .attr('height', 50)
+        .attr('stroke', 'black')
+        .attr('fill', function(d){
+          if(dataset[51].value == "True"){
+            Tree_map = Tree_map + 1
+            return "green"
+          }
+          else{
+            return "red"
+          }
+        });
+
+      svg.append('text')
+        .attr('x', x-70)
+        .attr('y', y+585)
+        .attr("font-size", "25px")
+        .text(Math.round(Tree_map/3*100)+"%   ");
+
+      svg.append('text')
+        .attr('x', x+ 170)
+        .attr('y', y+585)
+        .attr("font-size", "25px")
+        .text("("+Tree_map+"/3)");
+        
+    </script>
+</div>
+{% endblock %}

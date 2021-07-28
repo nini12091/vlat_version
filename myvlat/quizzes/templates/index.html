@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="hero-section">
+    <div class="container-float">
+      <p class="intro-desc">
+        VLAT(Visualization Literacy Assessment Test)는 문제 해결을 위해 데이터 시각화를 읽고 이해하고 사용하는 사용자의 능력을 측정하기 위해 개발되었습니다.
+      </p>
+      <p class="intro-desc">
+        시작하기 전에 다음 사항에 유의하시기 바랍니다.테스트에는 12개의 데이터 시각화에 대한 53개의 객관식 질문이 포함되어 있습니다. 이 테스트를 완료하는 데 약 30-40분이 소요됩니다. 각 질문에 대해 정적 데이터 시각화(왼쪽)와 해결할 문제(오른쪽)가 제공됩니다. 질문에 대한 최상의 답을 선택합니다. 추측 대신 ''스킵''을 선택합니다. 마지막에는 최종 점수를 볼 수 있습니다(개별 질문에 대한 추가 피드백은 제공되지 않음).
+      </p>
+      <p class="intro-desc">
+        테스트를 완료하시면, 마지막에 최종 점수를 제공할 것입니다.참여해 주셔서 감사합니다. 프로젝트에 대한 피드백, 질문 또는 새로운 아이디어가 있으면 연락해주세요.
+      </p>
+      <p class="intro-desc"></p>
+        준비됐나요? 시험을 시작해요!
+    </p>
+    <a href="/quiz/1/" onclick="javascript:document.user.submit();" class="hero-cta cta">
+      시작
+    </a>
+  </div>
+</div>
+{% endblock %}

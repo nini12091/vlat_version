@@ -1,0 +1,51 @@
+{% extends "base.html" %}
+{% block content %}
+{% load static %}
+<div class="container">
+  <div class="chart-content">
+    <h2 class="chart-title">
+      {{ quiz_detail.v_title }}
+    </h2>
+    <div id="vlat12" class="chart" ></div>
+    <script src="{% static 'js/chart12.js' %}"></script>
+  </div>
+  <div class="quiz-content">
+    <div class="answer-content">
+      <h3 class="quiz-title"> 
+        {{ quiz_detail.quiz_id}}번. 
+        {{ quiz_detail.title }}
+      </h3>
+      <form action="{% url 'quiz' next_quiz_id %}" method="POST">
+        {% csrf_token %}
+        <div class="answer-list">
+          <div class="answer-set">
+            <input type="radio" name="answer" class="answer-radio" id="answer1" value="{{ quiz_detail.examples_1 }}" required/>
+            <label for="answer1" class="answer-label">{{ quiz_detail.examples_1 }}</label>
+          </div>
+          <div class="answer-set">
+            <input type="radio" name="answer" class="answer-radio" id="answer2" value="{{ quiz_detail.examples_2 }}" /> 
+            <label for="answer2" class="answer-label">{{ quiz_detail.examples_2 }}</label>
+          </div>
+          {% if quiz_detail.examples_3 != null %}
+          <div class="answer-set">
+            <input type="radio" name="answer" class="answer-radio" id="answer3" value="{{ quiz_detail.examples_3 }}" /> 
+            <label for="answer3" class="answer-label">{{ quiz_detail.examples_3 }}</label>
+          </div>
+          {% endif %}
+          {% if quiz_detail.examples_4 != null %}
+          <div class="answer-set">
+            <input type="radio" name="answer" class="answer-radio" id="answer4" value="{{ quiz_detail.examples_4 }}" />
+            <label for="answer4" class="answer-label">{{ quiz_detail.examples_4 }}</label>
+          </div>
+          {% endif %}
+          <div class="answer-set">
+            <input type="radio" name="answer" class="answer-radio" id="answer-skip" />
+            <label for="answer-skip" class="answer-label">넘어가기</label>
+          </div>
+        </div>
+        <button class="next-form-btn" type="submit" role="button">다음 문제 &raquo;</button>
+      </form>
+    </div>
+  </div>
+</div>
+{% endblock %}
