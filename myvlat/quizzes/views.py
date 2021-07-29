@@ -13,8 +13,6 @@ def index(request):
     today = str(datetime.now().strftime("%I:%M%p on %B %d, %Y"))
     request.session['userID'] = userID
     request.session['statedate'] = today
-    print(request.session['userID'])
-    print(request.session['statedate'])
 
     # Session DB 저장
     user = User()
@@ -33,8 +31,7 @@ def quiz(request, quiz_id):
             answer.user_id = str(request.session.session_key)
             answer.quiz_id = request.session['quizId']
             answer.choice = request.POST.get('answer','')
-            print(answer.choice)
-            print(answer.quiz_id)
+
             if answer.choice == quiz.correct:
                 answer.status = True
             else:
@@ -57,8 +54,7 @@ def quiz(request, quiz_id):
             answer.user_id = str(request.session.session_key)
             answer.quiz_id = request.session['quizId']
             answer.choice = request.POST.get('answer','')
-            print(answer.choice)
-            print(answer.quiz_id)
+ 
             if answer.choice == quiz.correct:
                 answer.status = True
             else:
@@ -81,8 +77,7 @@ def quiz(request, quiz_id):
             answer.user_id = str(request.session.session_key)
             answer.quiz_id = request.session['quizId']
             answer.choice = request.POST.get('answer','')
-            print(answer.choice)
-            print(answer.quiz_id)
+
             if answer.choice == quiz.correct:
                 answer.status = True
             else:
@@ -105,8 +100,7 @@ def quiz(request, quiz_id):
             answer.user_id = str(request.session.session_key)
             answer.quiz_id = request.session['quizId']
             answer.choice = request.POST.get('answer','')
-            print(answer.choice)
-            print(answer.quiz_id)
+
             if answer.choice == quiz.correct:
                 answer.status = True
             else:
@@ -129,8 +123,7 @@ def quiz(request, quiz_id):
             answer.user_id = str(request.session.session_key)
             answer.quiz_id = request.session['quizId']
             answer.choice = request.POST.get('answer','')
-            print(answer.choice)
-            print(answer.quiz_id)
+ 
             if answer.choice == quiz.correct:
                 answer.status = True
             else:
@@ -153,8 +146,7 @@ def quiz(request, quiz_id):
             answer.user_id = str(request.session.session_key)
             answer.quiz_id = request.session['quizId']
             answer.choice = request.POST.get('answer','')
-            print(answer.choice)
-            print(answer.quiz_id)
+  
             if answer.choice == quiz.correct:
                 answer.status = True
             else:
@@ -177,8 +169,7 @@ def quiz(request, quiz_id):
             answer.user_id = str(request.session.session_key)
             answer.quiz_id = request.session['quizId']
             answer.choice = request.POST.get('answer','')
-            print(answer.choice)
-            print(answer.quiz_id)
+
             if answer.choice == quiz.correct:
                 answer.status = True
             else:
@@ -201,8 +192,7 @@ def quiz(request, quiz_id):
             answer.user_id = str(request.session.session_key)
             answer.quiz_id = request.session['quizId']
             answer.choice = request.POST.get('answer','')
-            print(answer.choice)
-            print(answer.quiz_id)
+ 
             if answer.choice == quiz.correct:
                 answer.status = True
             else:
@@ -225,8 +215,7 @@ def quiz(request, quiz_id):
             answer.user_id = str(request.session.session_key)
             answer.quiz_id = request.session['quizId']
             answer.choice = request.POST.get('answer','')
-            print(answer.choice)
-            print(answer.quiz_id)
+
             if answer.choice == quiz.correct:
                 answer.status = True
             else:
@@ -249,8 +238,7 @@ def quiz(request, quiz_id):
             answer.user_id = str(request.session.session_key)
             answer.quiz_id = request.session['quizId']
             answer.choice = request.POST.get('answer','')
-            print(answer.choice)
-            print(answer.quiz_id)
+
             if answer.choice == quiz.correct:
                 answer.status = True
             else:
@@ -273,8 +261,7 @@ def quiz(request, quiz_id):
             answer.user_id = str(request.session.session_key)
             answer.quiz_id = request.session['quizId']
             answer.choice = request.POST.get('answer','')
-            print(answer.choice)
-            print(answer.quiz_id)
+
             if answer.choice == quiz.correct:
                 answer.status = True
             else:
@@ -297,8 +284,7 @@ def quiz(request, quiz_id):
             answer.user_id = str(request.session.session_key)
             answer.quiz_id = request.session['quizId']
             answer.choice = request.POST.get('answer','')
-            print(answer.choice)
-            print(answer.quiz_id)
+  
             if answer.choice == quiz.correct:
                 answer.status = True
             else:
@@ -329,18 +315,13 @@ def quiz_result(request):
     status = []
     for v in answer :
         status.append(str(v.status))
-        # if v.status == True:
-        #     status.append("1")
-        # else:
-        #     status.append("0")
-    print(status)
+
     context = {'userID':userID,'correct_num':correct_num, 'percent':percent, 'status':status,'quiz_id':quiz_id}
     return render(request, "quiz_result.html", context)
 
 def result(request):
     if request.method == 'POST':
         user_id = request.POST.get('id-name')
-        print(user_id)
         answer = Answer.objects.filter(user_id = user_id)
         correct_num= answer.filter(status=True).count()
         percent = (correct_num/53)*100
