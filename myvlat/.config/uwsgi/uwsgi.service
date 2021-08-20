@@ -3,7 +3,7 @@ Description=uWSGI service
 After=syslog.target
 
 [Service]
-ExecStart=/home/ubuntu/vlat/bin/uwsgi -i /home/ubuntvlat_version/myvlat/.config/uwsgi/mysite.ini
+ExecStart=/home/ubuntu/vlat/bin/uwsgi -i /home/ubuntu/vlat_version/myvlat/.config/uwsgi/mysite.ini
 
 Restart=always
 KillSignal=SIGQUIT
