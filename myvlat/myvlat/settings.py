@@ -79,7 +79,7 @@ WSGI_APPLICATION = 'myvlat.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / '/var/www/dashboardapp/whatever/path/db.sqlite3',
+        'NAME': BASE_DIR / '/home/ubuntu/vlat_version/myvlat/db.sqlite3',
     }
 }
 
