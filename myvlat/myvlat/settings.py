@@ -129,3 +129,6 @@ STATICFILES_DIRS = [
 # 이미지 파일 들어갈 공간 설정
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 MEDIA_URL = '/media/'
+
+
+STATIC_ROOT = os.path.join(BASE_DIR, 'static')
