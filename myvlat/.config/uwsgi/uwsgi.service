@@ -5,8 +5,7 @@ After=syslog.target
 [Service]
 ExecStart=/home/ubuntu/vlat/bin/uwsgi -i /home/ubuntvlat_version/myvlat/.config/uwsgi/mysite.ini
 
-Restart=a
-lways
+Restart=always
 KillSignal=SIGQUIT
 Type=notify
 StandardError=syslog
