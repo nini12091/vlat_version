@@ -77,6 +77,16 @@ a {
   color: #555555;
 }
 
+@media ( max-width: 480px ) {
+  .header {
+    width: auto;
+  }
+  .hero-section {
+    float: none;
+    width: auto;
+  }
+}
+
 /* MAIN */
 /* cta */
 .cta {
@@ -285,14 +295,4 @@ a {
 }
 .copyright > a:hover {
   color: #555555;
-}
-
-@media ( max-width: 480px ) {
-  .header {
-    width: auto;
-  }
-  .hero-section {
-    float: none;
-    width: auto;
-  }
 }
