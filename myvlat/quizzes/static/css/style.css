@@ -161,6 +161,15 @@ a {
   cursor: pointer;
 }
 
+@media ( max-width: 800px ) {
+  .quiz-content {
+    float: none;
+    width: auto;
+    padding-top: 20px;
+  }
+
+}
+
 /* quiz_result */
 .page-info {
   margin-bottom: 50px;
