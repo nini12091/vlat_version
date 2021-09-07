@@ -8,7 +8,6 @@ html {
   font-size: 10px;
 }
 body {
-  min-width: 700px;
   font-size: 1.8rem;
   line-height: 1.6;
 }
@@ -77,8 +76,8 @@ a {
   color: #555555;
 }
 
-@media screen and (max-width:1060px){ /*가로 너비가 600px 이하일 때 아래 스타일 적용*/
-
+@media (max-width:1060px){ /*가로 너비가 600px 이하일 때 아래 스타일 적용*/
+  
   .header {
     height: 72px;
     padding: 15px 0 4px;
