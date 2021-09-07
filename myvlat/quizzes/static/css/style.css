@@ -123,7 +123,7 @@ a {
 }
 .quiz-content {
   float: right;
-  width: 45%;
+  width: auto;
   padding-top: 50px;
 }
 .answer-content {
@@ -159,15 +159,6 @@ a {
   background: transparent;
   color: #000000;
   cursor: pointer;
-}
-
-@media ( max-width: 800px ) {
-  .quiz-content {
-    float: none;
-    width: auto;
-    padding-top: 20px;
-  }
-
 }
 
 /* quiz_result */
