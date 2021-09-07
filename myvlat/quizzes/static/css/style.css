@@ -170,6 +170,19 @@ a {
   cursor: pointer;
 }
 
+@media ( max-width: 600px ) {
+  .next-form-btn {
+    margin: 30px;
+    padding: 20px 100px;
+    border: 1px solid #cccccc;
+    border-radius: 4px;
+    font-size: 2rem;
+    background: transparent;
+    color: #000000;
+    cursor: pointer;
+  }
+}
+
 /* quiz_result */
 .page-info {
   margin-bottom: 50px;
