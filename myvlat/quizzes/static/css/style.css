@@ -24,13 +24,11 @@ a {
   }
 
 .container {
-  max-width: 1400px;
   margin: 0 auto;
   padding: 0 20px;
   position: relative;
 }
 .container-float {
-  max-width: 1400px;
   margin: 0 auto;
   padding: 0 20px;
   position: relative;
@@ -76,68 +74,6 @@ a {
 .list-item > a:hover {
   color: #555555;
 }
-
-/* @media (max-width:1060px){ 가로 너비가 600px 이하일 때 아래 스타일 적용 */
-  
-  /* .header {
-    height: 72px;
-    padding: 15px 0 4px;
-    border-bottom: 1px solid #cccccc;
-  }
-  .container {
-    max-width: 500px;
-    margin: 0 auto;
-    padding: 0 20px;
-    position: relative;
-  }
-  .container-float {
-    max-width: 500px;
-    margin: 0 auto;
-    padding: 0 20px;
-    position: relative;
-  }
-  .container-float::after {
-    display: block;
-    content: "";
-    clear: both;
-  }
-  .logo {
-    margin: 0;
-    padding-left: inherit;
-    position: absolute;
-    text-transform: uppercase;
-    left: 0;
-  }
-  .logo > a {
-    color: black;
-    display: block;
-    padding: 0px;
-  }
-  .logo > a:hover {
-    color: #555555;
-  }
-  .nav {
-    text-align: right;
-  }
-  .list {
-    margin: 0;
-    font-size: 0;
-  }
-  .list-item {
-    font-weight: 700;
-    display: inline-block;
-    font-size: 1.7rem;
-    text-transform: uppercase;
-  }
-  .list-item > a {
-    color: black;
-    display: block;
-    padding: 10px;
-  }
-  .list-item > a:hover {
-    color: #555555;
-  }
-} */
 
 /* MAIN */
 /* cta */
