@@ -8,6 +8,7 @@ html {
   font-size: 10px;
 }
 body {
+  min-width: none;
   font-size: 1.8rem;
   line-height: 1.6;
 }
