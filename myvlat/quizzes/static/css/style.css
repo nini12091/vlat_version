@@ -90,13 +90,13 @@ a {
 }
 .intro-desc {
   margin: 40px auto 50px;
-  width: 550px;
+  max-width: 550px;
   font-weight: 300;
   font-size: 2rem;
   line-height: 1.3;
 }
 .hero-cta {
-  width: 300px;
+  max-width: 300px;
   margin: 0 auto 60px;
   padding: 20px 50px;
   background: #4444ff;
