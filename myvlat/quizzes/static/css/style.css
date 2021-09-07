@@ -95,6 +95,13 @@ a {
   font-size: 2rem;
   line-height: 1.3;
 }
+.intro-text {
+  margin: 40px auto 10px;
+  max-width: 550px;
+  font-weight: 300;
+  font-size: 2rem;
+  line-height: 1.3;
+}
 .hero-cta {
   max-width: 300px;
   margin: 0 auto 60px;
