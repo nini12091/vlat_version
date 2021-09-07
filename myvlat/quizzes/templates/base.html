@@ -59,6 +59,7 @@
                 "Android OS"; 
               if (navigator.userAgent.indexOf("like Mac") != -1) os =  
                 "iOS"; 
+
         // WEBTYPE
         var browser = navigator.userAgent.toLowerCase(); 
               
@@ -72,7 +73,7 @@
               browser = "Firefox";
       }
         // SCREENSIZE
-        var screensize = screen.width + "x" + screen.height;
+        var screensize = screen.width-100 + "x" + screen.height-100;
       
         $('input[name=os]').attr('value', os);
         $('input[name=webtype]').attr('value', browser);

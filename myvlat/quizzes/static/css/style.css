@@ -108,16 +108,6 @@ a {
   background: #2222ff;
 }
 
-@media ( max-width: 480px ) {
-  .header {
-    width: auto;
-  }
-  .hero-section {
-    float: none;
-    width: auto;
-  }
-}
-
 /* quiz */
 .chart-content {
   float: left;
