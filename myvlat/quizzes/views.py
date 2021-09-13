@@ -334,5 +334,7 @@ def result(request):
         context = {'user_id':user_id,'correct_num':correct_num, 'percent':percent, 'status':status,'quiz_id':quiz_id}
         return render(request, "result.html",context)
 
-        
     return render(request, "result.html")
+
+def about(request):
+    return render(request, "about.html")
