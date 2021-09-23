@@ -304,25 +304,12 @@ a {
   height: 80px;
   text-align: center;
   width: 100%;
-  padding: 25px;
+  padding: 10px;
 }
 
 .footer-text {
   color: black;
-  font-size: 1.7rem;
+  font-size: 1.4rem;
   font-weight: 300;
 }
 
-/* .copyright {
-  padding-top: 10px;
-  text-align: center;
-  font-size: 1.7rem;
-  font-weight: 400;
-  color: #222222;
-}
-.copyright > a {
-  color: #222222;
-}
-.copyright > a:hover {
-  color: #555555;
-} */
