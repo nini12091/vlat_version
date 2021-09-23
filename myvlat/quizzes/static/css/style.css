@@ -297,8 +297,10 @@ a {
 
 /* FOOTER */
 .footer {
-  background-color: darkgray;
+  background-color: gray;
+  position: absolute;
   height: 80px;
+  text-align: center;
 }
 .footer-text {
   text-align: center;
