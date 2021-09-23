@@ -298,13 +298,13 @@ a {
 /* FOOTER */
 .footer {
   background-color: lightgray;
-  position: fixed;
+  position: absolute;
   left: 0px;
   bottom: 0px;
-  height: 80px;
+  height: 90px;
   text-align: center;
   width: 100%;
-  padding: 10px;
+  padding: 15px;
 }
 
 .footer-text {
