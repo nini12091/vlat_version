@@ -15,6 +15,11 @@ body {
 a {
   text-decoration: none;
 }
+.wrapper {
+  display: flex; 
+  min-height: 100vh; 
+  flex-direction: column;
+}
 
 /* HEADER */
 .header {
@@ -76,6 +81,10 @@ a {
 }
 
 /* MAIN */
+.main{
+  flex: 1;
+}
+
 /* cta */
 .cta {
   font-weight: 400;
@@ -307,7 +316,6 @@ a {
 /* FOOTER */
 .footer {
   background-color: lightgray;
-  position: absolute;
   left: 0px;
   bottom: 0px;
   height: 90px;
