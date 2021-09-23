@@ -297,9 +297,16 @@ a {
 
 /* FOOTER */
 .footer {
-  clear: both;
+  background-color: darkgray;
+  height: 215px;
 }
-.copyright {
+.footer-text {
+  color: white;
+  font-size: 1.7rem;
+  font-weight: 300;
+}
+
+/* .copyright {
   padding-top: 10px;
   text-align: center;
   font-size: 1.7rem;
@@ -311,4 +318,4 @@ a {
 }
 .copyright > a:hover {
   color: #555555;
-}
+} */
