@@ -105,12 +105,11 @@ a {
   line-height: 1.3;
 }
 .intro-desc > a {
-  color: black;
-  display: block;
+  color: #4444ff;
 }
 
 .intro-desc > a:hover {
-  color: #555555;
+  color: #2222ff;
 }
 
 .intro-text {
