@@ -297,15 +297,18 @@ a {
 
 /* FOOTER */
 .footer {
-  background-color: gray;
-  position: absolute;
+  background-color: lightgray;
+  position: fixed;
+  left: 0px;
+  bottom: 0px;
   height: 80px;
   text-align: center;
   width: 100%;
+  padding: 25px;
 }
 
 .footer-text {
-  color: white;
+  color: black;
   font-size: 1.7rem;
   font-weight: 300;
 }
