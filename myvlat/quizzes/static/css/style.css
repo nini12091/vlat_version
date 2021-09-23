@@ -90,14 +90,14 @@ a {
 }
 .intro-desc {
   margin: 40px auto 50px;
-  max-width: 550px;
+  max-width: 750px;
   font-weight: 325;
   font-size: 2rem;
   line-height: 1.3;
 }
 .intro-text {
   margin: 40px auto 10px;
-  max-width: 550px;
+  max-width: 750px;
   font-weight: 350;
   line-height: 1.3;
 }
