@@ -5,6 +5,10 @@ from django.db.models import Count
 class User(models.Model):
     user_id = models.CharField(primary_key=True, verbose_name='사용자', max_length=256)
     statedate = models.CharField(verbose_name='응시일자', max_length=256)
+    user_age = models.CharField(verbose_name='연령대', max_length=256, default = None)
+    user_education = models.CharField(verbose_name='최종학력', max_length=256, default = None)
+    user_major = models.CharField(verbose_name='전공', max_length=256, default = None)
+    purpose = models.CharField(verbose_name='목적', max_length=256, default = None)
 
     def __str__(self):
         return str(self.user_id) + ' - ' + str(self.statedate)
