@@ -59,7 +59,7 @@ svg.append("g")
 // color palette = one color per subgroup
 var color = d3.scaleOrdinal()
   .domain(subgroups)
-  .range(['#4682B4','#6B8E23','#B22222','#6A5ACD','#e47312'])
+  .range(['#0072B2','#009E73','#D55E00','#CC79A7','#E69F00'])
 
 //stack the data? --> stack per subgroup
 var stackedData = d3.stack()
