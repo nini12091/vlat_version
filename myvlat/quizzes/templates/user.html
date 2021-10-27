@@ -1,0 +1,66 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="user-section">
+    <div class="container-float">
+        <div class="intro-desc-user">
+            결과 화면을 확인하기 전에 아래의 설문을 작성해주시길 바랍니다.</br>
+            수집된 데이터는 <span style="color: #4444ff;">연구 목적</span>으로만 활용될 예정입니다.
+        </div>
+
+        <script>
+            function submit2(frm){
+                frm.action="{% url 'user_end2' %}"
+                frm.submit();
+                return true;
+            }
+        </script>
+
+        <form method="post" action="{% url 'user_end1' %}">
+            {% csrf_token %}
+            <div class="user-container">
+                <div class="user-detail" >
+                    <h4 class="user-choice">
+                        1. 사용자의 연령대를 선택해주세요.
+                    </h4>
+                    <label style="padding-left: 30px;"><input type="radio" name="user_age" value="9세 이하" required> 9세 이하</label>
+                    <label style="padding-left: 30px;"><input type="radio" name="user_age" value="10대" required> 10대</label>
+                    <label style="padding-left: 30px;"><input type="radio" name="user_age" value="20대"> 20대</label>
+                    <label style="padding-left: 30px;"><input type="radio" name="user_age" value="30대"> 30대</label>
+                    <label style="padding-left: 30px;"><input type="radio" name="user_age" value="40대"> 40대</label>
+                    <label style="padding-left: 30px;"><input type="radio" name="user_age" value="50대 이상"> 50대 이상</label>
+                </div>
+                <div class="user-detail" >
+                    <h4 class="user-choice">
+                        2. 사용자의 최종학력을 선택해주세요.
+                    </h4>
+                    <div class="list-type">
+                        <label style="padding-left: 30px;"><input type="radio" name="user_education" value="초등학교 재학" required> 초등학교 재학</label>
+                    </div>
+                    <div class="list-type">
+                        <label style="padding-left: 30px;"><input type="radio" name="user_education" value="초등학교 졸업"> 초등학교 졸업</label>
+                    </div>
+                    <div class="list-type">
+                        <label style="padding-left: 30px;"><input type="radio" name="user_education" value="중학교 졸업"> 중학교 졸업</label>
+                    </div>
+                    <div class="list-type">
+                        <label style="padding-left: 30px;"><input type="radio" name="user_education" value="고등학교 졸업"> 고등학교 졸업</label>
+                    </div>
+                    <div class="list-type">
+                        <label style="padding-left: 30px;"><input type="radio" name="user_education" value="대학교 재학" onclick='return submit2(this.form);'> 대학교 재학</label>
+                    </div>
+                    <div class="list-type">
+                        <label style="padding-left: 30px;"><input type="radio" name="user_education" value="대학교 졸업" onclick='return submit2(this.form);'> 대학교 졸업</label>
+                    </div>
+                    <div class="list-type">
+                        <label style="padding-left: 30px;"><input type="radio" name="user_education" value="대학원 재학" onclick='return submit2(this.form);'> 대학원 재학</label>
+                    </div>
+                    <div class="list-type">
+                        <label style="padding-left: 30px;"><input type="radio" name="user_education" value="대학원 졸업" onclick='return submit2(this.form);'> 대학원 졸업</label>
+                    </div>
+                </div>
+                <button class="next-form-btn" value="submit" role="button">다음</button>
+            </div>
+        </form>
+    </div>
+</div>
+{% endblock %}

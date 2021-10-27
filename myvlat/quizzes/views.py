@@ -291,7 +291,7 @@ def quiz(request, quiz_id):
                 answer.status = False
             answer.save()
             if quiz_id == 54:
-                return redirect('quiz_result')
+                return redirect('user')
             else:
                 return HttpResponseRedirect(reverse('quiz', args=(quiz_id,)))
 
@@ -302,7 +302,32 @@ def quiz(request, quiz_id):
             context = {'quiz_detail':quiz_detail, 'next_quiz_id':next_quiz_id}
             return render(request, "quiz12.html", context)
     else:
-        return render(request, "quiz_result.html")
+        return render(request, "user.html")
+
+def user(request):
+    if request.method == "POST":
+        user = User()
+        user.user_age = request.POST.get('user_age','')
+        user.user_education = request.POST.get('user_education','')
+        user.save()
+    else:
+        return render(request, "user.html")
+
+def user_end1(request):
+    if request.method == "POST":
+        user = User()
+        user.purpose = request.POST.get('purpose','')
+        user.save()
+
+    return render(request, "user_end1.html")
+
+def user_end2(request):
+    if request.method == "POST":
+        user = User()
+        user.user_major = request.POST.get('user_major','')
+        user.purpose = request.POST.get('purpose','')
+        user.save()
+    return render(request, "user_end2.html")
 
 def quiz_result(request):
     userID = str(request.session.session_key)

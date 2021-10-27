@@ -9,6 +9,9 @@ urlpatterns = [
     path('', views.index, name="index"),
     path('about/',views.about, name="about"),
     path('quiz/<int:quiz_id>/',views.quiz, name="quiz"),
+    path('quiz/user/',views.user, name="user"),
+    path('quiz/user/end1',views.user_end1, name="user_end1"),
+    path('quiz/user/end2',views.user_end2, name="user_end2"),
     path('quiz_result/',views.quiz_result, name="quiz_result"),
     path('result/',views.result, name="result")
 ]
