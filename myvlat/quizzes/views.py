@@ -313,6 +313,7 @@ def user(request):
         user.user_age = request.POST.get('user_age','')
         user.user_education = request.POST.get('user_education','')
         user.save()
+        return redirect('user_end1')
     else:
         return render(request, "user.html")
 
@@ -322,6 +323,7 @@ def user_end1(request):
         user.user_id = request.session['userID']
         user.purpose = request.POST.get('purpose','')
         user.save()
+        return redirect('quiz_result')
 
     return render(request, "user_end1.html")
 
