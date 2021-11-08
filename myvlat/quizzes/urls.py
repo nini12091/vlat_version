@@ -13,7 +13,8 @@ urlpatterns = [
     path('quiz/user/end1',views.user_end1, name="user_end1"),
     path('quiz/user/end2',views.user_end2, name="user_end2"),
     path('quiz_result/',views.quiz_result, name="quiz_result"),
-    path('result/',views.result, name="result")
+    path('result/',views.result, name="result"),
+    path('exportcsv/', views.exportcsv, name="exportcsv")
 ]
 
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

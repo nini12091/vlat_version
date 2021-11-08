@@ -1,9 +1,10 @@
-from django.http import HttpResponseRedirect
+from django.http import HttpResponseRedirect, HttpResponse
 from .models import Quiz, User, Answer, Result
 from django.shortcuts import redirect, render, get_object_or_404
 from datetime import datetime
 from django.utils import timezone
 from django.urls import reverse
+import csv
 
 
  
@@ -367,3 +368,14 @@ def result(request):
 
 def about(request):
     return render(request, "about.html")
+
+def exportcsv(request):
+    resultdata = Answer.objects.all()
+    response = HttpResponse('text/csv')
+    response['Content-Disposition'] = 'attachment; filename=k_vlat_resultdata.csv'
+    writer = csv.writer(response)
+    writer.writerow(['choice_id', 'user_id', 'quiz_id', 'choice', 'status'])
+    results = resultdata.values_list('choice_id', 'user_id', 'quiz_id', 'choice', 'status')
+    for rlt in results:
+        writer.writerow(rlt)
+    return response
