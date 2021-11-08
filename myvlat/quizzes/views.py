@@ -313,7 +313,7 @@ def user(request):
         user.user_age = request.POST.get('user-age','')
         user.user_education = request.POST.get('user-education','')
         user.save()
-        return HttpResponseRedirect(reverse('user_end1'))
+        return redirect('user_end1')
     else:
         return render(request, "user.html")
 
@@ -323,7 +323,7 @@ def user_end1(request):
         user.user_id = request.session['userID']
         user.purpose = request.POST.get('purpose','')
         user.save()
-        return HttpResponseRedirect(reverse('quiz_result'))
+        return redirect('quiz_result')
     else:
         return render(request, "user_end1.html")
 
@@ -334,7 +334,6 @@ def user_end2(request):
         user.user_major = request.POST.get('user-major','')
         user.purpose = request.POST.get('purpose','')
         user.save()
-        return HttpResponseRedirect(reverse('quiz_result'))
     else:
         return render(request, "user_end2.html")
 
