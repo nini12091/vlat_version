@@ -310,10 +310,11 @@ def user(request):
     if request.method == "POST":
         user = User()
         user.user_id = request.session['userID']
-        user.user_age = request.POST.get('user_age','')
-        user.user_education = request.POST.get('user_education','')
+        user.user_age = request.POST.get('user-age','')
+        user.user_education = request.POST.get('user-education','')
         user.save()
-        return redirect('user_end1')
+        return HttpResponseRedirect(reverse('user_end1'))
+
     else:
         return render(request, "user.html")
 
@@ -331,7 +332,7 @@ def user_end2(request):
     if request.method == "POST":
         user = User()
         user.user_id = request.session['userID']
-        user.user_major = request.POST.get('user_major','')
+        user.user_major = request.POST.get('user-major','')
         user.purpose = request.POST.get('purpose','')
         user.save()
         return redirect('quiz_result')

@@ -9,23 +9,23 @@
         <form method="post" action="{% url 'user_end1' %}">
             {% csrf_token %}
             <div class="user-container">
-                <div class="user_detail" >
-                    <h4 class="user_choice">
+                <div class="user-detail" >
+                    <h4 class="user-choice">
                         3. 사용자의 K-VLAT 테스트 사용 목적을 선택하여 기입해주세요.
                     </h4>
                     <div class="list-type">
-                        <label style="padding-left: 30px;"><input type="radio" name="purpose" value="단순 개인 역량 테스트 목적" required onClick="this.form.purpose_text.disabled=true"> 단순 개인 역량 테스트 목적</label></br>
+                        <label for="purpose1" style="padding-left: 30px;"><input type="radio" name="purpose" id="purpose1" value="단순 개인 역량 테스트 목적" required onClick="this.form.purpose_text.disabled=true"> 단순 개인 역량 테스트 목적</label></br>
                     </div>
                     <div class="list-type">
-                        <label style="padding-left: 30px;"><input type="radio" name="purpose" value="학교(초중고) 역량 테스트" onClick="this.form.purpose_text.disabled=true"> 학교(초중고) 역량 테스트</label></br>
+                        <label for="purpose2" style="padding-left: 30px;"><input type="radio" name="purpose" id="purpose2" value="학교(초중고) 역량 테스트" onClick="this.form.purpose_text.disabled=true"> 학교(초중고) 역량 테스트</label></br>
                     </div>
                     <div class="list-type">
-                        <label style="padding-left: 30px;"><input type="radio" name="purpose" value="연구 목적" onClick="this.form.purpose_text.disabled=true"> 연구 목적</label></br>
+                        <label for="purpose3" style="padding-left: 30px;"><input type="radio" name="purpose" id="purpose3" value="연구 목적" onClick="this.form.purpose_text.disabled=true"> 연구 목적</label></br>
                     </div>
-                    <label style="padding-left: 30px;"><input type="radio" name="purpose" value="기타" onClick="this.form.purpose_text.disabled=false"> 기타</label>
+                    <label for="purpose4" style="padding-left: 30px;"><input type="radio" name="purpose" id="purpose4" value="기타" onClick="this.form.purpose_text.disabled=false"> 기타</label>
                     </br>
                     <div class="list-type-text" style="padding: 15px 30px;">
-                        기타사항 입력: <input type="text" name="purpose_text" disabled>
+                        기타사항 입력: <label for="purpose5" style="padding-left: 30px;"><input type="text" name="purpose" id="purpose5" disabled></label>
                     </div>
                 </div>
                 <button class="next-form-btn" value="submit" role="button"> 완료 </button>
