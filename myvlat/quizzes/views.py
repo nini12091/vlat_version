@@ -2,15 +2,16 @@ from django.http import HttpResponseRedirect
 from .models import Quiz, User, Answer, Result
 from django.shortcuts import redirect, render, get_object_or_404
 from datetime import datetime
+from django.utils import timezone
 from django.urls import reverse
 
 
-
+ 
 def index(request):
     # Session 생성
     request.session.create()
     userID = str(request.session.session_key)
-    today = str(datetime.now().strftime("%I:%M%p on %B %d, %Y"))
+    today = str(timezone.now().strftime("%I:%M%p on %B %d, %Y"))
     request.session['userID'] = userID
     request.session['statedate'] = today
 
@@ -307,6 +308,7 @@ def quiz(request, quiz_id):
 def user(request):
     if request.method == "POST":
         user = User()
+        user.user_id = str(request.session.session_key)
         user.user_age = request.POST.get('user_age','')
         user.user_education = request.POST.get('user_education','')
         user.save()
@@ -316,6 +318,7 @@ def user(request):
 def user_end1(request):
     if request.method == "POST":
         user = User()
+        user.user_id = str(request.session.session_key)
         user.purpose = request.POST.get('purpose','')
         user.save()
 
@@ -324,6 +327,7 @@ def user_end1(request):
 def user_end2(request):
     if request.method == "POST":
         user = User()
+        user.user_id = str(request.session.session_key)
         user.user_major = request.POST.get('user_major','')
         user.purpose = request.POST.get('purpose','')
         user.save()
