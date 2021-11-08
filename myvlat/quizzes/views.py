@@ -337,6 +337,7 @@ def user_end2(request):
         user.user_major = request.POST.get('user-major','')
         user.purpose = request.POST.get('purpose','')
         user.save()
+        return redirect('quiz_result')
     else:
         return render(request, "user_end2.html")
 
