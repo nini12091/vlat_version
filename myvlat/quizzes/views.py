@@ -322,8 +322,7 @@ def user(request):
 
 def user_end1(request):
     if request.method == "POST":
-        user = User()
-        user.user_id = request.session['userID']
+        user = User.objects.get(id=request.session['userID'])
         user.purpose = request.POST.get('purpose','')
         user.save()
         return redirect('quiz_result')
@@ -332,7 +331,7 @@ def user_end1(request):
 
 def user_end2(request):
     if request.method == "POST":
-        user = User()
+        user = User.objects.get(id=request.session['userID'])
         user.user_id = request.session['userID']
         user.user_major = request.POST.get('user-major','')
         user.purpose = request.POST.get('purpose','')
