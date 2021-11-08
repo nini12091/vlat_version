@@ -11,7 +11,7 @@ class User(models.Model):
     purpose = models.CharField(verbose_name='목적', max_length=256, default = None, null=True)
 
     def __str__(self):
-        return str(self.user_id) + ' - ' + str(self.statedate)
+        return str(self.statedate) + ' - ' + str(self.user_id)
     
     class Meta:
         db_table = 'User'

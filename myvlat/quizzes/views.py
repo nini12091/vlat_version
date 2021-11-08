@@ -28,8 +28,8 @@ def quiz(request, quiz_id):
         if request.method == 'POST':
             quiz = Quiz.objects.get(pk=request.session['quizId'])
             answer = Answer()
-            answer.choice_id = str(str(quiz_id) + request.session.session_key)
-            answer.user_id = str(request.session.session_key)
+            answer.choice_id = str(str(quiz_id) + request.session['userID'])
+            answer.user_id = request.session['userID']
             answer.quiz_id = request.session['quizId']
             answer.choice = request.POST.get('answer','')
 
@@ -51,8 +51,8 @@ def quiz(request, quiz_id):
         if request.method == 'POST':
             quiz = Quiz.objects.get(pk=request.session['quizId'])
             answer = Answer()
-            answer.choice_id = str(str(quiz_id) + request.session.session_key)
-            answer.user_id = str(request.session.session_key)
+            answer.choice_id = str(str(quiz_id) + request.session['userID'])
+            answer.user_id = request.session['userID']
             answer.quiz_id = request.session['quizId']
             answer.choice = request.POST.get('answer','')
  
@@ -74,8 +74,8 @@ def quiz(request, quiz_id):
         if request.method == 'POST':
             quiz = Quiz.objects.get(pk=request.session['quizId'])
             answer = Answer()
-            answer.choice_id = str(str(quiz_id) + request.session.session_key)
-            answer.user_id = str(request.session.session_key)
+            answer.choice_id = str(str(quiz_id) + request.session['userID'])
+            answer.user_id = request.session['userID']
             answer.quiz_id = request.session['quizId']
             answer.choice = request.POST.get('answer','')
 
@@ -97,8 +97,8 @@ def quiz(request, quiz_id):
         if request.method == 'POST':
             quiz = Quiz.objects.get(pk=request.session['quizId'])
             answer = Answer()
-            answer.choice_id = str(str(quiz_id) + request.session.session_key)
-            answer.user_id = str(request.session.session_key)
+            answer.choice_id = str(str(quiz_id) + request.session['userID'])
+            answer.user_id = request.session['userID']
             answer.quiz_id = request.session['quizId']
             answer.choice = request.POST.get('answer','')
 
@@ -120,8 +120,8 @@ def quiz(request, quiz_id):
         if request.method == 'POST':
             quiz = Quiz.objects.get(pk=request.session['quizId'])
             answer = Answer()
-            answer.choice_id = str(str(quiz_id) + request.session.session_key)
-            answer.user_id = str(request.session.session_key)
+            answer.choice_id = str(str(quiz_id) + request.session['userID'])
+            answer.user_id = request.session['userID']
             answer.quiz_id = request.session['quizId']
             answer.choice = request.POST.get('answer','')
  
@@ -143,8 +143,8 @@ def quiz(request, quiz_id):
         if request.method == 'POST':
             quiz = Quiz.objects.get(pk=request.session['quizId'])
             answer = Answer()
-            answer.choice_id = str(str(quiz_id) + request.session.session_key)
-            answer.user_id = str(request.session.session_key)
+            answer.choice_id = str(str(quiz_id) + request.session['userID'])
+            answer.user_id = request.session['userID']
             answer.quiz_id = request.session['quizId']
             answer.choice = request.POST.get('answer','')
   
@@ -166,8 +166,8 @@ def quiz(request, quiz_id):
         if request.method == 'POST':
             quiz = Quiz.objects.get(pk=request.session['quizId'])
             answer = Answer()
-            answer.choice_id = str(str(quiz_id) + request.session.session_key)
-            answer.user_id = str(request.session.session_key)
+            answer.choice_id = str(str(quiz_id) + request.session['userID'])
+            answer.user_id = request.session['userID']
             answer.quiz_id = request.session['quizId']
             answer.choice = request.POST.get('answer','')
 
@@ -189,8 +189,8 @@ def quiz(request, quiz_id):
         if request.method == 'POST':
             quiz = Quiz.objects.get(pk=request.session['quizId'])
             answer = Answer()
-            answer.choice_id = str(str(quiz_id) + request.session.session_key)
-            answer.user_id = str(request.session.session_key)
+            answer.choice_id = str(str(quiz_id) + request.session['userID'])
+            answer.user_id = request.session['userID']
             answer.quiz_id = request.session['quizId']
             answer.choice = request.POST.get('answer','')
  
@@ -212,8 +212,8 @@ def quiz(request, quiz_id):
         if request.method == 'POST':
             quiz = Quiz.objects.get(pk=request.session['quizId'])
             answer = Answer()
-            answer.choice_id = str(str(quiz_id) + request.session.session_key)
-            answer.user_id = str(request.session.session_key)
+            answer.choice_id = str(str(quiz_id) + request.session['userID'])
+            answer.user_id = request.session['userID']
             answer.quiz_id = request.session['quizId']
             answer.choice = request.POST.get('answer','')
 
@@ -235,8 +235,8 @@ def quiz(request, quiz_id):
         if request.method == 'POST':
             quiz = Quiz.objects.get(pk=request.session['quizId'])
             answer = Answer()
-            answer.choice_id = str(str(quiz_id) + request.session.session_key)
-            answer.user_id = str(request.session.session_key)
+            answer.choice_id = str(str(quiz_id) + request.session['userID'])
+            answer.user_id = request.session['userID']
             answer.quiz_id = request.session['quizId']
             answer.choice = request.POST.get('answer','')
 
@@ -258,8 +258,8 @@ def quiz(request, quiz_id):
         if request.method == 'POST':
             quiz = Quiz.objects.get(pk=request.session['quizId'])
             answer = Answer()
-            answer.choice_id = str(str(quiz_id) + request.session.session_key)
-            answer.user_id = str(request.session.session_key)
+            answer.choice_id = str(str(quiz_id) + request.session['userID'])
+            answer.user_id = request.session['userID']
             answer.quiz_id = request.session['quizId']
             answer.choice = request.POST.get('answer','')
 
@@ -281,8 +281,8 @@ def quiz(request, quiz_id):
         if request.method == 'POST':
             quiz = Quiz.objects.get(pk=request.session['quizId'])
             answer = Answer()
-            answer.choice_id = str(str(quiz_id) + request.session.session_key)
-            answer.user_id = str(request.session.session_key)
+            answer.choice_id = str(str(quiz_id) + request.session['userID'])
+            answer.user_id = request.session['userID']
             answer.quiz_id = request.session['quizId']
             answer.choice = request.POST.get('answer','')
   
@@ -308,7 +308,7 @@ def quiz(request, quiz_id):
 def user(request):
     if request.method == "POST":
         user = User()
-        user.user_id = str(request.session.session_key)
+        user.user_id = request.session['userID']
         user.user_age = request.POST.get('user_age','')
         user.user_education = request.POST.get('user_education','')
         user.save()
@@ -318,7 +318,7 @@ def user(request):
 def user_end1(request):
     if request.method == "POST":
         user = User()
-        user.user_id = str(request.session.session_key)
+        user.user_id = request.session['userID']
         user.purpose = request.POST.get('purpose','')
         user.save()
 
@@ -327,14 +327,14 @@ def user_end1(request):
 def user_end2(request):
     if request.method == "POST":
         user = User()
-        user.user_id = str(request.session.session_key)
+        user.user_id = request.session['userID']
         user.user_major = request.POST.get('user_major','')
         user.purpose = request.POST.get('purpose','')
         user.save()
     return render(request, "user_end2.html")
 
 def quiz_result(request):
-    userID = str(request.session.session_key)
+    userID = request.session['userID']
     answer = Answer.objects.filter(user_id = userID)
     correct_num= answer.filter(status=True).count()
     percent = (correct_num/53)*100
