@@ -7,14 +7,6 @@
             수집된 데이터는 <span style="color: #4444ff;">연구 목적</span>으로만 활용될 예정입니다.
         </div>
 
-        <script>
-            function submit2(frm){
-                frm.action="{% url 'user_end2' %}"
-                frm.submit();
-                return true;
-            }
-        </script>
-
         <form method="post" action="{% url 'user' %}">
             {% csrf_token %}
             <div class="user-container">

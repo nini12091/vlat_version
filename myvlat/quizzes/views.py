@@ -313,7 +313,10 @@ def user(request):
         user.user_age = request.POST.get('user-age','')
         user.user_education = request.POST.get('user-education','')
         user.save()
-        return redirect('user_end1')
+        if user.user_education == "초등학교 재학" or user.user_education == "초등학교 졸업" or user.user_education == "중학교 졸업" or user.user_education == "고등학교 졸업":
+            return redirect('user_end1')
+        else:
+            return redirect('user_end2')
     else:
         return render(request, "user.html")
 
