@@ -17,4 +17,4 @@ urlpatterns = [
     path('exportcsv/', views.exportcsv, name="exportcsv")
 ]
 
-urlpatterns += +static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
+urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
