@@ -125,7 +125,6 @@ STATIC_URL = '/static/'
 
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, 'quizzes/static'),
-    '/var/www/static/',
 ]
 
 # 이미지 파일 들어갈 공간 설정
