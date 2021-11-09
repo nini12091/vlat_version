@@ -122,9 +122,9 @@ USE_TZ = False
 # https://docs.djangoproject.com/en/3.1/howto/static-files/
 
 STATIC_URL = '/static/'
-
+STATIC_DIR = os.path.join(BASE_DIR, 'quizzes/static')
 STATICFILES_DIRS = [
-    os.path.join(BASE_DIR, 'quizzes/static'),
+    STATIC_DIR,
 ]
 
 # 이미지 파일 들어갈 공간 설정
