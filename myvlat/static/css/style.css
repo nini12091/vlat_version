@@ -8,17 +8,12 @@ html {
   font-size: 10px;
 }
 body {
-  min-width: none;
+  min-width: 1060px;
   font-size: 1.8rem;
   line-height: 1.6;
 }
 a {
   text-decoration: none;
-}
-.wrapper {
-  display: flex; 
-  min-height: 100vh; 
-  flex-direction: column;
 }
 
 /* HEADER */
@@ -29,11 +24,13 @@ a {
   }
 
 .container {
+  max-width: 1400px;
   margin: 0 auto;
   padding: 0 20px;
   position: relative;
 }
 .container-float {
+  max-width: 1400px;
   margin: 0 auto;
   padding: 0 20px;
   position: relative;
@@ -81,11 +78,6 @@ a {
 }
 
 /* MAIN */
-.main{
-  flex: 1;
-  padding-bottom: 30px;
-}
-
 /* cta */
 .cta {
   font-weight: 400;
@@ -96,31 +88,17 @@ a {
 /* index */
 .hero-section {
   text-align: center;
-  padding: 15px 0 0 0;
+  padding: 50px 0;
 }
 .intro-desc {
-  margin: 30px auto 50px;
-  max-width: 750px;
-  font-weight: 325;
+  margin: 40px auto 50px;
+  width: 550px;
+  font-weight: 300;
   font-size: 2rem;
   line-height: 1.3;
 }
-.intro-desc > a {
-  color: #4444ff;
-}
-
-.intro-desc > a:hover {
-  color: #2222ff;
-}
-
-.intro-text {
-  margin: 30px auto 10px;
-  max-width: 750px;
-  font-weight: 350;
-  line-height: 1.3;
-}
 .hero-cta {
-  max-width: 300px;
+  width: 300px;
   margin: 0 auto 60px;
   padding: 20px 50px;
   background: #4444ff;
@@ -135,28 +113,19 @@ a {
   float: left;
   width: 55%;
 }
-
-@media ( max-width: 600px ) {
-  .chart-content {
-    float: left;
-    width: auto;
-  }
-}
-
 .chart-title {
   padding: 20px 20px 0 50px;
   font-weight: 600;
   font-size: 2.7rem;
   letter-spacing: -1px;
 }
-
 .chart {
   width: 100%;
   height: 480px;
 }
 .quiz-content {
-  float: left;
-  width: auto;
+  float: right;
+  width: 45%;
   padding-top: 50px;
 }
 .answer-content {
@@ -168,7 +137,6 @@ a {
   font-weight: 400;
   font-size: 2.5rem;
   letter-spacing: -1px;
-  max-width: 600px;
 }
 .answer-list {
   padding: 0px 0px 45px 0px;
@@ -193,40 +161,6 @@ a {
   background: transparent;
   color: #000000;
   cursor: pointer;
-}
-
-@media ( max-width: 600px ) {
-  .next-form-btn {
-    margin: 30px;
-    padding: 20px 100px;
-    border: 1px solid #cccccc;
-    border-radius: 4px;
-    font-size: 2rem;
-    background: transparent;
-    color: #000000;
-    cursor: pointer;
-  }
-}
-
-/* user */
-.user-section{
-  padding: 20px 10px 0 50px;
-}
-.intro-desc-user{
-  text-align: center;
-  margin: 20px 10px 3px 10px;
-  font-size: 1.8rem;
-  line-height: 1.6;
-  border: 1px solid;
-  padding: 20px 50px;
-  max-width: 800px;
-}
-.user-container{
-  margin: 50px 60px;
-  text-align: left;
-}
-.list-type{
-  padding-bottom: 13px;
 }
 
 /* quiz_result */
@@ -325,7 +259,6 @@ a {
 }
 #result_chart {
   text-align: center;
-  height: auto;
 }
 .chart-mean{
   text-align: center;
@@ -338,18 +271,18 @@ a {
 
 /* FOOTER */
 .footer {
-  background-color: lightgray;
-  left: 0px;
-  bottom: 0px;
-  height: 90px;
+  clear: both;
+}
+.copyright {
+  padding-top: 10px;
   text-align: center;
-  width: 100%;
-  padding: 15px;
+  font-size: 1.7rem;
+  font-weight: 400;
+  color: #222222;
 }
-
-.footer-text {
-  color: black;
-  font-size: 1.4rem;
-  font-weight: 300;
+.copyright > a {
+  color: #222222;
 }
-
+.copyright > a:hover {
+  color: #555555;
+}
