@@ -574,7 +574,7 @@ def quiz2(request, quiz_id):
             else:
                 answer.status = False
             answer.save()
-            if quiz_id == 54:
+            if quiz_id == 154:
                 return redirect('user')
             else:
                 return HttpResponseRedirect(reverse('quiz2', args=(quiz_id,)))
