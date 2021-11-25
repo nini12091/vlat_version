@@ -46,7 +46,7 @@ def quiz(request, quiz_id):
             next_quiz_id = quiz_id + 1
             quiz_detail = get_object_or_404(Quiz, pk=quiz_id)
             context = {'quiz_detail':quiz_detail, 'next_quiz_id':next_quiz_id}
-            return render(request, "quiz.html", context)
+            return render(request, "quiz/quiz.html", context)
 
     elif 5 < quiz_id <= 9:
         if request.method == 'POST':
@@ -69,7 +69,7 @@ def quiz(request, quiz_id):
             next_quiz_id = quiz_id + 1
             quiz_detail = get_object_or_404(Quiz, pk=quiz_id)
             context = {'quiz_detail':quiz_detail, 'next_quiz_id':next_quiz_id}
-            return render(request, "quiz2.html", context)
+            return render(request, "quiz/quiz2.html", context)
 
     elif 9 < quiz_id <= 14:
         if request.method == 'POST':
@@ -92,7 +92,7 @@ def quiz(request, quiz_id):
             next_quiz_id = quiz_id + 1
             quiz_detail = get_object_or_404(Quiz, pk=quiz_id)
             context = {'quiz_detail':quiz_detail, 'next_quiz_id':next_quiz_id}
-            return render(request, "quiz3.html", context)
+            return render(request, "quiz/quiz3.html", context)
     
     elif 14 < quiz_id <= 17:
         if request.method == 'POST':
@@ -115,7 +115,7 @@ def quiz(request, quiz_id):
             next_quiz_id = quiz_id + 1
             quiz_detail = get_object_or_404(Quiz, pk=quiz_id)
             context = {'quiz_detail':quiz_detail, 'next_quiz_id':next_quiz_id}
-            return render(request, "quiz4.html", context)
+            return render(request, "quiz/quiz4.html", context)
     
     elif 17 < quiz_id <= 20:
         if request.method == 'POST':
@@ -138,7 +138,7 @@ def quiz(request, quiz_id):
             next_quiz_id = quiz_id + 1
             quiz_detail = get_object_or_404(Quiz, pk=quiz_id)
             context = {'quiz_detail':quiz_detail, 'next_quiz_id':next_quiz_id}
-            return render(request, "quiz5.html", context)
+            return render(request, "quiz/quiz5.html", context)
 
     elif 20 < quiz_id <= 23:
         if request.method == 'POST':
@@ -161,7 +161,7 @@ def quiz(request, quiz_id):
             next_quiz_id = quiz_id + 1
             quiz_detail = get_object_or_404(Quiz, pk=quiz_id)
             context = {'quiz_detail':quiz_detail, 'next_quiz_id':next_quiz_id}
-            return render(request, "quiz6.html", context)
+            return render(request, "quiz/quiz6.html", context)
 
     elif 23 < quiz_id <= 30:
         if request.method == 'POST':
@@ -184,7 +184,7 @@ def quiz(request, quiz_id):
             next_quiz_id = quiz_id + 1
             quiz_detail = get_object_or_404(Quiz, pk=quiz_id)
             context = {'quiz_detail':quiz_detail, 'next_quiz_id':next_quiz_id}
-            return render(request, "quiz7.html", context)
+            return render(request, "quiz/quiz7.html", context)
 
     elif 30 < quiz_id <= 34:
         if request.method == 'POST':
@@ -207,7 +207,7 @@ def quiz(request, quiz_id):
             next_quiz_id = quiz_id + 1
             quiz_detail = get_object_or_404(Quiz, pk=quiz_id)
             context = {'quiz_detail':quiz_detail, 'next_quiz_id':next_quiz_id}
-            return render(request, "quiz8.html", context)
+            return render(request, "quiz/quiz8.html", context)
 
     elif 34 < quiz_id <= 40:
         if request.method == 'POST':
@@ -230,7 +230,7 @@ def quiz(request, quiz_id):
             next_quiz_id = quiz_id + 1
             quiz_detail = get_object_or_404(Quiz, pk=quiz_id)
             context = {'quiz_detail':quiz_detail, 'next_quiz_id':next_quiz_id}
-            return render(request, "quiz9.html", context)
+            return render(request, "quiz/quiz9.html", context)
 
     elif 40 < quiz_id <= 47:
         if request.method == 'POST':
@@ -253,7 +253,7 @@ def quiz(request, quiz_id):
             next_quiz_id = quiz_id + 1
             quiz_detail = get_object_or_404(Quiz, pk=quiz_id)
             context = {'quiz_detail':quiz_detail, 'next_quiz_id':next_quiz_id}
-            return render(request, "quiz10.html", context)
+            return render(request, "quiz/quiz10.html", context)
 
     elif 47 < quiz_id <= 50:
         if request.method == 'POST':
@@ -276,7 +276,7 @@ def quiz(request, quiz_id):
             next_quiz_id = quiz_id + 1
             quiz_detail = get_object_or_404(Quiz, pk=quiz_id)
             context = {'quiz_detail':quiz_detail, 'next_quiz_id':next_quiz_id}
-            return render(request, "quiz11.html", context)
+            return render(request, "quiz/quiz11.html", context)
 
     elif 50 < quiz_id <= 54:
         if request.method == 'POST':
@@ -302,9 +302,33 @@ def quiz(request, quiz_id):
             next_quiz_id = quiz_id + 1
             quiz_detail = get_object_or_404(Quiz, pk=quiz_id)
             context = {'quiz_detail':quiz_detail, 'next_quiz_id':next_quiz_id}
-            return render(request, "quiz12.html", context)
+            return render(request, "quiz/quiz12.html", context)
     else:
         return render(request, "user.html")
+
+def quiz2(request, quiz_id):
+    if quiz_id <= 105:
+        if request.method == 'POST':
+            quiz = Quiz.objects.get(pk=request.session['quizId'])
+            answer = Answer()
+            answer.choice_id = str(str(quiz_id) + request.session['userID'])
+            answer.user_id = request.session['userID']
+            answer.quiz_id = request.session['quizId']
+            answer.choice = request.POST.get('answer','')
+
+            if answer.choice == quiz.correct:
+                answer.status = True
+            else:
+                answer.status = False
+            answer.save()
+            return HttpResponseRedirect(reverse('quiz2', args=(quiz_id,)))
+
+        else:    
+            request.session['quizId'] = quiz_id
+            next_quiz_id = quiz_id + 1
+            quiz_detail = get_object_or_404(Quiz, pk=quiz_id)
+            context = {'quiz_detail':quiz_detail, 'next_quiz_id':next_quiz_id}
+            return render(request, "quiz2/quiz2_1.html", context)
 
 def user(request):
     if request.method == "POST":

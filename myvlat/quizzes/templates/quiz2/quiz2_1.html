@@ -6,8 +6,8 @@
     <h2 class="chart-title">
       {{ quiz_detail.v_title }}
     </h2>
-    <div id="vlat4" class="chart" ></div>
-    <script src="{% static 'js/chart4.js' %}"></script>
+    <div id="vlat2_1" class="chart" ></div>
+    <script src="{% static 'js/quiz2/chart2_1.js' %}"></script>
   </div>
   <div class="quiz-content">
     <div class="answer-content">
@@ -15,7 +15,7 @@
         {{ quiz_detail.quiz_id}}번. 
         {{ quiz_detail.title }}
       </h3>
-      <form action="{% url 'quiz' next_quiz_id %}" method="POST">
+      <form action="{% url 'quiz2' next_quiz_id %}" method="POST">
         {% csrf_token %}
         <div class="answer-list">
           <div class="answer-set">
