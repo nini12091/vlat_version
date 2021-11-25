@@ -330,6 +330,264 @@ def quiz2(request, quiz_id):
             context = {'quiz_detail':quiz_detail, 'next_quiz_id':next_quiz_id}
             return render(request, "quiz2/quiz2_1.html", context)
 
+    elif 105 < quiz_id <= 109:
+        if request.method == 'POST':
+            quiz = Quiz.objects.get(pk=request.session['quizId'])
+            answer = Answer()
+            answer.choice_id = str(str(quiz_id) + request.session['userID'])
+            answer.user_id = request.session['userID']
+            answer.quiz_id = request.session['quizId']
+            answer.choice = request.POST.get('answer','')
+ 
+            if answer.choice == quiz.correct:
+                answer.status = True
+            else:
+                answer.status = False
+            answer.save()
+            return HttpResponseRedirect(reverse('quiz2', args=(quiz_id,)))
+
+        else:    
+            request.session['quizId'] = quiz_id
+            next_quiz_id = quiz_id + 1
+            quiz_detail = get_object_or_404(Quiz, pk=quiz_id)
+            context = {'quiz_detail':quiz_detail, 'next_quiz_id':next_quiz_id}
+            return render(request, "quiz2/quiz2_2.html", context)
+
+    elif 109 < quiz_id <= 114:
+        if request.method == 'POST':
+            quiz = Quiz.objects.get(pk=request.session['quizId'])
+            answer = Answer()
+            answer.choice_id = str(str(quiz_id) + request.session['userID'])
+            answer.user_id = request.session['userID']
+            answer.quiz_id = request.session['quizId']
+            answer.choice = request.POST.get('answer','')
+
+            if answer.choice == quiz.correct:
+                answer.status = True
+            else:
+                answer.status = False
+            answer.save()
+            return HttpResponseRedirect(reverse('quiz2', args=(quiz_id,)))
+
+        else:    
+            request.session['quizId'] = quiz_id
+            next_quiz_id = quiz_id + 1
+            quiz_detail = get_object_or_404(Quiz, pk=quiz_id)
+            context = {'quiz_detail':quiz_detail, 'next_quiz_id':next_quiz_id}
+            return render(request, "quiz2/quiz2_3.html", context)
+    
+    elif 114 < quiz_id <= 117:
+        if request.method == 'POST':
+            quiz = Quiz.objects.get(pk=request.session['quizId'])
+            answer = Answer()
+            answer.choice_id = str(str(quiz_id) + request.session['userID'])
+            answer.user_id = request.session['userID']
+            answer.quiz_id = request.session['quizId']
+            answer.choice = request.POST.get('answer','')
+
+            if answer.choice == quiz.correct:
+                answer.status = True
+            else:
+                answer.status = False
+            answer.save()
+            return HttpResponseRedirect(reverse('quiz2', args=(quiz_id,)))
+
+        else:    
+            request.session['quizId'] = quiz_id
+            next_quiz_id = quiz_id + 1
+            quiz_detail = get_object_or_404(Quiz, pk=quiz_id)
+            context = {'quiz_detail':quiz_detail, 'next_quiz_id':next_quiz_id}
+            return render(request, "quiz2/quiz2_4.html", context)
+    
+    elif 117 < quiz_id <= 120:
+        if request.method == 'POST':
+            quiz = Quiz.objects.get(pk=request.session['quizId'])
+            answer = Answer()
+            answer.choice_id = str(str(quiz_id) + request.session['userID'])
+            answer.user_id = request.session['userID']
+            answer.quiz_id = request.session['quizId']
+            answer.choice = request.POST.get('answer','')
+ 
+            if answer.choice == quiz.correct:
+                answer.status = True
+            else:
+                answer.status = False
+            answer.save()
+            return HttpResponseRedirect(reverse('quiz2', args=(quiz_id,)))
+
+        else:    
+            request.session['quizId'] = quiz_id
+            next_quiz_id = quiz_id + 1
+            quiz_detail = get_object_or_404(Quiz, pk=quiz_id)
+            context = {'quiz_detail':quiz_detail, 'next_quiz_id':next_quiz_id}
+            return render(request, "quiz2/quiz2_5.html", context)
+
+    elif 120 < quiz_id <= 123:
+        if request.method == 'POST':
+            quiz = Quiz.objects.get(pk=request.session['quizId'])
+            answer = Answer()
+            answer.choice_id = str(str(quiz_id) + request.session['userID'])
+            answer.user_id = request.session['userID']
+            answer.quiz_id = request.session['quizId']
+            answer.choice = request.POST.get('answer','')
+  
+            if answer.choice == quiz.correct:
+                answer.status = True
+            else:
+                answer.status = False
+            answer.save()
+            return HttpResponseRedirect(reverse('quiz2', args=(quiz_id,)))
+
+        else:    
+            request.session['quizId'] = quiz_id
+            next_quiz_id = quiz_id + 1
+            quiz_detail = get_object_or_404(Quiz, pk=quiz_id)
+            context = {'quiz_detail':quiz_detail, 'next_quiz_id':next_quiz_id}
+            return render(request, "quiz2/quiz2_6.html", context)
+
+    elif 123 < quiz_id <= 130:
+        if request.method == 'POST':
+            quiz = Quiz.objects.get(pk=request.session['quizId'])
+            answer = Answer()
+            answer.choice_id = str(str(quiz_id) + request.session['userID'])
+            answer.user_id = request.session['userID']
+            answer.quiz_id = request.session['quizId']
+            answer.choice = request.POST.get('answer','')
+
+            if answer.choice == quiz.correct:
+                answer.status = True
+            else:
+                answer.status = False
+            answer.save()
+            return HttpResponseRedirect(reverse('quiz2', args=(quiz_id,)))
+
+        else:    
+            request.session['quizId'] = quiz_id
+            next_quiz_id = quiz_id + 1
+            quiz_detail = get_object_or_404(Quiz, pk=quiz_id)
+            context = {'quiz_detail':quiz_detail, 'next_quiz_id':next_quiz_id}
+            return render(request, "quiz2/quiz2_7.html", context)
+
+    elif 130 < quiz_id <= 134:
+        if request.method == 'POST':
+            quiz = Quiz.objects.get(pk=request.session['quizId'])
+            answer = Answer()
+            answer.choice_id = str(str(quiz_id) + request.session['userID'])
+            answer.user_id = request.session['userID']
+            answer.quiz_id = request.session['quizId']
+            answer.choice = request.POST.get('answer','')
+ 
+            if answer.choice == quiz.correct:
+                answer.status = True
+            else:
+                answer.status = False
+            answer.save()
+            return HttpResponseRedirect(reverse('quiz2', args=(quiz_id,)))
+
+        else:    
+            request.session['quizId'] = quiz_id
+            next_quiz_id = quiz_id + 1
+            quiz_detail = get_object_or_404(Quiz, pk=quiz_id)
+            context = {'quiz_detail':quiz_detail, 'next_quiz_id':next_quiz_id}
+            return render(request, "quiz2/quiz2_8.html", context)
+
+    elif 134 < quiz_id <= 140:
+        if request.method == 'POST':
+            quiz = Quiz.objects.get(pk=request.session['quizId'])
+            answer = Answer()
+            answer.choice_id = str(str(quiz_id) + request.session['userID'])
+            answer.user_id = request.session['userID']
+            answer.quiz_id = request.session['quizId']
+            answer.choice = request.POST.get('answer','')
+
+            if answer.choice == quiz.correct:
+                answer.status = True
+            else:
+                answer.status = False
+            answer.save()
+            return HttpResponseRedirect(reverse('quiz2', args=(quiz_id,)))
+
+        else:    
+            request.session['quizId'] = quiz_id
+            next_quiz_id = quiz_id + 1
+            quiz_detail = get_object_or_404(Quiz, pk=quiz_id)
+            context = {'quiz_detail':quiz_detail, 'next_quiz_id':next_quiz_id}
+            return render(request, "quiz2/quiz2_9.html", context)
+
+    elif 140 < quiz_id <= 147:
+        if request.method == 'POST':
+            quiz = Quiz.objects.get(pk=request.session['quizId'])
+            answer = Answer()
+            answer.choice_id = str(str(quiz_id) + request.session['userID'])
+            answer.user_id = request.session['userID']
+            answer.quiz_id = request.session['quizId']
+            answer.choice = request.POST.get('answer','')
+
+            if answer.choice == quiz.correct:
+                answer.status = True
+            else:
+                answer.status = False
+            answer.save()
+            return HttpResponseRedirect(reverse('quiz2', args=(quiz_id,)))
+
+        else:    
+            request.session['quizId'] = quiz_id
+            next_quiz_id = quiz_id + 1
+            quiz_detail = get_object_or_404(Quiz, pk=quiz_id)
+            context = {'quiz_detail':quiz_detail, 'next_quiz_id':next_quiz_id}
+            return render(request, "quiz2/quiz2_10.html", context)
+
+    elif 147 < quiz_id <= 150:
+        if request.method == 'POST':
+            quiz = Quiz.objects.get(pk=request.session['quizId'])
+            answer = Answer()
+            answer.choice_id = str(str(quiz_id) + request.session['userID'])
+            answer.user_id = request.session['userID']
+            answer.quiz_id = request.session['quizId']
+            answer.choice = request.POST.get('answer','')
+
+            if answer.choice == quiz.correct:
+                answer.status = True
+            else:
+                answer.status = False
+            answer.save()
+            return HttpResponseRedirect(reverse('quiz2', args=(quiz_id,)))
+
+        else:    
+            request.session['quizId'] = quiz_id
+            next_quiz_id = quiz_id + 1
+            quiz_detail = get_object_or_404(Quiz, pk=quiz_id)
+            context = {'quiz_detail':quiz_detail, 'next_quiz_id':next_quiz_id}
+            return render(request, "quiz2/quiz2_11.html", context)
+
+    elif 150 < quiz_id <= 154:
+        if request.method == 'POST':
+            quiz = Quiz.objects.get(pk=request.session['quizId'])
+            answer = Answer()
+            answer.choice_id = str(str(quiz_id) + request.session['userID'])
+            answer.user_id = request.session['userID']
+            answer.quiz_id = request.session['quizId']
+            answer.choice = request.POST.get('answer','')
+  
+            if answer.choice == quiz.correct:
+                answer.status = True
+            else:
+                answer.status = False
+            answer.save()
+            if quiz_id == 54:
+                return redirect('user')
+            else:
+                return HttpResponseRedirect(reverse('quiz2', args=(quiz_id,)))
+
+        else:    
+            request.session['quizId'] = quiz_id
+            next_quiz_id = quiz_id + 1
+            quiz_detail = get_object_or_404(Quiz, pk=quiz_id)
+            context = {'quiz_detail':quiz_detail, 'next_quiz_id':next_quiz_id}
+            return render(request, "quiz2/quiz2_12.html", context)
+    else:
+        return render(request, "user.html")
+
 def user(request):
     if request.method == "POST":
         user = User.objects.get(pk=request.session['userID'])
