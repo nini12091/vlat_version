@@ -306,6 +306,22 @@ def quiz(request, quiz_id):
     else:
         return render(request, "user.html")
 
+def index2(request):
+    # Session 생성
+    request.session.create()
+    userID = str(request.session.session_key)
+    today = str(timezone.now().strftime("%I:%M%p on %B %d, %Y"))
+    request.session['userID'] = userID
+    request.session['statedate'] = today
+
+    # Session DB 저장
+    user = User()
+    user.user_id = userID
+    user.statedate = today
+    user.save()
+
+    return render(request, "index2.html")
+
 def quiz2(request, quiz_id):
     if quiz_id <= 105:
         if request.method == 'POST':
