@@ -700,7 +700,7 @@ def footer(table_name, class_name, bulk_list):
     return
 
 def add_data(request):
-    read_data('k_vlat')
+    read_data('k_vlat_resultdata')
     if not data:
         return HttpResponse('Nothing to update')
 
@@ -714,5 +714,5 @@ def add_data(request):
             status = row[4]
         ))
 
-    footer('k_vlat', Answer, arr)
+    footer('k_vlat_resultdata', Answer, arr)
     return HttpResponse('Answers table updated')
