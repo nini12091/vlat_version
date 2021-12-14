@@ -1,5 +1,5 @@
 from django.http import HttpResponseRedirect, HttpResponse
-from .models import Quiz, User, Answer, Result
+from .models import Quiz, User, Answer
 from django.shortcuts import redirect, render, get_object_or_404
 from datetime import datetime
 from django.utils import timezone
@@ -683,10 +683,9 @@ def exportcsv(request):
     return response
 
 data = None
-file_dir = '/Users/sky/Desktop/'
 
 def read_data(table_name):
-    with open(file_dir + f'{table_name}.csv','r') as csvfile:
+    with open(f'{table_name}.csv','r') as csvfile:
         reader = csv.reader(csvfile)
         global data
         data = list(reader)
@@ -695,12 +694,12 @@ def read_data(table_name):
 def footer(table_name, class_name, bulk_list):
     class_name.objects.bulk_create(bulk_list)
 
-    with open(file_dir + f'{table_name}.csv','w') as csvfile:
+    with open(f'{table_name}.csv','w') as csvfile:
         writer = csv.writer(csvfile)
     return
 
 def add_data(request):
-    read_data('k_vlat_resultdata')
+    read_data('k-vlat')
     if not data:
         return HttpResponse('Nothing to update')
 
@@ -714,5 +713,5 @@ def add_data(request):
             status = row[4]
         ))
 
-    footer('k_vlat_resultdata', Answer, arr)
+    footer('k-vlat', Answer, arr)
     return HttpResponse('Answers table updated')
