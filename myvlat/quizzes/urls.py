@@ -17,6 +17,7 @@ urlpatterns = [
     path('quiz_result/',views.quiz_result, name="quiz_result"),
     path('result/',views.result, name="result"),
     path('exportcsv/', views.exportcsv, name="exportcsv"),
+    path('importcsv/', views.add_data, name="add_data")
 ]
 
 urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
