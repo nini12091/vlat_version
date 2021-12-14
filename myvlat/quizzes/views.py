@@ -683,9 +683,10 @@ def exportcsv(request):
     return response
 
 data = None
+filedata =  './'
 
 def read_data(table_name):
-    with open(f'{table_name}.csv','r') as csvfile:
+    with open(filedata + f'{table_name}.csv','r') as csvfile:
         reader = csv.reader(csvfile)
         global data
         data = list(reader)
@@ -694,7 +695,7 @@ def read_data(table_name):
 def footer(table_name, class_name, bulk_list):
     class_name.objects.bulk_create(bulk_list)
 
-    with open(f'{table_name}.csv','w') as csvfile:
+    with open(filedata + f'{table_name}.csv','w') as csvfile:
         writer = csv.writer(csvfile)
     return
 
