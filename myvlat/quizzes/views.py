@@ -1,5 +1,5 @@
 from django.http import HttpResponseRedirect, HttpResponse
-from .models import Quiz, User, Answer
+from .models import Quiz, User, Answer, Result
 from django.shortcuts import redirect, render, get_object_or_404
 from datetime import datetime
 from django.utils import timezone
@@ -678,6 +678,17 @@ def exportcsv(request):
     writer = csv.writer(response)
     writer.writerow(['choice_id', 'user_id', 'quiz_id', 'choice', 'status'])
     results = resultdata.values_list('choice_id', 'user_id', 'quiz_id', 'choice', 'status')
+    for rlt in results:
+        writer.writerow(rlt)
+    return response
+
+def exportcsv1(request):
+    resultdata = Result.objects.all()
+    response = HttpResponse('text/csv')
+    response['Content-Disposition'] = 'attachment; filename=k_vlat_resultdata(result).csv'
+    writer = csv.writer(response)
+    writer.writerow(['result_id', 'set_id', 'user_id', 'correct_number', 'time'])
+    results = resultdata.values_list('result_id', 'set_id', 'user_id', 'correct_number', 'time')
     for rlt in results:
         writer.writerow(rlt)
     return response
