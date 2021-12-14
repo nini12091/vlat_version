@@ -17,7 +17,6 @@ urlpatterns = [
     path('quiz_result/',views.quiz_result, name="quiz_result"),
     path('result/',views.result, name="result"),
     path('exportcsv/', views.exportcsv, name="exportcsv"),
-    path('exportcsv1/', views.exportcsv1, name="exportcsv1"),
     path('importcsv/', views.add_data, name="add_data")
 ]
 
