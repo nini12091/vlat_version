@@ -23,7 +23,7 @@
     <div class="answer-content">
       <h3 class="quiz-title"> 
         {{ quiz_detail.quiz_id}}번. 
-        {{ quiz_detail.title }}
+        {{ quiz_detail.v_number }}
       </h3>
       <form action="{% url 'quiz2' next_quiz_id %}" method="POST">
         {% csrf_token %}
