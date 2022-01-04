@@ -701,8 +701,6 @@ def footer(table_name, class_name, bulk_list):
 
 def add_data(request):
     read_data('k-vlat')
-    if not data:
-        return HttpResponse('Nothing to update')
 
     arr = []
     for row in data:
