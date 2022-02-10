@@ -8,6 +8,8 @@ var svg = d3.select("#vlat1")
 .append("svg")
   .attr("width", width + margin.left + margin.right)
   .attr("height", height + margin.top + margin.bottom)
+  .attr('viewBox','0 0 '+width+' '+height)
+  .attr('preserveAspectRatio','none')
 .append("g")
   .attr("transform",
         "translate(" + margin.left + "," + margin.top + ")"); 
