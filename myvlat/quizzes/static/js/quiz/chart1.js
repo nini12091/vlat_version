@@ -1,6 +1,9 @@
 // set the dimensions and margins of the graph
 var maxWidth = $(window).width()
-if (maxWidth > 500){
+if (maxWidth > 700){
+  maxWidth = 700;
+}
+else{
   maxWidth = 500;
 }
 
