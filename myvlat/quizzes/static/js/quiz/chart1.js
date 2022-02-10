@@ -1,19 +1,4 @@
 // set the dimensions and margins of the graph
-var aspect = width / height,
-    chart = d3.select('#chart');
-d3.select(window)
-  .on("resize", function() {
-    var targetWidth = chart.node().getBoundingClientRect().width;
-    chart.attr("width", targetWidth);
-    chart.attr("height", targetWidth / aspect);
-  });
-
-  <svg id="chart" width="960" height="500"
-  viewBox="0 0 960 500"
-  preserveAspectRatio="xMidYMid meet">
-</svg>
-
-
 var margin = {top: 20, right: 30, bottom: 65, left: 70},
   width = 700 - margin.left - margin.right,
   height = 500 - margin.top - margin.bottom;
@@ -23,9 +8,7 @@ var svg = d3.select("#vlat1")
 .append("svg")
   .attr("width", width + margin.left + margin.right)
   .attr("height", height + margin.top + margin.bottom)
-  .attr("viewBox", `0 0 ${width} ${height}`)
 .append("g")
-  .attr("preserveAspectRatio", "xMinYMin meet") 
   .attr("transform",
         "translate(" + margin.left + "," + margin.top + ")"); 
 
