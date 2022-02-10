@@ -1,25 +1,4 @@
 // set the dimensions and margins of the graph
-function updateDimensions(){
-  if(window.innerWidth-350 < 650){
-     this.setState({width:700});
-  }
-  else{
-     let update_width = window.innerWidth-350;
-     this.setState({width: update_width});
-  }
-}
-function componentDidMount(){
-  this.updateDimensions();
-  window.addEventListener("resize", 
-  this.updateDimensions.bind(this));
-}
-function componentWillUnmount() {
-  window.removeEventListener("resize",
-  this.updateDimensions.bind(this));
-}
-function componentDidUpdate(){ 
-  alertsBargraph(this.state.width) 
-}
 var margin = {top: 20, right: 30, bottom: 65, left: 70},
   width = 700 - margin.left - margin.right,
   height = 500 - margin.top - margin.bottom;
@@ -29,8 +8,6 @@ var svg = d3.select("#vlat1")
 .append("svg")
   .attr("width", width + margin.left + margin.right)
   .attr("height", height + margin.top + margin.bottom)
-  .attr('viewBox','0 0 '+width+' '+height)
-  .attr('preserveAspectRatio','none')
 .append("g")
   .attr("transform",
         "translate(" + margin.left + "," + margin.top + ")"); 
