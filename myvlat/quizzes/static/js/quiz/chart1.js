@@ -1,11 +1,18 @@
 // set the dimensions and margins of the graph
 var maxWidth = $(window).width()
-if (maxWidth > 750){
-  maxWidth = 750;
+var minheight = 500
+
+if (maxWidth > 700){
+  maxWidth = 700;
 }
+else {
+  maxWidth = 500;
+  minheight = 300;
+}
+
 var margin = {top: 20, right: 30, bottom: 65, left: 70},
   width = maxWidth - margin.left - margin.right,
-  height = 500 - margin.top - margin.bottom;
+  height = minheight - margin.top - margin.bottom;
 
 // append the svg object to the body of the page
 var svg = d3.select("#vlat1")
