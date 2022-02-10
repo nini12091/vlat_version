@@ -1,4 +1,25 @@
 // set the dimensions and margins of the graph
+function updateDimensions(){
+  if(window.innerWidth-350 < 650){
+     this.setState({width:700});
+  }
+  else{
+     let update_width = window.innerWidth-350;
+     this.setState({width: update_width});
+  }
+}
+function componentDidMount(){
+  this.updateDimensions();
+  window.addEventListener("resize", 
+  this.updateDimensions.bind(this));
+}
+function componentWillUnmount() {
+  window.removeEventListener("resize",
+  this.updateDimensions.bind(this));
+}
+function componentDidUpdate(){ 
+  alertsBargraph(this.state.width) 
+}
 var margin = {top: 20, right: 30, bottom: 65, left: 70},
   width = 700 - margin.left - margin.right,
   height = 500 - margin.top - margin.bottom;
