@@ -704,6 +704,10 @@ def add_data(request):
 
     arr = []
     for row in data:
+        if row[4] == "TRUE":
+            row[4] = True
+        else:
+            row[4] = False
         arr.append(Answer(
             choice_id = row[0],
             user_id = row[1],
