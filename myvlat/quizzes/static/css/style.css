@@ -176,13 +176,13 @@ a {
 
 @media ( max-width: 600px ) {
   .answer-list {
-    padding: 45px 0px 45px 0px;
+    padding: 70px 0px 45px 0px;
   }
 }
 .answer-set {
   height: 50px;
   font-size: 2rem;
-  padding: 30px 20px;
+  padding: 35px 20px;
 }
 .answer-lable {
   color: #000000;
