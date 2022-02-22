@@ -116,7 +116,7 @@ a {
   padding: 0;
 }
 .intro-first{
-  background: gray;
+  background: cornflowerblue;
 }
 .intro-name{
   text-align: center;
@@ -170,7 +170,7 @@ a {
   text-align: center;
 }
 .intro-desc > a {
-  color: #4444ff;
+  color: gray;
 }
 .intro-desc > a:hover {
   color: #2222ff;
