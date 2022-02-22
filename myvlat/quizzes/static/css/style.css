@@ -165,7 +165,7 @@ a {
   font-size: 2rem;
 }
 .intro-desc {
-  margin: 30px auto 50px;
+  margin: 30px auto 40px;
   max-width: 750px;
   font-weight: 325;
   font-size: 2rem;
@@ -178,6 +178,7 @@ a {
   line-height: 1.3;
   color: black;
   text-align: center;
+  padding-bottom: 20px;
 }
 .intro-desc > a {
   color: #2222ff;
