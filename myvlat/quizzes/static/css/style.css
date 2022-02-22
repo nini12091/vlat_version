@@ -80,6 +80,22 @@ a {
   color: #555555;
 }
 
+@media ( max-width: 600px ) {
+  .list-item {
+    font-weight: 700;
+    display: inline-block;
+    font-size: 1.3rem;
+    text-transform: uppercase;
+    }
+    .list-item > a {
+      color: black;
+      display: block;
+      padding: 17px 10px 10px 10px;
+    }
+}
+
+
+
 /* MAIN */
 .main{
   flex: 1;
