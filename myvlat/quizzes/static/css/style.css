@@ -71,14 +71,6 @@ a {
   font-size: 1.7rem;
   text-transform: uppercase;
 }
-.list-item > a {
-  color: black;
-  display: block;
-  padding: 10px;
-}
-.list-item > a:hover {
-  color: #555555;
-}
 
 @media ( max-width: 600px ) {
   .list-item {
@@ -89,7 +81,14 @@ a {
     }
 }
 
-
+.list-item > a {
+  color: black;
+  display: block;
+  padding: 10px;
+}
+.list-item > a:hover {
+  color: #555555;
+}
 
 /* MAIN */
 .main{
