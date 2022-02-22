@@ -73,11 +73,8 @@ a {
 }
 
 @media ( max-width: 600px ) {
-  .list-item {
-    font-weight: 700;
-    display: inline-block;
+  .list-item > a {
     font-size: 1.3rem;
-    text-transform: uppercase;
     }
 }
 
