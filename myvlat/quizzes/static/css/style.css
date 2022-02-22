@@ -79,6 +79,7 @@ a {
   .list {
     margin: 0;
     font-size: 0;
+    padding-right: 0px;
   }
 }
 .list-item {
@@ -164,6 +165,12 @@ a {
   margin: 30px auto 10px;
   font-size: 2rem;
 }
+@media ( max-width: 600px ) {
+  .intro-notice{
+    margin: 20px auto 10px;
+    font-size: 1.7rem;
+  }
+}
 .intro-desc {
   margin: 30px auto 40px;
   max-width: 750px;
@@ -172,6 +179,17 @@ a {
   line-height: 1.6;
   text-align: left;
 }
+@media ( max-width: 600px ) {
+  .intro-desc {
+    margin: 15px auto 30px;
+    max-width: 750px;
+    font-weight: 325;
+    font-size: 1.5rem;
+    line-height: 1.6;
+    text-align: left;
+    padding: 0 15px 0 15px;
+  }
+}
 .intro-end{
   font-weight: 325;
   font-size: 2rem;
@@ -179,6 +197,21 @@ a {
   color: black;
   text-align: center;
   padding-bottom: 20px;
+}
+@media ( max-width: 600px ) {
+  .intro-desc {
+    font-weight: 325;
+    font-size: 1.5rem;
+    line-height: 1.3;
+    color: black;
+    text-align: center;
+    padding: 0 20px 20px 20px;
+  }
+}
+@media ( max-width: 600px ) {
+  .intro-foot {
+    font-size: 1.5rem;
+  }
 }
 .intro-desc > a {
   color: #2222ff;
@@ -213,6 +246,16 @@ a {
   background: gray;
   color: white;
   border-radius: 10px;
+}
+@media ( max-width: 600px ) {
+  .hero-cta {
+    max-width: 250px;
+    margin: 0 auto 60px;
+    padding: 10px 5px;
+    background: gray;
+    color: white;
+    border-radius: 10px;
+  }
 }
 .hero-cta:hover {
   background: #2222ff;
