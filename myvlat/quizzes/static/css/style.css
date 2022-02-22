@@ -107,7 +107,7 @@ a {
 .cta {
   font-weight: 400;
   display: block;
-  border-radius: 8px;
+  border-radius: 8p
 }
 
 /* index */
@@ -170,7 +170,7 @@ a {
   text-align: center;
 }
 .intro-desc > a {
-  color: gray;
+  color: #2222ff;
 }
 .intro-desc > a:hover {
   color: #2222ff;
@@ -199,7 +199,7 @@ a {
   max-width: 300px;
   margin: 0 auto 60px;
   padding: 20px 50px;
-  background: #4444ff;
+  background: gray;
   color: white;
 }
 .hero-cta:hover {
