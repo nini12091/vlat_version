@@ -154,6 +154,7 @@ a {
 }
 .intro-notice{
   margin: 30px auto 10px;
+  font-size: 2rem;
 }
 .intro-desc {
   margin: 30px auto 50px;
@@ -201,6 +202,7 @@ a {
   padding: 20px 50px;
   background: gray;
   color: white;
+  border-radius: 10px;
 }
 .hero-cta:hover {
   background: #2222ff;
