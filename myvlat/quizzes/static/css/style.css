@@ -87,7 +87,7 @@ a {
     font-size: 1.3rem;
     text-transform: uppercase;
     }
-    .list-item > a {
+  .list-item > a {
       color: black;
       display: block;
       padding: 18px 10px 10px 10px;
