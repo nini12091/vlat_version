@@ -72,12 +72,6 @@ a {
   text-transform: uppercase;
 }
 
-@media ( max-width: 600px ) {
-  .list-item > a {
-    font-size: 1.3rem;
-    }
-}
-
 .list-item > a {
   color: black;
   display: block;
