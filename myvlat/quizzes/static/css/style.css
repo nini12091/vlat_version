@@ -269,13 +269,37 @@ a {
   line-height: 1.6;
   text-align: left;
 }
+@media ( max-width: 600px ) {
+  .about-desc{
+    margin: 20px auto 40px;
+    max-width: 750px;
+    font-weight: 325;
+    font-size: 1.6rem;
+    line-height: 1.6;
+    padding: 0 20px 0 20px
+px
+;
+    text-align: left;
+  }
+}
 .about-end{
-  margin: 30px auto 40px;
+  margin: 30px auto 0px;
   max-width: 750px;
   font-weight: 325;
   font-size: 2rem;
   line-height: 1.6;
   text-align: center;
+}
+@media ( max-width: 600px ) {
+  .about-end{
+    margin: 30px auto 40px;
+    max-width: 750px;
+    font-weight: 325;
+    font-size: 1.5rem;
+    line-height: 1.6;
+    text-align: center;
+    padding: 0 20px 0 20px;
+  }
 }
 /* quiz */
 .chart-content {
