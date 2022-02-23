@@ -260,7 +260,16 @@ a {
 .hero-cta:hover {
   background: #2222ff;
 }
-
+/* about */
+.about-text1{
+  font-size: 3rem;
+}
+.about-desc{
+  font-size: 3rem;
+}
+.about-end{
+  font-size: 3rem;
+}
 /* quiz */
 .chart-content {
   float: left;
