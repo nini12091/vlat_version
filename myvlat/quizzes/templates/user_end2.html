@@ -45,6 +45,23 @@
                         기타사항 입력: <label for="purpose5" style="padding-left: 30px;"><input type="text" name="purpose" id="purpose5" disabled></label>
                     </div>
                 </div>
+                <script>
+                    $(document).ready(function(){
+
+                        // 라디오버튼 클릭시 이벤트 발생
+                        $("input:radio[name=purpose]").click(function(){
+
+                            if($("input[name=purpose]:checked").val() == "기타"){
+                                $("input:text[name=purpose]").attr("disabled",false);
+                                // radio 버튼의 value 값이 기타라면 활성화
+
+                            }else{
+                                $("input:text[name=purpose]").attr("disabled",true);
+                                // radio 버튼의 value 값이 0이라면 비활성화
+                            }
+                        });
+                    });
+                </script>
                 <button class="next-form-btn" value="submit" role="button"> 완료 </button>
             </div>
         </form>
