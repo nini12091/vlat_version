@@ -16,6 +16,12 @@ def index(request):
     request.session['userID'] = userID
     request.session['statedate'] = today
 
+    # Session DB 저장
+    f_user = User()
+    f_user.user_id = user
+    f_user.statedate = request.session['statedate']
+    f_user.save()
+
     return render(request, "index.html")
 
 def quiz(request, quiz_id):
@@ -308,6 +314,12 @@ def index2(request):
     request.session['userID'] = userID
     request.session['statedate'] = today
 
+    # Session DB 저장
+    f_user = User()
+    f_user.user_id = user
+    f_user.statedate = request.session['statedate']
+    f_user.save()
+
     return render(request, "index2.html")
 
 def quiz2(request, quiz_id):
@@ -594,7 +606,7 @@ def quiz2(request, quiz_id):
 
 def user(request):
     if request.method == "POST":
-        user = request.session['userID']
+        user = User.objects.get(pk=request.session['userID'])
         user.user_age = request.POST.get('user-age','')
         user.user_education = request.POST.get('user-education','')
         
@@ -610,13 +622,11 @@ def user(request):
 
 def user_end1(request):
     if request.method == "POST":
-        user = request.session['userID']
+        user = User.objects.get(pk=request.session['userID'])
         user.purpose = request.POST.get('purpose','')
         
         # Session DB 저장
         f_user = User()
-        f_user.user_id = user
-        f_user.statedate = request.session['statedate']
         f_user.user_age = request.session['user_age']
         f_user.user_education = request.session['user_education']
         f_user.purpose = user.purpose
@@ -628,14 +638,12 @@ def user_end1(request):
 
 def user_end2(request):
     if request.method == "POST":
-        user = pk=request.session['userID']
+        user = User.objects.get(pk=request.session['userID'])
         user.user_major = request.POST.get('user-major','')
         user.purpose = request.POST.get('purpose','')
 
         # Session DB 저장
         f_user = User()
-        f_user.user_id = user
-        f_user.statedate = request.session['statedate']
         f_user.user_age = request.session['user_age']
         f_user.user_education = request.session['user_education']
         f_user.user_major = user.user_major
