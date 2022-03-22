@@ -626,11 +626,11 @@ def user_end1(request):
         user.purpose = request.POST.get('purpose','')
         
         # Session DB 저장
-        f_user = User()
-        f_user.user_age = request.session['user_age']
-        f_user.user_education = request.session['user_education']
-        f_user.purpose = user.purpose
-        f_user.save()
+        user = User()
+        user.user_age = request.session['user_age']
+        user.user_education = request.session['user_education']
+        user.purpose = user.purpose
+        user.save()
 
         return redirect('quiz_result')
     else:
@@ -643,12 +643,12 @@ def user_end2(request):
         user.purpose = request.POST.get('purpose','')
 
         # Session DB 저장
-        f_user = User()
-        f_user.user_age = request.session['user_age']
-        f_user.user_education = request.session['user_education']
-        f_user.user_major = user.user_major
-        f_user.purpose = user.purpose
-        f_user.save()
+        user = User()
+        user.user_age = request.session['user_age']
+        user.user_education = request.session['user_education']
+        user.user_major = user.user_major
+        user.purpose = user.purpose
+        user.save()
 
         return redirect('quiz_result')
     else:
