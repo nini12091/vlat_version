@@ -308,12 +308,6 @@ def index2(request):
     request.session['userID'] = userID
     request.session['statedate'] = today
 
-    # Session DB 저장
-    user = User()
-    user.user_id = userID
-    user.statedate = today
-    user.save()
-
     return render(request, "index2.html")
 
 def quiz2(request, quiz_id):
