@@ -594,7 +594,7 @@ def quiz2(request, quiz_id):
 
 def user(request):
     if request.method == "POST":
-        user = pk=request.session['userID']
+        user = request.session['userID']
         user.user_age = request.POST.get('user-age','')
         user.user_education = request.POST.get('user-education','')
         
