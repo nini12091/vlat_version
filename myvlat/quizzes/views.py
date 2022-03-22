@@ -621,7 +621,7 @@ def user_end1(request):
         
         # Session DB 저장
         user = User()
-        user.user_id = request.session['user_id']
+        user.user_id = request.session['userID']
         user.statedate = request.session['statedate']
         user.user_age = request.session['user_age']
         user.user_education = request.session['user_education']
@@ -639,7 +639,7 @@ def user_end2(request):
 
         # Session DB 저장
         user = User()
-        user.user_id = request.session['user_id']
+        user.user_id = request.session['userID']
         user.statedate = request.session['statedate']
         user.user_age = request.session['user_age']
         user.user_education = request.session['user_education']
