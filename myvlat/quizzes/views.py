@@ -607,7 +607,7 @@ def user(request):
         request.session['user_age'] = user_age
         request.session['user_education'] = user_education
 
-        if user.user_education == "초등학교 재학" or user.user_education == "초등학교 졸업" or user.user_education == "중학교 졸업" or user.user_education == "고등학교 졸업":
+        if user_education == "초등학교 재학" or user_education == "초등학교 졸업" or user_education == "중학교 졸업" or user_education == "고등학교 졸업":
             return redirect('user_end1')
         else:
             return redirect('user_end2')
