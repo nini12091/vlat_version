@@ -17,10 +17,10 @@ def index(request):
     request.session['statedate'] = today
 
     # Session DB 저장
-    f_user = User()
-    f_user.user_id = user
-    f_user.statedate = request.session['statedate']
-    f_user.save()
+    user = User()
+    user.user_id = userID
+    user.statedate = today
+    user.save()
 
     return render(request, "index.html")
 
@@ -315,10 +315,10 @@ def index2(request):
     request.session['statedate'] = today
 
     # Session DB 저장
-    f_user = User()
-    f_user.user_id = user
-    f_user.statedate = request.session['statedate']
-    f_user.save()
+    user = User()
+    user.user_id = userID
+    user.statedate = today
+    user.save()
 
     return render(request, "index2.html")
 
