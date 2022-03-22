@@ -16,12 +16,6 @@ def index(request):
     request.session['userID'] = userID
     request.session['statedate'] = today
 
-    # Session DB 저장
-    user = User()
-    user.user_id = userID
-    user.statedate = today
-    user.save()
-
     return render(request, "index.html")
 
 def quiz(request, quiz_id):
@@ -606,12 +600,12 @@ def quiz2(request, quiz_id):
 
 def user(request):
     if request.method == "POST":
-        user = User.objects.get(pk=request.session['userID'])
-        user.user_age = request.POST.get('user-age','')
-        user.user_education = request.POST.get('user-education','')
+
+        user_age = request.POST.get('user-age','')
+        user_education = request.POST.get('user-education','')
         
-        request.session['user_age'] = user.user_age
-        request.session['user_education'] = user.user_education
+        request.session['user_age'] = user_age
+        request.session['user_education'] = user_education
 
         if user.user_education == "초등학교 재학" or user.user_education == "초등학교 졸업" or user.user_education == "중학교 졸업" or user.user_education == "고등학교 졸업":
             return redirect('user_end1')
@@ -622,14 +616,16 @@ def user(request):
 
 def user_end1(request):
     if request.method == "POST":
-        user = User.objects.get(pk=request.session['userID'])
-        user.purpose = request.POST.get('purpose','')
+
+        purpose = request.POST.get('purpose','')
         
         # Session DB 저장
         user = User()
+        user.user_id = request.session['user_id']
+        user.statedate = request.session['statedate']
         user.user_age = request.session['user_age']
         user.user_education = request.session['user_education']
-        user.purpose = user.purpose
+        user.purpose = purpose
         user.save()
 
         return redirect('quiz_result')
@@ -638,16 +634,17 @@ def user_end1(request):
 
 def user_end2(request):
     if request.method == "POST":
-        user = User.objects.get(pk=request.session['userID'])
-        user.user_major = request.POST.get('user-major','')
-        user.purpose = request.POST.get('purpose','')
+        user_major = request.POST.get('user-major','')
+        purpose = request.POST.get('purpose','')
 
         # Session DB 저장
         user = User()
+        user.user_id = request.session['user_id']
+        user.statedate = request.session['statedate']
         user.user_age = request.session['user_age']
         user.user_education = request.session['user_education']
-        user.user_major = user.user_major
-        user.purpose = user.purpose
+        user.user_major = user_major
+        user.purpose = purpose
         user.save()
 
         return redirect('quiz_result')
