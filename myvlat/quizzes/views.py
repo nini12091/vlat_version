@@ -594,7 +594,7 @@ def quiz2(request, quiz_id):
 
 def user(request):
     if request.method == "POST":
-        user = User.objects.get(pk=request.session['userID'])
+        user = pk=request.session['userID']
         user.user_age = request.POST.get('user-age','')
         user.user_education = request.POST.get('user-education','')
         
@@ -610,7 +610,7 @@ def user(request):
 
 def user_end1(request):
     if request.method == "POST":
-        user = User.objects.get(pk=request.session['userID'])
+        user = request.session['userID']
         user.purpose = request.POST.get('purpose','')
         
         # Session DB 저장
@@ -628,7 +628,7 @@ def user_end1(request):
 
 def user_end2(request):
     if request.method == "POST":
-        user = User.objects.get(pk=request.session['userID'])
+        user = pk=request.session['userID']
         user.user_major = request.POST.get('user-major','')
         user.purpose = request.POST.get('purpose','')
 
