@@ -16,12 +16,6 @@ def index(request):
     request.session['userID'] = userID
     request.session['statedate'] = today
 
-    # Session DB 저장
-    user = User()
-    user.user_id = userID
-    user.statedate = today
-    user.save()
-
     return render(request, "index.html")
 
 def quiz(request, quiz_id):
@@ -314,12 +308,6 @@ def index2(request):
     request.session['userID'] = userID
     request.session['statedate'] = today
 
-    # Session DB 저장
-    user = User()
-    user.user_id = userID
-    user.statedate = today
-    user.save()
-
     return render(request, "index2.html")
 
 def quiz2(request, quiz_id):
@@ -609,7 +597,10 @@ def user(request):
         user = User.objects.get(pk=request.session['userID'])
         user.user_age = request.POST.get('user-age','')
         user.user_education = request.POST.get('user-education','')
-        user.save()
+        
+        request.session['user_age'] = user.user_age
+        request.session['user_education'] = user.user_education
+
         if user.user_education == "초등학교 재학" or user.user_education == "초등학교 졸업" or user.user_education == "중학교 졸업" or user.user_education == "고등학교 졸업":
             return redirect('user_end1')
         else:
@@ -621,7 +612,16 @@ def user_end1(request):
     if request.method == "POST":
         user = User.objects.get(pk=request.session['userID'])
         user.purpose = request.POST.get('purpose','')
-        user.save()
+        
+        # Session DB 저장
+        f_user = User()
+        f_user.user_id = user
+        f_user.statedate = request.session['statedate']
+        f_user.user_age = request.session['user_age']
+        f_user.user_education = request.session['user_education']
+        f_user.purpose = user.purpose
+        f_user.save()
+
         return redirect('quiz_result')
     else:
         return render(request, "user_end1.html")
@@ -631,7 +631,17 @@ def user_end2(request):
         user = User.objects.get(pk=request.session['userID'])
         user.user_major = request.POST.get('user-major','')
         user.purpose = request.POST.get('purpose','')
-        user.save()
+
+        # Session DB 저장
+        f_user = User()
+        f_user.user_id = user
+        f_user.statedate = request.session['statedate']
+        f_user.user_age = request.session['user_age']
+        f_user.user_education = request.session['user_education']
+        f_user.user_major = user.user_major
+        f_user.purpose = user.purpose
+        f_user.save()
+
         return redirect('quiz_result')
     else:
         return render(request, "user_end2.html")
