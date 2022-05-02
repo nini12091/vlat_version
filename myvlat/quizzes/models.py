@@ -44,6 +44,7 @@ class Quiz(models.Model):
         verbose_name = '퀴즈'
         verbose_name_plural = '퀴즈'
 
+
 class Set(models.Model):
     set_id = models.SmallIntegerField(verbose_name='set_id', primary_key=True)
     set_quiz = models.CharField(max_length=256, verbose_name='문제집합')
