@@ -26,6 +26,7 @@ class Quiz(models.Model):
     v_number = models.SmallIntegerField(verbose_name='문제번호')
     v_title = models.TextField(verbose_name='시각화제목')
     v_type = models.CharField(max_length=256, verbose_name='시각화종류')
+    v_task = models.CharField(max_length=256, verbose_name='시각화Task', null=True)
     title = models.CharField(max_length=256, verbose_name='문제제목')
     examples_1 = models.CharField(max_length=64, verbose_name='보기1')
     examples_2 = models.CharField(max_length=64, verbose_name='보기2')
@@ -71,7 +72,7 @@ class Answer(models.Model):
         verbose_name_plural = '정답'
 
 class Result(models.Model):
-    result_id = models.CharField(verbose_name='result_id', primary_key=True, max_length=256)
+    result_id = models.CharField(verbose_name='result_id', primary_key=True, max_length=256)      
     set_id = models.ForeignKey(
         'Set', on_delete=models.CASCADE, verbose_name='set_id')
     user_id = models.ForeignKey(
