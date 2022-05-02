@@ -8,12 +8,17 @@ html {
   font-size: 10px;
 }
 body {
-  min-width: 1060px;
+  min-width: none;
   font-size: 1.8rem;
   line-height: 1.6;
 }
 a {
   text-decoration: none;
+}
+.wrapper {
+  display: flex; 
+  min-height: 100vh; 
+  flex-direction: column;
 }
 
 /* HEADER */
@@ -24,15 +29,13 @@ a {
   }
 
 .container {
-  max-width: 1400px;
   margin: 0 auto;
   padding: 0 20px;
   position: relative;
 }
 .container-float {
-  max-width: 1400px;
   margin: 0 auto;
-  padding: 0 20px;
+  padding: 0;
   position: relative;
 }
 .container-float::after {
@@ -50,7 +53,16 @@ a {
 .logo > a {
   color: black;
   display: block;
-  padding: 0px;
+  padding-left: 50px;
+}
+@media ( max-width: 600px ) {
+  .logo > a {
+    color: black;
+    display: block;
+    padding: 0px;
+    font-size: 3rem;
+    padding: 0;
+  }
 }
 .logo > a:hover {
   color: #555555;
@@ -61,6 +73,14 @@ a {
 .list {
   margin: 0;
   font-size: 0;
+  padding-right: 50px;
+}
+@media ( max-width: 600px ) {
+  .list {
+    margin: 0;
+    font-size: 0;
+    padding-right: 0px;
+  }
 }
 .list-item {
   font-weight: 700;
@@ -68,65 +88,259 @@ a {
   font-size: 1.7rem;
   text-transform: uppercase;
 }
+
 .list-item > a {
   color: black;
   display: block;
   padding: 10px;
+}
+@media ( max-width: 600px ) {
+  .list-item > a {
+    color: black;
+    display: block;
+    padding: 10px;
+    font-size: 1.5rem;
+  }
 }
 .list-item > a:hover {
   color: #555555;
 }
 
 /* MAIN */
+.main{
+  flex: 1;
+  padding-bottom: 30px;
+}
+
 /* cta */
 .cta {
   font-weight: 400;
   display: block;
-  border-radius: 8px;
+  border-radius: 8p
 }
 
 /* index */
 .hero-section {
   text-align: center;
-  padding: 50px 0;
+  padding: 0;
+}
+.intro-first{
+  background: cornflowerblue;
+}
+.intro-name{
+  text-align: center;
+  font-size: 3.5rem;
+  margin: 40px auto 20px;
+  font-weight: 700;
+}
+@media ( max-width: 600px ) {
+  .intro-name{
+    text-align: center;
+    font-size: 2.2rem;
+    margin: 20px auto 20px;
+    font-weight: 700;
+    line-height: 1.3;
+  }
+}
+.intro-detail{
+  max-width: 820px;
+  font-weight: 350;
+  line-height: 1.3;
+  color: black;
+  margin: 0px auto 10px;
+  padding: 0 0 30px 0;
+}
+@media ( max-width: 600px ) {
+  .intro-detail{
+    max-width: 800px;
+    font-weight: 350;
+    line-height: 1.3;
+    color: black;
+    margin: 0px auto 10px;
+    padding: 0 10px 10px 10px;
+    font-size: 1.6rem;
+  }
+}
+.intro-notice{
+  margin: 30px auto 10px;
+  font-size: 2rem;
+}
+@media ( max-width: 600px ) {
+  .intro-notice{
+    margin: 20px auto 10px;
+    font-size: 1.7rem;
+  }
 }
 .intro-desc {
-  margin: 40px auto 50px;
-  width: 550px;
-  font-weight: 300;
+  margin: 30px auto 40px;
+  max-width: 750px;
+  font-weight: 325;
+  font-size: 2rem;
+  line-height: 1.6;
+  text-align: left;
+}
+@media ( max-width: 600px ) {
+  .intro-desc {
+    margin: 15px auto 5px;
+    max-width: 750px;
+    font-weight: 325;
+    font-size: 1.5rem;
+    line-height: 1.6;
+    text-align: left;
+    padding: 0 15px 0 15px;
+  }
+}
+.intro-end{
+  font-weight: 325;
   font-size: 2rem;
   line-height: 1.3;
+  color: black;
+  text-align: center;
+  padding-bottom: 20px;
+}
+@media ( max-width: 600px ) {
+  .intro-end {
+    font-weight: 325;
+    font-size: 1.6rem;
+    line-height: 1.3;
+    color: black;
+    text-align: center;
+    padding: 0 20px 20px 20px;
+  }
+}
+@media ( max-width: 600px ) {
+  .intro-foot {
+    font-size: 1.5rem;
+  }
+}
+.intro-desc > a {
+  color: #2222ff;
+}
+.intro-desc > a:hover {
+  color: #2222ff;
+}
+
+.intro-text {
+  margin: 0px auto 10px;
+  padding: 20px 20px 0 20px;
+  max-width: 800px;
+  font-weight: 350;
+  line-height: 1.3;
+  color: white;
+}
+@media ( max-width: 600px ) {
+  .intro-text {
+    margin: 0px auto 10px;
+    padding: 5px 20px 0 20px;
+    max-width: 800px;
+    font-weight: 350;
+    line-height: 1.3;
+    font-size: 1.4rem;
+    color: white;
+  }
 }
 .hero-cta {
-  width: 300px;
+  max-width: 300px;
   margin: 0 auto 60px;
   padding: 20px 50px;
-  background: #4444ff;
+  background: gray;
   color: white;
+  border-radius: 10px;
+}
+@media ( max-width: 600px ) {
+  .hero-cta {
+    max-width: 250px;
+    margin: 0 auto 60px;
+    padding: 10px 5px;
+    background: gray;
+    color: white;
+    border-radius: 10px;
+  }
 }
 .hero-cta:hover {
   background: #2222ff;
 }
-
+/* about */
+.about-desc{
+  margin: 30px auto 40px;
+  max-width: 750px;
+  font-weight: 325;
+  font-size: 2rem;
+  line-height: 1.6;
+  text-align: left;
+}
+@media ( max-width: 600px ) {
+  .about-desc{
+    margin: 20px auto 40px;
+    max-width: 750px;
+    font-weight: 325;
+    font-size: 1.6rem;
+    line-height: 1.6;
+    padding: 0 20px 0 20px;
+    text-align: left;
+  }
+}
+.about-end{
+  margin: 30px auto 0px;
+  max-width: 750px;
+  font-weight: 325;
+  font-size: 2rem;
+  line-height: 1.6;
+  text-align: center;
+}
+@media ( max-width: 600px ) {
+  .about-end{
+    margin: 30px auto 40px;
+    max-width: 750px;
+    font-weight: 325;
+    font-size: 1.5rem;
+    line-height: 1.6;
+    text-align: center;
+    padding: 0 20px 0 20px;
+  }
+}
 /* quiz */
 .chart-content {
   float: left;
   width: 55%;
 }
+
+@media ( max-width: 600px ) {
+  .chart-content {
+    float: left;
+    width: auto;
+  }
+}
+
 .chart-title {
   padding: 20px 20px 0 50px;
   font-weight: 600;
   font-size: 2.7rem;
   letter-spacing: -1px;
 }
+@media ( max-width: 600px ) {
+  .chart-title {
+    padding: 10px 0px 0 20px;
+    font-weight: 600;
+    font-size: 2rem;
+    letter-spacing: -1px;
+  }
+}
 .chart {
   width: 100%;
   height: 480px;
 }
 .quiz-content {
-  float: right;
-  width: 45%;
+  float: left;
+  width: auto;
   padding-top: 50px;
+}
+@media ( max-width: 600px ) {
+  .quiz-content {
+    float: left;
+    width: auto;
+    padding-top: 20px;
+  }
 }
 .answer-content {
   width: 100%;
@@ -137,14 +351,38 @@ a {
   font-weight: 400;
   font-size: 2.5rem;
   letter-spacing: -1px;
+  max-width: 600px;
+}
+@media ( max-width: 600px ) {
+  .quiz-title {
+    height: 20px;
+    font-weight: 400;
+    font-size: 1.8rem;
+    letter-spacing: -1px;
+    max-width: 600px;
+    padding: 0px 0px 0 20px;
+  }
 }
 .answer-list {
   padding: 0px 0px 45px 0px;
 }
+
+@media ( max-width: 600px ) {
+  .answer-list {
+    padding: 20px 0px 20px 0px;
+  }
+}
 .answer-set {
   height: 50px;
   font-size: 2rem;
-  padding: 30px 20px;
+  padding: 35px 20px;
+}
+@media ( max-width: 600px ) {
+  .answer-set {
+    height: 30px;
+    font-size: 1.8rem;
+    padding: 20px 40px;
+  }
 }
 .answer-lable {
   color: #000000;
@@ -163,6 +401,47 @@ a {
   cursor: pointer;
 }
 
+@media ( max-width: 600px ) {
+  .next-form-btn {
+    margin: 20px 10px 10px 50px;
+    padding: 10px 80px;
+    border: 1px solid #cccccc;
+    border-radius: 4px;
+    font-size: 1.8rem;
+    background: transparent;
+    color: #000000;
+    cursor: pointer;
+  }
+}
+
+/* user */
+.user-section{
+  padding: 20px 10px 0 50px;
+}
+
+@media ( max-width: 600px ) {
+  .user-section {
+    padding: 20px 10px 0 0px;
+  }
+}
+
+.intro-desc-user{
+  text-align: center;
+  margin: 20px 10px 3px 10px;
+  font-size: 1.8rem;
+  line-height: 1.6;
+  border: 1px solid;
+  padding: 20px 50px;
+  max-width: 800px;
+}
+.user-container{
+  margin: 50px 60px;
+  text-align: left;
+}
+.list-type{
+  padding-bottom: 13px;
+}
+
 /* quiz_result */
 .page-info {
   margin-bottom: 50px;
@@ -171,6 +450,13 @@ a {
   font-size: 4.5rem;
   text-align: center;
   margin-bottom: 5px;
+}
+@media ( max-width: 600px ) {
+  .page-title {
+    font-size: 3rem;
+    text-align: center;
+    margin-bottom: 5px;
+  }
 }
 .user-id{
   text-align: center;
@@ -229,6 +515,14 @@ a {
   text-align: center;
   margin: 0px;
 }
+@media ( max-width: 600px ) {
+  .result-desc {
+    font-size: 1.8rem;
+    font-weight: 350;
+    text-align: center;
+    margin: 0px;
+  }
+}
 .detail-title {
   font-size: 2.8rem;
   font-weight: 800;
@@ -239,10 +533,25 @@ a {
   font-weight: 800;
   margin-bottom: 5px;
 }
+@media ( max-width: 600px ) {
+  .mean-title {
+    font-size: 1.8rem;
+    font-weight: 800;
+    margin-bottom: 5px;
+  }
+}
 .mean-value {
   font-size: 4rem;
   font-weight: 500;
   margin-top: 0;
+}
+@media ( max-width: 600px ) {
+  .mean-value {
+    font-size: 3rem;
+    font-weight: 350;
+    text-align: center;
+    margin: 0px;
+  }
 }
 .correct-mean {
   float: left;
@@ -259,6 +568,7 @@ a {
 }
 #result_chart {
   text-align: center;
+  height: auto;
 }
 .chart-mean{
   text-align: center;
@@ -271,18 +581,18 @@ a {
 
 /* FOOTER */
 .footer {
-  clear: both;
-}
-.copyright {
-  padding-top: 10px;
+  background-color: lightgray;
+  left: 0px;
+  bottom: 0px;
+  height: 90px;
   text-align: center;
-  font-size: 1.7rem;
-  font-weight: 400;
-  color: #222222;
+  width: 100%;
+  padding: 15px;
 }
-.copyright > a {
-  color: #222222;
+
+.footer-text {
+  color: black;
+  font-size: 1.4rem;
+  font-weight: 300;
 }
-.copyright > a:hover {
-  color: #555555;
-}
+
