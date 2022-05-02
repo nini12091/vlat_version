@@ -26,7 +26,6 @@ class Quiz(models.Model):
     v_number = models.SmallIntegerField(verbose_name='문제번호')
     v_title = models.TextField(verbose_name='시각화제목')
     v_type = models.CharField(max_length=256, verbose_name='시각화종류')
-    v_task = models.CharField(max_length=256, verbose_name='시각화Task', null=True, default = '')
     title = models.CharField(max_length=256, verbose_name='문제제목')
     examples_1 = models.CharField(max_length=64, verbose_name='보기1')
     examples_2 = models.CharField(max_length=64, verbose_name='보기2')
