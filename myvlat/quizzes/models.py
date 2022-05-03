@@ -17,7 +17,6 @@ class User(models.Model):
         db_table = 'User'
         verbose_name = '사용자'
         verbose_name_plural = '사용자'
-    
 
 class Quiz(models.Model):
     quiz_id = models.SmallIntegerField(verbose_name='quiz_id', primary_key=True)
