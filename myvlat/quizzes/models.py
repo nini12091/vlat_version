@@ -6,7 +6,7 @@ class User(models.Model):
     user_id = models.CharField(primary_key=True, verbose_name='사용자', max_length=256)
     statedate = models.CharField(verbose_name='응시일자', max_length=256)
     user_age = models.CharField(verbose_name='연령대', max_length=256, null=True)
-    user_education = models.CharField(verbose_name='최종학력', max_length=256, null=True)
+    user_education = models.CharField(verbose_name='최종학력', max_length=256, null=True, default='')
     user_major = models.CharField(verbose_name='전공', max_length=256, null=True)
     purpose = models.CharField(verbose_name='목적', max_length=256, null=True)
 
