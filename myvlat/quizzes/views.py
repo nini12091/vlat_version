@@ -729,4 +729,5 @@ def add_data(request):
     return HttpResponse('Answers table updated')
 
 def user_download(request):
+    
     return render(request, "download.html")
