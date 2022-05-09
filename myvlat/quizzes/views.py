@@ -727,3 +727,6 @@ def add_data(request):
 
     footer('k-vlat-0221', Answer, arr)
     return HttpResponse('Answers table updated')
+
+def user_download(request):
+    return render(request, "download.html")
