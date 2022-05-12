@@ -1,3 +1,4 @@
+from urllib import response
 from django.http import HttpResponseRedirect, HttpResponse
 from .models import Quiz, User, Answer
 from django.shortcuts import redirect, render, get_object_or_404
@@ -729,5 +730,9 @@ def add_data(request):
     return HttpResponse('Answers table updated')
 
 def user_download(request):
-    
-    return render(request, "download.html")
+    response = {}
+    if request.method == "post":
+        f = request.FILES['upload_file']
+        data = [row for row in csv.reader(f.read().splitlines())]
+        context = {'data':data}
+    return render(request, "download.html", context)
