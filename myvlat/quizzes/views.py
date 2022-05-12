@@ -732,8 +732,8 @@ def add_data(request):
 def user_download(request):
     response = {}
     if request.method == "post":
-        f = request.FILES['upload_file']
-        data = [row for row in csv.reader(f.read())]
+        f = request.files['upload_file']
+        data = [row for row in csv.reader(f)]
         answer = Answer.objects.filter(user_id = data)
         user_id = []
         for v in answer:
