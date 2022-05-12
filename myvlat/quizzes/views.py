@@ -740,3 +740,5 @@ def user_download(request):
             user_id.append(v)
         context = {'user_id' : user_id}
         return render(request, "download.html", context)
+    
+    return render(request, "download.html")
