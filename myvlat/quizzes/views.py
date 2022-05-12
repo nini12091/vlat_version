@@ -733,5 +733,7 @@ def user_download(request):
     response = {}
     if request.method == "post":
         f = request.FILES['upload_file']
-        data = [row for row in csv.reader(f.read().splitlines())]
-    return render(request, "download.html")
+        data = [row for row in csv.reader(f.read())]
+        answer = Answer.objects.filter(user_id = data)
+        context = {'answer' : answer}
+    return render(request, "download.html", context)
