@@ -742,4 +742,4 @@ def user_download(request):
         context = {'id_list' : id_list}
         return render(request, "download.html" ,context)
     
-    return render(request, "index.html")
+    return render(request, "download.html")
