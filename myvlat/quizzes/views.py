@@ -734,7 +734,7 @@ def user_download(request):
         upload_file = request.FILES['upload_file']
         file = upload_file.read().decode('utf-8').splitlines()
         
-        reader = csv.DictReader(file)
+        reader = csv.reader(file)
         id_list = []
         for id in reader:
             id_list.append(id)
