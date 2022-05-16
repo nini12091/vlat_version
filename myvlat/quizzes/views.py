@@ -730,7 +730,7 @@ def add_data(request):
     return HttpResponse('Answers table updated')
 
 def user_download(request):
-    if request.method == 'POST' and request.FILES['upload_file']:
+    if request.method == 'POST':
         upload_file = request.FILES['upload_file']
         file = upload_file.read().decode('utf-8').splitlines()
         
