@@ -730,15 +730,16 @@ def add_data(request):
     return HttpResponse('Answers table updated')
 
 def user_download(request):
-    response = {}
-    if request.method == "post":
-        f = request.files['upload_file']
-        data = [row for row in csv.reader(f)]
-        answer = Answer.objects.filter(user_id = data)
-        user_id = []
-        for v in answer:
-            user_id.append(v)
-        context = {'user_id' : user_id}
-        return render(request, "download.html", context)
+    if request.method == 'POST' and request.FILES['upload_file']:
+        upload_file = request.FILES['upload_file']
+        file = upload_file.read().decode('utf-8').splitlines()
+        
+        reader = csv.reader(file)
+        id_list = []
+        for id in reader:
+            id_list = id
+
+        context = {'id_list' : id_list}
+        return render(request, "download.html" ,context)
     
-    return render(request, "download.html")
+    return render(request, "index.html")
