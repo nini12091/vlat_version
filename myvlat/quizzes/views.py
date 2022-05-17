@@ -731,10 +731,9 @@ def add_data(request):
 
 def user_download(request):
     if request.method == 'POST':
-        upload_file = request.FILES.get('upload_file').read()
-        file = upload_file.decode('utf-8').splitlines()
+        upload_file = request.FILES.get('upload_file')
         
-        reader = csv.reader(file)
+        reader = csv.reader(upload_file)
         id_list = []
         for id in reader:
             id_list.append(id)
