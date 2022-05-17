@@ -1,40 +1,11 @@
 {% extends "base.html" %}
-<script type="text/javascript">
-    function FileuploadCallback(data){
-        if (data == "error"){
-            alert('파일 올리기에 실패했습니다. \n 다시한번 시도해주세요.');
-            return false;
-        }
-        alert('파일 올리기에 성공했습니다.');
-    }
-    $(function(){
-        //비동기 파일 전송
-        var frm=$('#csv_form');
-        frm.ajaxForm(FileuploadCallback);
-        frm.submit(function(){return false;});
-    });
-
-    //파일업로드 이벤트
-    function FileUpload(){
-        if(!$('#upload_file').val()){
-            alert("파일을 선택하세요.");
-            $('#upload_file').focus();
-            return;
-        }
-        //파일전송
-        var frm;
-        frm = $('#csv_form');
-        frm.attr('action','/download');
-        frm.submit();
-    }
-</script>
 
 {% block content %}
 <div class="upload-desc">
     <form name="csv_form" action="{% url 'user_download' %}" method="POST" enctype="multipart/form-data">
         {% csrf_token %}
-        <input type="file" id="upload_file" style="width: 300px;" /> 
-        <button id="csv_file_upload_button" class="upload_btn" style="display: inline;" onclick="FileUpload()">올리기</button>
+        <input type="file" id="upload_file" name="upload_file" style="width: 300px;" /> 
+        <button id="csv_file_upload_button" class="upload_btn">올리기</button>
     </form>
 </div>
 <div class="option-desc">
