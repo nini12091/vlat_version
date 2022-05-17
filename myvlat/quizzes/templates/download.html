@@ -31,7 +31,7 @@
 
 {% block content %}
 <div class="upload-desc">
-    <form name="csv_form" method="POST" enctype="multipart/form-data">
+    <form name="csv_form" action="{% url 'user_download' %}" method="POST" enctype="multipart/form-data">
         {% csrf_token %}
         <input type="file" id="upload_file" style="width: 300px;" /> 
         <button id="csv_file_upload_button" class="upload_btn" style="display: inline;" onclick="FileUpload()">올리기</button>
