@@ -731,7 +731,7 @@ def add_data(request):
 
 def user_download(request):
     if request.method == 'POST':
-        upload_file = request.FILES.get['upload_file']
+        upload_file = request.FILES.get('upload_file')
         file = upload_file.read().decode('utf-8').splitlines()
         
         reader = csv.reader(file)
