@@ -810,7 +810,7 @@ def user_download(request):
                 response['Content-Disposition'] = 'attachment; filename=k_vlat_resultdata.csv'
                 writer = csv.writer(response)
                 
-                for row in id_list:
+                for row in result_list1:
                     writer.writerow(row)
 
                 return response
