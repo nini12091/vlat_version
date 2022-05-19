@@ -740,8 +740,7 @@ def user_download(request):
             reader = csv.reader(file)
 
             for id in reader:
-                user_id = id
-                id_list.append(user_id)
+                id_list.append(id)
 
             context = {'id_list':id_list}
 
