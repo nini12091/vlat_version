@@ -742,8 +742,8 @@ def user_download(request):
             id_list = []
 
             for id in reader:
-                list_id = id
-                id_list.append(list_id)
+                for data in id:
+                    id_list.append(data)
 
             context = {'id_list':id_list}
 
