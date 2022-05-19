@@ -751,7 +751,7 @@ def user_download(request):
             request.session['message'] = '업로드가 완료되었습니다.'
             request.session.set_expiry(3)
 
-            context = {id_list:'id_list'}
+            context = {'id_list':id_list}
 
             return render(request, "download.html", context)
 
