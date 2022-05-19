@@ -771,7 +771,7 @@ def user_download(request):
 
                 ## user_id별 결과 로우 데이터 추출
                 for i in id_list:
-                    user_list = Answer.objects.filter(user_id = 'uxugk1fbum4k8aj476vkjt9yqdf2872o')
+                    user_list = Answer.objects.filter(user_id = 'i')
                     list_user.append(i)
                     list_correct.append(user_list.filter(status=True).count())
                     list_vis1.append(user_list.filter(Q(quiz_id=1)|Q(quiz_id=2)|Q(quiz_id=3)|Q(quiz_id=4)|Q(quiz_id=5)|Q(quiz_id=101)|Q(quiz_id=102)|Q(quiz_id=103)|Q(quiz_id=104)|Q(quiz_id=105)|Q(status=True)).count())
