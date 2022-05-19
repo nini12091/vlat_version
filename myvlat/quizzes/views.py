@@ -773,9 +773,10 @@ def user_download(request):
                 ## user_id별 결과 로우 데이터 추출
                 for i in id_list:
                     user_list = Answer.objects.filter(Q(user_id = i))
+                    correct = Answer.objects.filter(Q(user_id = i) & Q(status=True))
                     list_user.append(i)
                     list_correct.append(Answer.objects.filter(Q(user_id = i) & Q(status=True)).count())
-                    list_vis1.append(Answer.objects.filter(Q(user_id = i) & Q(quiz_id=1)|Q(quiz_id=2)|Q(quiz_id=3)|Q(quiz_id=4)|Q(quiz_id=5)|Q(quiz_id=101)|Q(quiz_id=102)|Q(quiz_id=103)&Q(quiz_id=104)&Q(quiz_id=105)&Q(status=True)).count())
+                    list_vis1.append(correct.filter(Q(quiz_id=1)|Q(quiz_id=2)|Q(quiz_id=3)|Q(quiz_id=4)|Q(quiz_id=5)|Q(quiz_id=101)|Q(quiz_id=102)|Q(quiz_id=103)&Q(quiz_id=104)&Q(quiz_id=105)).count())
                     list_vis2.append(user_list.filter(Q(quiz_id=6)|Q(quiz_id=7)|Q(quiz_id=8)|Q(quiz_id=9)|Q(quiz_id=106)|Q(quiz_id=107)|Q(quiz_id=108)|Q(quiz_id=109)|Q(status=True)).count())
                     list_vis3.append(user_list.filter(Q(quiz_id=10)|Q(quiz_id=11)|Q(quiz_id=12)|Q(quiz_id=13)|Q(quiz_id=14)|Q(quiz_id=110)|Q(quiz_id=111)|Q(quiz_id=112)|Q(quiz_id=113)|Q(quiz_id=114)|Q(status=True)).count())
                     list_vis4.append(user_list.filter(Q(quiz_id=15)|Q(quiz_id=16)|Q(quiz_id=17)|Q(quiz_id=115)|Q(quiz_id=116)|Q(quiz_id=117)|Q(status=True)).count())
