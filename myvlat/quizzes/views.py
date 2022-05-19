@@ -772,22 +772,21 @@ def user_download(request):
 
                 ## user_id별 결과 로우 데이터 추출
                 for i in id_list:
-                    user_list = Answer.objects.filter(Q(user_id = i))
                     correct = Answer.objects.filter(Q(user_id = i) & Q(status=True))
                     list_user.append(i)
                     list_correct.append(Answer.objects.filter(Q(user_id = i) & Q(status=True)).count())
                     list_vis1.append(correct.filter(Q(quiz_id=1)|Q(quiz_id=2)|Q(quiz_id=3)|Q(quiz_id=4)|Q(quiz_id=5)|Q(quiz_id=101)|Q(quiz_id=102)|Q(quiz_id=103)&Q(quiz_id=104)&Q(quiz_id=105)).count())
-                    list_vis2.append(user_list.filter(Q(quiz_id=6)|Q(quiz_id=7)|Q(quiz_id=8)|Q(quiz_id=9)|Q(quiz_id=106)|Q(quiz_id=107)|Q(quiz_id=108)|Q(quiz_id=109)|Q(status=True)).count())
-                    list_vis3.append(user_list.filter(Q(quiz_id=10)|Q(quiz_id=11)|Q(quiz_id=12)|Q(quiz_id=13)|Q(quiz_id=14)|Q(quiz_id=110)|Q(quiz_id=111)|Q(quiz_id=112)|Q(quiz_id=113)|Q(quiz_id=114)|Q(status=True)).count())
-                    list_vis4.append(user_list.filter(Q(quiz_id=15)|Q(quiz_id=16)|Q(quiz_id=17)|Q(quiz_id=115)|Q(quiz_id=116)|Q(quiz_id=117)|Q(status=True)).count())
-                    list_vis5.append(user_list.filter(Q(quiz_id=18)|Q(quiz_id=19)|Q(quiz_id=20)|Q(quiz_id=118)|Q(quiz_id=119)|Q(quiz_id=120)|Q(status=True)).count())
-                    list_vis6.append(user_list.filter(Q(quiz_id=21)|Q(quiz_id=22)|Q(quiz_id=23)|Q(quiz_id=121)|Q(quiz_id=122)|Q(quiz_id=123)|Q(status=True)).count())
-                    list_vis7.append(user_list.filter(Q(quiz_id=24)|Q(quiz_id=25)|Q(quiz_id=26)|Q(quiz_id=27)|Q(quiz_id=28)|Q(quiz_id=29)|Q(quiz_id=30)|Q(quiz_id=124)|Q(quiz_id=125)|Q(quiz_id=126)|Q(quiz_id=127)|Q(quiz_id=128)|Q(quiz_id=129)|Q(quiz_id=130)|Q(status=True)).count())
-                    list_vis8.append(user_list.filter(Q(quiz_id=31)|Q(quiz_id=32)|Q(quiz_id=33)|Q(quiz_id=34)|Q(quiz_id=131)|Q(quiz_id=132)|Q(quiz_id=133)|Q(quiz_id=134)|Q(status=True)).count())
-                    list_vis9.append(user_list.filter(Q(quiz_id=35)|Q(quiz_id=36)|Q(quiz_id=37)|Q(quiz_id=38)|Q(quiz_id=39)|Q(quiz_id=40)|Q(quiz_id=135)|Q(quiz_id=136)|Q(quiz_id=137)|Q(quiz_id=138)|Q(quiz_id=139)|Q(quiz_id=140)|Q(status=True)).count())
-                    list_vis10.append(user_list.filter(Q(quiz_id=41)|Q(quiz_id=42)|Q(quiz_id=43)|Q(quiz_id=44)|Q(quiz_id=45)|Q(quiz_id=46)|Q(quiz_id=47)|Q(quiz_id=141)|Q(quiz_id=142)|Q(quiz_id=143)|Q(quiz_id=144)|Q(quiz_id=145)|Q(quiz_id=146)|Q(quiz_id=147)|Q(status=True)).count())
-                    list_vis11.append(user_list.filter(Q(quiz_id=48)|Q(quiz_id=49)|Q(quiz_id=50)|Q(quiz_id=148)|Q(quiz_id=149)|Q(quiz_id=150)|Q(status=True)).count())
-                    list_vis12.append(user_list.filter(Q(quiz_id=51)|Q(quiz_id=52)|Q(quiz_id=53)|Q(quiz_id=151)|Q(quiz_id=152)|Q(quiz_id=153)|Q(status=True)).count())
+                    list_vis2.append(correct.filter(Q(quiz_id=6)|Q(quiz_id=7)|Q(quiz_id=8)|Q(quiz_id=9)|Q(quiz_id=106)|Q(quiz_id=107)|Q(quiz_id=108)|Q(quiz_id=109)).count())
+                    list_vis3.append(correct.filter(Q(quiz_id=10)|Q(quiz_id=11)|Q(quiz_id=12)|Q(quiz_id=13)|Q(quiz_id=14)|Q(quiz_id=110)|Q(quiz_id=111)|Q(quiz_id=112)|Q(quiz_id=113)|Q(quiz_id=114)).count())
+                    list_vis4.append(correct.filter(Q(quiz_id=15)|Q(quiz_id=16)|Q(quiz_id=17)|Q(quiz_id=115)|Q(quiz_id=116)|Q(quiz_id=117)).count())
+                    list_vis5.append(correct.filter(Q(quiz_id=18)|Q(quiz_id=19)|Q(quiz_id=20)|Q(quiz_id=118)|Q(quiz_id=119)|Q(quiz_id=120)).count())
+                    list_vis6.append(correct.filter(Q(quiz_id=21)|Q(quiz_id=22)|Q(quiz_id=23)|Q(quiz_id=121)|Q(quiz_id=122)|Q(quiz_id=123)).count())
+                    list_vis7.append(correct.filter(Q(quiz_id=24)|Q(quiz_id=25)|Q(quiz_id=26)|Q(quiz_id=27)|Q(quiz_id=28)|Q(quiz_id=29)|Q(quiz_id=30)|Q(quiz_id=124)|Q(quiz_id=125)|Q(quiz_id=126)|Q(quiz_id=127)|Q(quiz_id=128)|Q(quiz_id=129)|Q(quiz_id=130)).count())
+                    list_vis8.append(correct.filter(Q(quiz_id=31)|Q(quiz_id=32)|Q(quiz_id=33)|Q(quiz_id=34)|Q(quiz_id=131)|Q(quiz_id=132)|Q(quiz_id=133)|Q(quiz_id=134)).count())
+                    list_vis9.append(correct.filter(Q(quiz_id=35)|Q(quiz_id=36)|Q(quiz_id=37)|Q(quiz_id=38)|Q(quiz_id=39)|Q(quiz_id=40)|Q(quiz_id=135)|Q(quiz_id=136)|Q(quiz_id=137)|Q(quiz_id=138)|Q(quiz_id=139)|Q(quiz_id=140)).count())
+                    list_vis10.append(correct.filter(Q(quiz_id=41)|Q(quiz_id=42)|Q(quiz_id=43)|Q(quiz_id=44)|Q(quiz_id=45)|Q(quiz_id=46)|Q(quiz_id=47)|Q(quiz_id=141)|Q(quiz_id=142)|Q(quiz_id=143)|Q(quiz_id=144)|Q(quiz_id=145)|Q(quiz_id=146)|Q(quiz_id=147)).count())
+                    list_vis11.append(correct.filter(Q(quiz_id=48)|Q(quiz_id=49)|Q(quiz_id=50)|Q(quiz_id=148)|Q(quiz_id=149)|Q(quiz_id=150)).count())
+                    list_vis12.append(correct.filter(Q(quiz_id=51)|Q(quiz_id=52)|Q(quiz_id=53)|Q(quiz_id=151)|Q(quiz_id=152)|Q(quiz_id=153)).count())
 
                 result_list1 = [['user_id','정답 수','Line_Chart(5)','Bar_Chart(4)','Stacked_Bar_Chart(5)','100%_Stacked_Bar_Chart(3)','Pie_Chart(3)','Histogram(3)','Scatter_Plot(7)','Area_Chart(4)','Stacked_Area_Chart(6)','Bubble_Chart(7)','Choropleth_Map(3)','Tree_Map(3)']]
                 
