@@ -804,14 +804,14 @@ def user_download(request):
 
                 result_list1.append(arr)
 
-            f = open("student_result.csv", "w")
-            writer = csv.writer(f)
+            response = HttpResponse('text/csv')
+            response['Content-Disposition'] = 'attachment; filename=k_vlat_resultdata.csv'
+            writer = csv.writer(response)
             
             for row in result_list1:
                 writer.writerow(row)
-            
-            f.close()
 
+            return response
 
         if option == 'option2':
         
@@ -1017,16 +1017,13 @@ def user_download(request):
 
                 result_list2.append(arr1)
 
-            f = open("student_result2.csv", "w")
-            writer = csv.writer(f)
+            response = HttpResponse('text/csv')
+            response['Content-Disposition'] = 'attachment; filename=k_vlat_resultdata.csv'
+            writer = csv.writer(response)
             
             for row in result_list2:
                 writer.writerow(row)
-            
-            f.close()
-                      
-        return render(request, "download.html")
 
-        
-    
+            return response
+                          
     return render(request, "download.html")
