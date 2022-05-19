@@ -733,6 +733,12 @@ def user_download(request):
     if request.method == 'POST':
         if request.POST.get("form-type") == 'form1':
             upload_file = request.FILES['upload-file']
+
+            if not upload_file.name.endswith('csv'):
+                request.session['message'] = '<<Error>> CSV형식으로 업로드 해주세요'
+                request.session.set_expiry(3)
+                return HttpResponseRedirect(reverse('user_download'))
+
             file = upload_file.read().decode('utf-8').splitlines()
 
             reader = csv.reader(file)
@@ -741,7 +747,9 @@ def user_download(request):
             for id in reader:
                 user_id = id
                 id_list.append(user_id)
-            
+
+            request.session['message'] = '업로드가 완료되었습니다.'
+            request.session.set_expiry(3)
             return HttpResponseRedirect(reverse('user_download'))
 
     elif request.POST.get("form-type") == 'form2':
