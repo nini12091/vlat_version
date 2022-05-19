@@ -806,14 +806,10 @@ def user_download(request):
 
                     result_list1.append(arr)
 
-                response = HttpResponse('text/csv')
-                response['Content-Disposition'] = 'attachment; filename=k_vlat_resultdata.csv'
-                writer = csv.writer(response)
-                
-                for row in result_list1:
-                    writer.writerow(row)
+                context = {'id_list':id_list, 'result_list1':result_list1, 'list_user': list_user}
 
-                return response
+                return render(request, "download.html", context)
+                
 
             if option == 'option2':
             
