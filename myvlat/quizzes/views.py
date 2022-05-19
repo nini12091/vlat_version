@@ -732,7 +732,7 @@ def add_data(request):
 def user_download(request):
     if request.method == 'POST':
         id_list = []
-
+        
         if request.POST.get("form-type") == 'form1':
             upload_file = request.FILES['upload-file']
             file = upload_file.read().decode('utf-8').splitlines()
@@ -811,7 +811,7 @@ def user_download(request):
                 response['Content-Disposition'] = 'attachment; filename=k_vlat_resultdata.csv'
                 writer = csv.writer(response)
                 
-                for row in list_user:
+                for row in id_list:
                     writer.writerow(row)
 
                 return response
