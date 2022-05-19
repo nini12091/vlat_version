@@ -2,16 +2,21 @@
 
 {% block content %}
 <div class="upload-desc">
-    <form name="csv_form" action="{% url 'user_download' %}" method="POST" enctype="multipart/form-data">
+    <form name="csv-form" action="{% url 'user_download' %}" method="POST" id='form1' enctype="multipart/form-data">
         {% csrf_token %}
-        <input type="file" id="upload_file" name="upload_file" style="width: 300px;" /> 
-        <button id="csv_file_upload_button" class="upload_btn">올리기</button>
+        <input type="hidden" name="form-type" value="form1">
+        <input type="file" id="upload-file" name="upload-file" style="width: 300px;" /> 
+        <button id="csv-file-upload-button" class="upload-btn">올리기</button>
     </form>
 </div>
 <div class="option-desc">
-{{id_list}}ㅇ
-</div>
-<div class="download-desc">
-ㅇ
+    <form action="{% url 'user_download' %}" method="POST" id='form2'>
+        {% csrf_token %}
+        <p>option</p>
+        <input type="hidden" name="form-type" value="form2">
+        <label><input type="radio" name="option-list" value="option1" required> user_id </br> 정답 수 </br> 시각화별 정답 수</label>
+        <label><input type="radio" name="option-list" value="option2"> user_id </br> quiz_id </br> type </br> task </br> status </label>
+        <button class="option-btn" value="submit" role="button"> 다운로드 </button>
+    </form>
 </div>
 {% endblock %}
