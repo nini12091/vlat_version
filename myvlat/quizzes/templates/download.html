@@ -1,7 +1,7 @@
 {% extends "base.html" %}
 
 {% block content %}
-<div class="upload-desc">
+<div class="upload-desc" style="text-align: center;">
     <form name="csv-form" action="{% url 'user_download' %}" method="POST" id='form1' enctype="multipart/form-data">
         {% csrf_token %}
         <input type="hidden" name="form-type" value="form1">
@@ -9,7 +9,7 @@
         <button id="csv-file-upload-button" class="upload-btn">올리기</button>
     </form>
 </div>
-<div class="option-desc">
+<div class="option-desc" style="text-align: center;">
     {{notice}}
     <form action="{% url 'user_download' %}" method="POST" id='form2'>
         {% csrf_token %}
@@ -37,7 +37,9 @@
                   <li>status</li>
             </ul>
         </div>
-        <button class="option-btn" value="submit" role="button"> 다운로드 </button>
+        <div class="option-btn" style="text-align: center;">
+            <button value="submit" role="button"> 다운로드 </button>
+        </div>
     </form>
 
 </div>
