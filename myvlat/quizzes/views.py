@@ -828,14 +828,9 @@ def user_download(request):
                 list_status = []
                 vis_type = ['Line_Chart','Bar_Chart','Stacked_Bar_Chart','100%_Stacked_Bar_Chart','Pie_Chart','Histogram','Scatter_Plot','Area_Chart','Stacked_Area_Chart','Bubble_Chart','Choropleth_Map','Tree_Map']
                 vis_task = ['Retrieve_Values','Find_Extremum','Determine_Range','Characterize_Distribution','Find_Anomalies','Find_Clusters','Find_Correlation’Trens','Make_Comparison']
-                test = []
 
                 for k in id_list:
                     user_list2 = Answer.objects.filter(user_id = k)
-
-                    for ul2 in user_list2:
-                        test.append(ul2.quiz_id)
-
                     for ul in user_list2:
                         if ul.quiz_id == 1 or ul.quiz_id == 101 :
                             list_user2.append(k)
@@ -1210,9 +1205,23 @@ def user_download(request):
 
                 result_list2 = [['user_id','quiz_id','type','task','status']]
 
-                context = {'list_quiz_id':list_quiz_id, 'test': test}
+                for l2 in range(len(list_user2)):
+                    arr1 = []
+                    arr1.append(list_user2[l2])
+                    arr1.append(list_quiz_id[l2])
+                    arr1.append(list_vis_type[l2])
+                    arr1.append(list_vis_task[l2])
+                    arr1.append(list_status[l2])
 
-                return render(request, "download.html", context)
+                    result_list2.append(arr1)
+
+                response = HttpResponse('text/csv')
+                response['Content-Disposition'] = 'attachment; filename=k_vlat_resultdata.csv'
+                writer = csv.writer(response)
                 
-                          
+                for row in result_list2:
+                    writer.writerow(row)
+
+                return response
+
     return render(request, "download.html")
