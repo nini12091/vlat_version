@@ -10,7 +10,7 @@
     </form>
 </div>
 <div class="option-desc">
-    {{id_list}}
+    {{notice}}
     <form action="{% url 'user_download' %}" method="POST" id='form2'>
         {% csrf_token %}
         <p>option</p>

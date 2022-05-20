@@ -745,7 +745,9 @@ def user_download(request):
                 for data in id:
                     id_list.append(data)
 
-            context = {'id_list':id_list}
+            notice = ['업로드 완료']
+
+            context = {'notice':notice}
 
             return render(request, "download.html", context)
 
