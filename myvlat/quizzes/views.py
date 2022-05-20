@@ -831,185 +831,376 @@ def user_download(request):
 
                 for k in id_list:
                     user_list2 = Answer.objects.filter(user_id = k)
-                    for index, row in user_list2.iterrows():
-                        if row['quiz_id'] <= 5:
-                            list_user2.append(row['user_id'])
-                            list_quiz_id.append(row['quiz_id'])
-                            list_vis_type.append(vis_type[0])
-                            list_status.append(row['status'])
-                            if row['quiz_id'] == 1:
-                                list_vis_task.append(vis_task[0])
-                            elif row['quiz_id'] == 2:
-                                list_vis_task.append(vis_task[1])
-                            elif row['quiz_id'] == 3:
-                                list_vis_task.append(vis_task[2])
-                            elif row['quiz_id'] == 4:
-                                list_vis_task.append(vis_task[6])
-                            elif row['quiz_id'] == 5:
-                                list_vis_task.append(vis_task[7])
-                            
-                        elif 5 < row['quiz_id'] <= 9:
-                            list_user2.append(row['user_id'])
-                            list_quiz_id.append(row['quiz_id'])
-                            list_vis_type.append(vis_type[1])
-                            list_status.append(row['status'])
-                            if row['quiz_id'] == 6:
-                                list_vis_task.append(vis_task[0])
-                            elif row['quiz_id'] == 7:
-                                list_vis_task.append(vis_task[1])
-                            elif row['quiz_id'] == 8:
-                                list_vis_task.append(vis_task[2])
-                            elif row['quiz_id'] == 9:
-                                list_vis_task.append(vis_task[7])
-                            
-                        elif 9 < row['quiz_id'] <= 14:
-                            list_user2.append(row['user_id'])
-                            list_quiz_id.append(row['quiz_id'])
-                            list_vis_type.append(vis_type[2])
-                            list_status.append(row['status'])
-                            if row['quiz_id'] == 10:
-                                list_vis_task.append(vis_task[0])
-                            elif row['quiz_id'] == 11:
-                                list_vis_task.append(vis_task[0])
-                            elif row['quiz_id'] == 12:
-                                list_vis_task.append(vis_task[1])
-                            elif row['quiz_id'] == 13:
-                                list_vis_task.append(vis_task[7])
-                            elif row['quiz_id'] == 14:
-                                list_vis_task.append(vis_task[7])
-                                
-                            
-                        elif 14 < row['quiz_id'] <= 17:
-                            list_user2.append(row['user_id'])
-                            list_quiz_id.append(row['quiz_id'])
-                            list_vis_type.append(vis_type[3])
-                            list_status.append(row['status'])
-                            if row['quiz_id'] == 15:
-                                list_vis_task.append(vis_task[0])
-                            elif row['quiz_id'] == 16:
-                                list_vis_task.append(vis_task[1])
-                            elif row['quiz_id'] == 17:
-                                list_vis_task.append(vis_task[7])
-                            
-                        elif 17 < row['quiz_id'] <= 20:
-                            list_user2.append(row['user_id'])
-                            list_quiz_id.append(row['quiz_id'])
-                            list_vis_type.append(vis_type[4])
-                            list_status.append(row['status'])
-                            if row['quiz_id'] == 18:
-                                list_vis_task.append(vis_task[0])
-                            elif row['quiz_id'] == 19:
-                                list_vis_task.append(vis_task[1])
-                            elif row['quiz_id'] == 20:
-                                list_vis_task.append(vis_task[7])
-                            
-                        elif 20 < row['quiz_id'] <= 23:
-                            list_user2.append(row['user_id'])
-                            list_quiz_id.append(row['quiz_id'])
-                            list_vis_type.append(vis_type[5])
-                            list_status.append(row['status'])
-                            if row['quiz_id'] == 21:
-                                list_vis_task.append(vis_task[0])
-                            elif row['quiz_id'] == 22:
-                                list_vis_task.append(vis_task[1])
-                            elif row['quiz_id'] == 23:
-                                list_vis_task.append(vis_task[7])
-                            
-                        elif 23 < row['quiz_id'] <= 30:
-                            list_user2.append(row['user_id'])
-                            list_quiz_id.append(row['quiz_id'])
-                            list_vis_type.append(vis_type[6])
-                            list_status.append(row['status'])
-                            if row['quiz_id'] == 24:
-                                list_vis_task.append(vis_task[0])
-                            elif row['quiz_id'] == 25:
-                                list_vis_task.append(vis_task[1])
-                            elif row['quiz_id'] == 26:
-                                list_vis_task.append(vis_task[2])
-                            elif row['quiz_id'] == 27:
-                                list_vis_task.append(vis_task[4])
-                            elif row['quiz_id'] == 28:
-                                list_vis_task.append(vis_task[5])
-                            elif row['quiz_id'] == 29:
-                                list_vis_task.append(vis_task[6])
-                            elif row['quiz_id'] == 30:
-                                list_vis_task.append(vis_task[7])
-                            
-                        elif 30 < row['quiz_id'] <= 34:
-                            list_user2.append(row['user_id'])
-                            list_quiz_id.append(row['quiz_id'])
-                            list_vis_type.append(vis_type[7])
-                            list_status.append(row['status'])
-                            if row['quiz_id'] == 31:
-                                list_vis_task.append(vis_task[0])
-                            elif row['quiz_id'] == 32:
-                                list_vis_task.append(vis_task[1])
-                            elif row['quiz_id'] == 33:
-                                list_vis_task.append(vis_task[2])
-                            elif row['quiz_id'] == 34:
-                                list_vis_task.append(vis_task[6])
-                            
-                        elif 34 < row['quiz_id'] <= 40:
-                            list_user2.append(row['user_id'])
-                            list_quiz_id.append(row['quiz_id'])
-                            list_vis_type.append(vis_type[8])
-                            list_status.append(row['status'])
-                            if row['quiz_id'] == 35:
-                                list_vis_task.append(vis_task[0])
-                            elif row['quiz_id'] == 36:
-                                list_vis_task.append(vis_task[0])
-                            elif row['quiz_id'] == 37:
-                                list_vis_task.append(vis_task[1])
-                            elif row['quiz_id'] == 38:
-                                list_vis_task.append(vis_task[6])
-                            elif row['quiz_id'] == 39:
-                                list_vis_task.append(vis_task[7])
-                            elif row['quiz_id'] == 40:
-                                list_vis_task.append(vis_task[7])
-                            
-                        elif 40 < row['quiz_id'] <= 47:
-                            list_user2.append(row['user_id'])
-                            list_quiz_id.append(row['quiz_id'])
-                            list_vis_type.append(vis_type[9])
-                            list_status.append(row['status'])
-                            if row['quiz_id'] == 41:
-                                list_vis_task.append(vis_task[0])
-                            elif row['quiz_id'] == 42:
-                                list_vis_task.append(vis_task[1])
-                            elif row['quiz_id'] == 43:
-                                list_vis_task.append(vis_task[2])
-                            elif row['quiz_id'] == 44:
-                                list_vis_task.append(vis_task[4])
-                            elif row['quiz_id'] == 45:
-                                list_vis_task.append(vis_task[5])
-                            elif row['quiz_id'] == 46:
-                                list_vis_task.append(vis_task[6])
-                            elif row['quiz_id'] == 47:
-                                list_vis_task.append(vis_task[7])
-                            
-                        elif 47 < row['quiz_id'] <= 50:
-                            list_user2.append(row['user_id'])
-                            list_quiz_id.append(row['quiz_id'])
-                            list_vis_type.append(vis_type[10])
-                            list_status.append(row['status'])
-                            if row['quiz_id'] == 48:
-                                list_vis_task.append(vis_task[0])
-                            elif row['quiz_id'] == 49:
-                                list_vis_task.append(vis_task[1])
-                            elif row['quiz_id'] == 50:
-                                list_vis_task.append(vis_task[7])
+                    if user_list2.filter(quiz_id=1)|user_list2.filter(quiz_id=101):
+                        list_user2.append(k)
+                        list_quiz_id.append(user_list2.quiz_id)
+                        list_vis_type.append(vis_type[0])
+                        list_vis_task.append(vis_task[0])
+                        list_status.append(user_list2.status)
 
-                        elif 50 < row['quiz_id'] <= 53:
-                            list_user2.append(row['user_id'])
-                            list_quiz_id.append(row['quiz_id'])
-                            list_vis_type.append(vis_type[11])
-                            list_status.append(row['status'])
-                            if row['quiz_id'] == 51:
-                                list_vis_task.append(vis_task[1])
-                            elif row['quiz_id'] == 52:
-                                list_vis_task.append(vis_task[7])
-                            elif row['quiz_id'] == 53:
-                                list_vis_task.append(vis_task[0])
+                    elif user_list2.filter(quiz_id=2)|user_list2.filter(quiz_id=102):
+                        list_user2.append(k)
+                        list_quiz_id.append(user_list2.quiz_id)
+                        list_vis_type.append(vis_type[0])
+                        list_vis_task.append(vis_task[1])
+                        list_status.append(user_list2.status)
+
+                    elif user_list2.filter(quiz_id=3)|user_list2.filter(quiz_id=103):
+                        list_user2.append(k)
+                        list_quiz_id.append(user_list2.quiz_id)
+                        list_vis_type.append(vis_type[0])
+                        list_vis_task.append(vis_task[2])
+                        list_status.append(user_list2.status)
+                    
+                    elif user_list2.filter(quiz_id=4)|user_list2.filter(quiz_id=104):
+                        list_user2.append(k)
+                        list_quiz_id.append(user_list2.quiz_id)
+                        list_vis_type.append(vis_type[0])
+                        list_vis_task.append(vis_task[6])
+                        list_status.append(user_list2.status)
+
+                    elif user_list2.filter(quiz_id=5)|user_list2.filter(quiz_id=105):
+                        list_user2.append(k)
+                        list_quiz_id.append(user_list2.quiz_id)
+                        list_vis_type.append(vis_type[0])
+                        list_vis_task.append(vis_task[7])
+                        list_status.append(user_list2.status)
+
+                    elif user_list2.filter(quiz_id=6)|user_list2.filter(quiz_id=106):
+                        list_user2.append(k)
+                        list_quiz_id.append(user_list2.quiz_id)
+                        list_vis_type.append(vis_type[1])
+                        list_vis_task.append(vis_task[0])
+                        list_status.append(user_list2.status)
+
+                    elif user_list2.filter(quiz_id=7)|user_list2.filter(quiz_id=107):
+                        list_user2.append(k)
+                        list_quiz_id.append(user_list2.quiz_id)
+                        list_vis_type.append(vis_type[1])
+                        list_vis_task.append(vis_task[1])
+                        list_status.append(user_list2.status)
+
+                    elif user_list2.filter(quiz_id=8)|user_list2.filter(quiz_id=108):
+                        list_user2.append(k)
+                        list_quiz_id.append(user_list2.quiz_id)
+                        list_vis_type.append(vis_type[1])
+                        list_vis_task.append(vis_task[2])
+                        list_status.append(user_list2.status)
+
+                    elif user_list2.filter(quiz_id=9)|user_list2.filter(quiz_id=109):
+                        list_user2.append(k)
+                        list_quiz_id.append(user_list2.quiz_id)
+                        list_vis_type.append(vis_type[1])
+                        list_vis_task.append(vis_task[7])
+                        list_status.append(user_list2.status)
+
+                    elif user_list2.filter(quiz_id=10)|user_list2.filter(quiz_id=110):
+                        list_user2.append(k)
+                        list_quiz_id.append(user_list2.quiz_id)
+                        list_vis_type.append(vis_type[2])
+                        list_vis_task.append(vis_task[0])
+                        list_status.append(user_list2.status)
+
+                    elif user_list2.filter(quiz_id=11)|user_list2.filter(quiz_id=111):
+                        list_user2.append(k)
+                        list_quiz_id.append(user_list2.quiz_id)
+                        list_vis_type.append(vis_type[2])
+                        list_vis_task.append(vis_task[0])
+                        list_status.append(user_list2.status)
+
+                    elif user_list2.filter(quiz_id=12)|user_list2.filter(quiz_id=112):
+                        list_user2.append(k)
+                        list_quiz_id.append(user_list2.quiz_id)
+                        list_vis_type.append(vis_type[2])
+                        list_vis_task.append(vis_task[1])
+                        list_status.append(user_list2.status)
+
+                    elif user_list2.filter(quiz_id=13)|user_list2.filter(quiz_id=113):
+                        list_user2.append(k)
+                        list_quiz_id.append(user_list2.quiz_id)
+                        list_vis_type.append(vis_type[2])
+                        list_vis_task.append(vis_task[7])
+                        list_status.append(user_list2.status)
+
+                    elif user_list2.filter(quiz_id=14)|user_list2.filter(quiz_id=114):
+                        list_user2.append(k)
+                        list_quiz_id.append(user_list2.quiz_id)
+                        list_vis_type.append(vis_type[2])
+                        list_vis_task.append(vis_task[7])
+                        list_status.append(user_list2.status)
+
+                    elif user_list2.filter(quiz_id=15)|user_list2.filter(quiz_id=115):
+                        list_user2.append(k)
+                        list_quiz_id.append(user_list2.quiz_id)
+                        list_vis_type.append(vis_type[3])
+                        list_vis_task.append(vis_task[0])
+                        list_status.append(user_list2.status)
+
+                    elif user_list2.filter(quiz_id=16)|user_list2.filter(quiz_id=116):
+                        list_user2.append(k)
+                        list_quiz_id.append(user_list2.quiz_id)
+                        list_vis_type.append(vis_type[3])
+                        list_vis_task.append(vis_task[1])
+                        list_status.append(user_list2.status)
+
+                    elif user_list2.filter(quiz_id=17)|user_list2.filter(quiz_id=117):
+                        list_user2.append(k)
+                        list_quiz_id.append(user_list2.quiz_id)
+                        list_vis_type.append(vis_type[3])
+                        list_vis_task.append(vis_task[7])
+                        list_status.append(user_list2.status)
+
+                    elif user_list2.filter(quiz_id=18)|user_list2.filter(quiz_id=118):
+                        list_user2.append(k)
+                        list_quiz_id.append(user_list2.quiz_id)
+                        list_vis_type.append(vis_type[4])
+                        list_vis_task.append(vis_task[0])
+                        list_status.append(user_list2.status)
+
+                    elif user_list2.filter(quiz_id=19)|user_list2.filter(quiz_id=119):
+                        list_user2.append(k)
+                        list_quiz_id.append(user_list2.quiz_id)
+                        list_vis_type.append(vis_type[4])
+                        list_vis_task.append(vis_task[1])
+                        list_status.append(user_list2.status)
+                    
+                    elif user_list2.filter(quiz_id=20)|user_list2.filter(quiz_id=120):
+                        list_user2.append(k)
+                        list_quiz_id.append(user_list2.quiz_id)
+                        list_vis_type.append(vis_type[4])
+                        list_vis_task.append(vis_task[7])
+                        list_status.append(user_list2.status)
+
+                    elif user_list2.filter(quiz_id=21)|user_list2.filter(quiz_id=121):
+                        list_user2.append(k)
+                        list_quiz_id.append(user_list2.quiz_id)
+                        list_vis_type.append(vis_type[5])
+                        list_vis_task.append(vis_task[0])
+                        list_status.append(user_list2.status)
+
+                    elif user_list2.filter(quiz_id=22)|user_list2.filter(quiz_id=122):
+                        list_user2.append(k)
+                        list_quiz_id.append(user_list2.quiz_id)
+                        list_vis_type.append(vis_type[5])
+                        list_vis_task.append(vis_task[1])
+                        list_status.append(user_list2.status)
+
+                    elif user_list2.filter(quiz_id=23)|user_list2.filter(quiz_id=123):
+                        list_user2.append(k)
+                        list_quiz_id.append(user_list2.quiz_id)
+                        list_vis_type.append(vis_type[5])
+                        list_vis_task.append(vis_task[7])
+                        list_status.append(user_list2.status)
+
+                    elif user_list2.filter(quiz_id=24)|user_list2.filter(quiz_id=124):
+                        list_user2.append(k)
+                        list_quiz_id.append(user_list2.quiz_id)
+                        list_vis_type.append(vis_type[6])
+                        list_vis_task.append(vis_task[0])
+                        list_status.append(user_list2.status)
+
+                    elif user_list2.filter(quiz_id=25)|user_list2.filter(quiz_id=125):
+                        list_user2.append(k)
+                        list_quiz_id.append(user_list2.quiz_id)
+                        list_vis_type.append(vis_type[6])
+                        list_vis_task.append(vis_task[1])
+                        list_status.append(user_list2.status)
+
+                    elif user_list2.filter(quiz_id=26)|user_list2.filter(quiz_id=126):
+                        list_user2.append(k)
+                        list_quiz_id.append(user_list2.quiz_id)
+                        list_vis_type.append(vis_type[6])
+                        list_vis_task.append(vis_task[2])
+                        list_status.append(user_list2.status)
+
+                    elif user_list2.filter(quiz_id=27)|user_list2.filter(quiz_id=127):
+                        list_user2.append(k)
+                        list_quiz_id.append(user_list2.quiz_id)
+                        list_vis_type.append(vis_type[6])
+                        list_vis_task.append(vis_task[4])
+                        list_status.append(user_list2.status)
+
+                    elif user_list2.filter(quiz_id=28)|user_list2.filter(quiz_id=128):
+                        list_user2.append(k)
+                        list_quiz_id.append(user_list2.quiz_id)
+                        list_vis_type.append(vis_type[6])
+                        list_vis_task.append(vis_task[5])
+                        list_status.append(user_list2.status)
+
+                    elif user_list2.filter(quiz_id=29)|user_list2.filter(quiz_id=129):
+                        list_user2.append(k)
+                        list_quiz_id.append(user_list2.quiz_id)
+                        list_vis_type.append(vis_type[6])
+                        list_vis_task.append(vis_task[6])
+                        list_status.append(user_list2.status)
+
+                    elif user_list2.filter(quiz_id=30)|user_list2.filter(quiz_id=130):
+                        list_user2.append(k)
+                        list_quiz_id.append(user_list2.quiz_id)
+                        list_vis_type.append(vis_type[6])
+                        list_vis_task.append(vis_task[7])
+                        list_status.append(user_list2.status)
+
+                    elif user_list2.filter(quiz_id=31)|user_list2.filter(quiz_id=131):
+                        list_user2.append(k)
+                        list_quiz_id.append(user_list2.quiz_id)
+                        list_vis_type.append(vis_type[7])
+                        list_vis_task.append(vis_task[0])
+                        list_status.append(user_list2.status)
+
+                    elif user_list2.filter(quiz_id=32)|user_list2.filter(quiz_id=132):
+                        list_user2.append(k)
+                        list_quiz_id.append(user_list2.quiz_id)
+                        list_vis_type.append(vis_type[7])
+                        list_vis_task.append(vis_task[1])
+                        list_status.append(user_list2.status)
+
+                    elif user_list2.filter(quiz_id=33)|user_list2.filter(quiz_id=133):
+                        list_user2.append(k)
+                        list_quiz_id.append(user_list2.quiz_id)
+                        list_vis_type.append(vis_type[7])
+                        list_vis_task.append(vis_task[2])
+                        list_status.append(user_list2.status)
+                    
+                    elif user_list2.filter(quiz_id=34)|user_list2.filter(quiz_id=134):
+                        list_user2.append(k)
+                        list_quiz_id.append(user_list2.quiz_id)
+                        list_vis_type.append(vis_type[7])
+                        list_vis_task.append(vis_task[6])
+                        list_status.append(user_list2.status)
+
+                    elif user_list2.filter(quiz_id=35)|user_list2.filter(quiz_id=135):
+                        list_user2.append(k)
+                        list_quiz_id.append(user_list2.quiz_id)
+                        list_vis_type.append(vis_type[8])
+                        list_vis_task.append(vis_task[0])
+                        list_status.append(user_list2.status)
+
+                    elif user_list2.filter(quiz_id=36)|user_list2.filter(quiz_id=136):
+                        list_user2.append(k)
+                        list_quiz_id.append(user_list2.quiz_id)
+                        list_vis_type.append(vis_type[8])
+                        list_vis_task.append(vis_task[0])
+                        list_status.append(user_list2.status)
+
+                    elif user_list2.filter(quiz_id=37)|user_list2.filter(quiz_id=137):
+                        list_user2.append(k)
+                        list_quiz_id.append(user_list2.quiz_id)
+                        list_vis_type.append(vis_type[8])
+                        list_vis_task.append(vis_task[1])
+                        list_status.append(user_list2.status)
+
+                    elif user_list2.filter(quiz_id=38)|user_list2.filter(quiz_id=138):
+                        list_user2.append(k)
+                        list_quiz_id.append(user_list2.quiz_id)
+                        list_vis_type.append(vis_type[8])
+                        list_vis_task.append(vis_task[6])
+                        list_status.append(user_list2.status)
+
+                    elif user_list2.filter(quiz_id=39)|user_list2.filter(quiz_id=139):
+                        list_user2.append(k)
+                        list_quiz_id.append(user_list2.quiz_id)
+                        list_vis_type.append(vis_type[8])
+                        list_vis_task.append(vis_task[7])
+                        list_status.append(user_list2.status)
+
+                    elif user_list2.filter(quiz_id=40)|user_list2.filter(quiz_id=140):
+                        list_user2.append(k)
+                        list_quiz_id.append(user_list2.quiz_id)
+                        list_vis_type.append(vis_type[8])
+                        list_vis_task.append(vis_task[7])
+                        list_status.append(user_list2.status)
+
+                    elif user_list2.filter(quiz_id=41)|user_list2.filter(quiz_id=141):
+                        list_user2.append(k)
+                        list_quiz_id.append(user_list2.quiz_id)
+                        list_vis_type.append(vis_type[9])
+                        list_vis_task.append(vis_task[0])
+                        list_status.append(user_list2.status)
+
+                    elif user_list2.filter(quiz_id=42)|user_list2.filter(quiz_id=142):
+                        list_user2.append(k)
+                        list_quiz_id.append(user_list2.quiz_id)
+                        list_vis_type.append(vis_type[9])
+                        list_vis_task.append(vis_task[1])
+                        list_status.append(user_list2.status)
+
+                    elif user_list2.filter(quiz_id=43)|user_list2.filter(quiz_id=143):
+                        list_user2.append(k)
+                        list_quiz_id.append(user_list2.quiz_id)
+                        list_vis_type.append(vis_type[9])
+                        list_vis_task.append(vis_task[2])
+                        list_status.append(user_list2.status)
+
+                    elif user_list2.filter(quiz_id=44)|user_list2.filter(quiz_id=144):
+                        list_user2.append(k)
+                        list_quiz_id.append(user_list2.quiz_id)
+                        list_vis_type.append(vis_type[9])
+                        list_vis_task.append(vis_task[4])
+                        list_status.append(user_list2.status)
+
+                    elif user_list2.filter(quiz_id=45)|user_list2.filter(quiz_id=145):
+                        list_user2.append(k)
+                        list_quiz_id.append(user_list2.quiz_id)
+                        list_vis_type.append(vis_type[9])
+                        list_vis_task.append(vis_task[5])
+                        list_status.append(user_list2.status)
+
+                    elif user_list2.filter(quiz_id=46)|user_list2.filter(quiz_id=146):
+                        list_user2.append(k)
+                        list_quiz_id.append(user_list2.quiz_id)
+                        list_vis_type.append(vis_type[9])
+                        list_vis_task.append(vis_task[6])
+                        list_status.append(user_list2.status)
+
+                    elif user_list2.filter(quiz_id=47)|user_list2.filter(quiz_id=147):
+                        list_user2.append(k)
+                        list_quiz_id.append(user_list2.quiz_id)
+                        list_vis_type.append(vis_type[9])
+                        list_vis_task.append(vis_task[7])
+                        list_status.append(user_list2.status)
+
+                    elif user_list2.filter(quiz_id=48)|user_list2.filter(quiz_id=148):
+                        list_user2.append(k)
+                        list_quiz_id.append(user_list2.quiz_id)
+                        list_vis_type.append(vis_type[10])
+                        list_vis_task.append(vis_task[0])
+                        list_status.append(user_list2.status)
+
+                    elif user_list2.filter(quiz_id=49)|user_list2.filter(quiz_id=149):
+                        list_user2.append(k)
+                        list_quiz_id.append(user_list2.quiz_id)
+                        list_vis_type.append(vis_type[10])
+                        list_vis_task.append(vis_task[1])
+                        list_status.append(user_list2.status)
+
+                    elif user_list2.filter(quiz_id=50)|user_list2.filter(quiz_id=150):
+                        list_user2.append(k)
+                        list_quiz_id.append(user_list2.quiz_id)
+                        list_vis_type.append(vis_type[10])
+                        list_vis_task.append(vis_task[7])
+                        list_status.append(user_list2.status)
+
+                    elif user_list2.filter(quiz_id=51)|user_list2.filter(quiz_id=151):
+                        list_user2.append(k)
+                        list_quiz_id.append(user_list2.quiz_id)
+                        list_vis_type.append(vis_type[11])
+                        list_vis_task.append(vis_task[1])
+                        list_status.append(user_list2.status)
+
+                    elif user_list2.filter(quiz_id=52)|user_list2.filter(quiz_id=152):
+                        list_user2.append(k)
+                        list_quiz_id.append(user_list2.quiz_id)
+                        list_vis_type.append(vis_type[11])
+                        list_vis_task.append(vis_task[7])
+                        list_status.append(user_list2.status)
+
+                    elif user_list2.filter(quiz_id=53)|user_list2.filter(quiz_id=153):
+                        list_user2.append(k)
+                        list_quiz_id.append(user_list2.quiz_id)
+                        list_vis_type.append(vis_type[11])
+                        list_vis_task.append(vis_task[0])
+                        list_status.append(user_list2.status)
 
                 result_list2 = [['user_id','quiz_id','type','task','status']]
 
