@@ -1,7 +1,7 @@
 {% extends "base.html" %}
 
 {% block content %}
-<div class="upload-desc" style="text-align: center;">
+<div class="upload-desc" style="text-align: center; margin-top: 30px;">
     <form name="csv-form" action="{% url 'user_download' %}" method="POST" id='form1' enctype="multipart/form-data">
         {% csrf_token %}
         <input type="hidden" name="form-type" value="form1">
@@ -21,20 +21,20 @@
         </div>
         <div class="option-one" style="float: left; width: 50%; text-align: center;">
             <ul>
-                <p>option 1<p>
-                  <li>user_id</li>
-                  <li>정답 수</li>
-                  <li>시각화 종류별 정답 수</li>
+                <p>Option 1 Column Value<p>
+                  <p>1. user_id</p>
+                  <p>2. 정답 수</p>
+                  <p>3. 시각화 종류별 정답 수</p>
             </ul>
         </div>
         <div class="option-two" style="float: left; width: 50%; text-align: center;">
             <ul>
-                <p>option 2<p>
-                  <li>user_id</li>
-                  <li>quiz_id</li>
-                  <li>type</li>
-                  <li>task</li>
-                  <li>status</li>
+                <p>Option 2 Column Value<p>
+                <p>1. user_id</p>
+                <p>2. quiz_id</p>
+                <p>3. type</p>
+                <p>4. task</p>
+                <p>5. status</p>
             </ul>
         </div>
         <div class="option-btn" style="text-align: center;">
