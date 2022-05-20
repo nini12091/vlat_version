@@ -1205,23 +1205,9 @@ def user_download(request):
 
                 result_list2 = [['user_id','quiz_id','type','task','status']]
 
-                for l2 in range(len(list_user2)):
-                    arr1 = []
-                    arr1.append(list_user2[l2])
-                    arr1.append(list_quiz_id[l2])
-                    arr1.append(list_vis_type[l2])
-                    arr1.append(list_vis_task[l2])
-                    arr1.append(list_status[l2])
+                context = {'list_quiz_id':list_quiz_id}
 
-                    result_list2.append(arr1)
-
-                response = HttpResponse('text/csv')
-                response['Content-Disposition'] = 'attachment; filename=k_vlat_resultdata.csv'
-                writer = csv.writer(response)
+                return render(request, "download.html", context)
                 
-                for row in result_list2:
-                    writer.writerow(row)
-
-                return response
                           
     return render(request, "download.html")
