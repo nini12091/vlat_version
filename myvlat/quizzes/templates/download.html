@@ -14,10 +14,11 @@
     <form action="{% url 'user_download' %}" method="POST" id='form2'>
         {% csrf_token %}
         <p class="option-message">옵션 선택</p>
-        <input type="hidden" name="form-type" value="form2">
-        <label><input type="radio" name="option-list" value="option1" required> option 1</label>
-        <label><input type="radio" name="option-list" value="option2"> option2 </label>
-        
+        <div class="option-check">
+            <input type="hidden" name="form-type" value="form2">
+            <label><input type="radio" name="option-list" value="option1" required> option 1</label>
+            <label><input type="radio" name="option-list" value="option2"> option2 </label>
+        </div>
         <div class="option-one" style="float: left;">
             <ul>
                 <p>option 1<p>
