@@ -31,17 +31,26 @@
     }
 </style>
 <script>
-    $("#upload-file").on('change',function(){
-        var fileName = $("upload-file").val();
-        $(".upload-name").val(fileName);
-    });
+    $(document).ready(function(){
+    var fileTarget = $('.filebox .upload-hidden');
+
+        fileTarget.on('change', function(){
+            if(window.FileReader){
+                var filename = $(this)[0].files[0].name;
+            } else {
+                var filename = $(this).val().split('/').pop().split('\\').pop();
+            }
+
+            $(this).siblings('.upload-name').val(filename);
+        });
+    }); 
 </script>
 <div class="upload-desc" style="text-align: center; margin-top: 30px;">
     <form name="csv-form" action="{% url 'user_download' %}" method="POST" id='form1' enctype="multipart/form-data">
         {% csrf_token %}
         <input type="hidden" name="form-type" value="form1">
         <div class="filebox">
-            <input type="file" id="upload-file" name="upload-file">
+            <input type="file" id="upload-file" name="upload-file" class="upload-hidden">
             <label for="upload-file">파일찾기</label> 
             <input class="upload-name" value="첨부파일" disabled="disabled">
         </div>
