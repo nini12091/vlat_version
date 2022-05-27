@@ -83,7 +83,7 @@
     <p style="margin: 0px auto 10px; padding: 20px 20px 0 20px; max-width: 800px; font-weight: 350; line-height: 1.3; color: cornflowerblue;">{{notice}}</p>
     <form action="{% url 'user_download' %}" method="POST" id='form2'>
         {% csrf_token %}
-        <p class="option-message" style="font-size:2rem;">옵션 선택</p>
+        <p class="option-message" style="font-size:2rem; font-weight: 500;"> - 옵션 선택 - </p>
         <div class="option-check">
             <input type="hidden" name="form-type" value="form2">
             <label style="padding: 4px 15%; background-color: lightgray; margin-right: 1%;"><input type="radio" name="option-list" value="option1" required> option 1</label>
