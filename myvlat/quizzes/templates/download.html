@@ -1,17 +1,16 @@
 {% extends "base.html" %}
-
-{% block content %}
 <style>
     .filebox input[type="file"] {
-	position: absolute;
-	width: 1px;
-	height: 1px;
-	padding: 0;
-	margin: -1px;
-	overflow: hidden;
-	clip:rect(0,0,0,0);
-	border: 0;
+        position: absolute;
+        width: 1px;
+        height: 1px;
+        padding: 0;
+        margin: -1px;
+        overflow: hidden;
+        clip:rect(0,0,0,0);
+        border: 0;
     }
+
     .filebox label {
         display: inline-block;
         padding: .5em .75em;
@@ -35,21 +34,20 @@
         line-height: normal;
         vertical-align: middle;
         background-color: #f5f5f5;
-    border: 1px solid #ebebeb;
-    border-bottom-color: #e2e2e2;
-    border-radius: .25em;
-    -webkit-appearance: none;
-    -moz-appearance: none;
-    appearance: none;
-    }
+        border: 1px solid #ebebeb;
+        border-bottom-color: #e2e2e2;
+        border-radius: .25em;
+        -webkit-appearance: none;
+        -moz-appearance: none;
+        appearance: none;
+        }
 
     .filebox.bs3-primary label {
-    color: #fff;
+        color: #fff;
         background-color: #337ab7;
         border-color: #2e6da4;
     }
 </style>
-
 <script>
     $(document).ready(function(){
     var fileTarget = $('.filebox .upload-hidden');
@@ -65,13 +63,15 @@
         });
     }); 
 </script>
+{% block content %}
 <div class="upload-desc" style="text-align: center; margin-top: 30px;">
     <form name="csv-form" action="{% url 'user_download' %}" method="POST" id='form1' enctype="multipart/form-data">
         {% csrf_token %}
         <div class="filebox bs3-primary">
             <input class="upload-name" value="파일선택" disabled="disabled">
             <label for="ex_filename">업로드</label> 
-          <input type="file" id="ex_filename" class="upload-hidden"> 
+            <input type="file" id="ex_filename" class="upload-hidden"> 
+            <input type="hidden" name="form-type" value="form1">
         </div>
     </form>
 </div>
