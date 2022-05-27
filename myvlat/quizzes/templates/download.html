@@ -27,7 +27,7 @@
         border-radius: .25em;
     }
 
-    /* named upload <button id="csv-file-upload-button" class="upload-btn">올리기</button>*/
+    /* named upload */
     .filebox .upload-name {
         display: inline-block;
         padding: .5em .75em;
@@ -68,12 +68,12 @@
 <div class="upload-desc" style="text-align: center; margin-top: 30px;">
     <form name="csv-form" action="{% url 'user_download' %}" method="POST" id='form1' enctype="multipart/form-data">
         {% csrf_token %}
-        <input type="hidden" name="form-type" value="form1">
         <div class="filebox bs3-primary">
-            <input class="upload-name" value="파일선택" disabled="disabled">
-    
+          <input type="hidden" name="form-type" value="form1">
             <label for="ex_filename">업로드</label> 
+            <input class="upload-name" value="파일선택" disabled="disabled">
           <input type="file" id="ex_filename" class="upload-hidden"> 
+          <button id="csv-file-upload-button" class="upload-btn">올리기</button>
         </div>
     </form>
 </div>
