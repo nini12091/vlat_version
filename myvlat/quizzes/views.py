@@ -745,7 +745,7 @@ def user_download(request):
                 for data in id:
                     id_list.append(data)
 
-            notice = '업로드 완료'
+            notice = '파일 업로드 완료! 옵션을 선택해주세요'
 
             context = {'notice':notice}
 
