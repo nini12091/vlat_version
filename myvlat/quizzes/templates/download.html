@@ -5,7 +5,8 @@
     <form name="csv-form" action="{% url 'user_download' %}" method="POST" id='form1' enctype="multipart/form-data">
         {% csrf_token %}
         <input type="hidden" name="form-type" value="form1">
-        <input type="file" id="upload-file" name="upload-file" style="width: 300px;" /> 
+        <input type="file" id="upload-file" name="upload-file" style="width: 300px;" />
+        <label for="ex_filename">파일선택</label> 
         <button id="csv-file-upload-button" class="upload-btn">올리기</button>
     </form>
 </div>
