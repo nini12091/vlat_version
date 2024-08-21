@@ -757,17 +757,33 @@
           }
         });
 
+      svg.append('rect')
+        .attr('x', x+150)
+        .attr('y', y+350)
+        .attr('width', 50)
+        .attr('height', 50)
+        .attr('stroke', 'black')
+        .attr('fill', function(d){
+          if(dataset[33].value == "True"){
+            Area_chart = Area_chart + 1
+            return "green"
+          }
+          else{
+            return "red"
+          }
+        });
+
       svg.append('text')
         .attr('x', x-70)
         .attr('y', y+385)
         .attr("font-size", "25px")
-        .text(Math.round(Area_chart/3*100)+"%   ");
+        .text(Math.round(Area_chart/4*100)+"%   ");
 
       svg.append('text')
-        .attr('x', x+170)
+        .attr('x', x+220)
         .attr('y', y+385)
         .attr("font-size", "25px")
-        .text("("+Area_chart+"/3)");
+        .text("("+Area_chart+"/4)");
 
       // Add the path using this helper function
       // Stacked Area Chart
@@ -784,7 +800,7 @@
         .attr('height', 50)
         .attr('stroke', 'black')
         .attr('fill', function(d){
-          if(dataset[33].value == "True"){
+          if(dataset[34].value == "True"){
             Stacked_Area_chart = Stacked_Area_chart + 1
             return "green"
           }
@@ -800,7 +816,7 @@
         .attr('height', 50)
         .attr('stroke', 'black')
         .attr('fill', function(d){
-          if(dataset[34].value == "True"){
+          if(dataset[35].value == "True"){
             Stacked_Area_chart = Stacked_Area_chart + 1
             return "green"
           }
@@ -816,7 +832,7 @@
         .attr('height', 50)
         .attr('stroke', 'black')
         .attr('fill', function(d){
-          if(dataset[35].value == "True"){
+          if(dataset[36].value == "True"){
             Stacked_Area_chart = Stacked_Area_chart + 1
             return "green"
           }
@@ -832,7 +848,7 @@
         .attr('height', 50)
         .attr('stroke', 'black')
         .attr('fill', function(d){
-          if(dataset[36].value == "True"){
+          if(dataset[37].value == "True"){
             Stacked_Area_chart = Stacked_Area_chart + 1
             return "green"
           }
@@ -848,7 +864,7 @@
         .attr('height', 50)
         .attr('stroke', 'black')
         .attr('fill', function(d){
-          if(dataset[37].value == "True"){
+          if(dataset[38].value == "True"){
             Stacked_Area_chart = Stacked_Area_chart + 1
             return "green"
           }
@@ -864,7 +880,7 @@
         .attr('height', 50)
         .attr('stroke', 'black')
         .attr('fill', function(d){
-          if(dataset[38].value == "True"){
+          if(dataset[39].value == "True"){
             Stacked_Area_chart = Stacked_Area_chart + 1
             return "green"
           }
@@ -900,7 +916,7 @@
         .attr('height', 50)
         .attr('stroke', 'black')
         .attr('fill', function(d){
-          if(dataset[39].value == "True"){
+          if(dataset[40].value == "True"){
             Bubble_chart = Bubble_chart + 1
             return "green"
           }
@@ -916,7 +932,7 @@
         .attr('height', 50)
         .attr('stroke', 'black')
         .attr('fill', function(d){
-          if(dataset[40].value == "True"){
+          if(dataset[41].value == "True"){
             Bubble_chart = Bubble_chart + 1
             return "green"
           }
@@ -932,7 +948,7 @@
         .attr('height', 50)
         .attr('stroke', 'black')
         .attr('fill', function(d){
-          if(dataset[41].value == "True"){
+          if(dataset[42].value == "True"){
             Bubble_chart = Bubble_chart + 1
             return "green"
           }
@@ -948,7 +964,7 @@
         .attr('height', 50)
         .attr('stroke', 'black')
         .attr('fill', function(d){
-          if(dataset[42].value == "True"){
+          if(dataset[43].value == "True"){
             Bubble_chart = Bubble_chart + 1
             return "green"
           }
@@ -964,7 +980,7 @@
         .attr('height', 50)
         .attr('stroke', 'black')
         .attr('fill', function(d){
-          if(dataset[43].value == "True"){
+          if(dataset[44].value == "True"){
             Bubble_chart = Bubble_chart + 1
             return "green"
           }
@@ -980,7 +996,7 @@
         .attr('height', 50)
         .attr('stroke', 'black')
         .attr('fill', function(d){
-          if(dataset[44].value == "True"){
+          if(dataset[45].value == "True"){
             Bubble_chart = Bubble_chart + 1
             return "green"
           }
@@ -996,7 +1012,7 @@
         .attr('height', 50)
         .attr('stroke', 'black')
         .attr('fill', function(d){
-          if(dataset[45].value == "True"){
+          if(dataset[46].value == "True"){
             Bubble_chart = Bubble_chart + 1
             return "green"
           }
@@ -1032,7 +1048,7 @@
         .attr('height', 50)
         .attr('stroke', 'black')
         .attr('fill', function(d){
-          if(dataset[46].value == "True"){
+          if(dataset[47].value == "True"){
             Choropleth = Choropleth + 1
             return "green"
           }
@@ -1048,7 +1064,7 @@
         .attr('height', 50)
         .attr('stroke', 'black')
         .attr('fill', function(d){
-          if(dataset[47].value == "True"){
+          if(dataset[48].value == "True"){
             Choropleth = Choropleth + 1
             return "green"
           }
@@ -1064,7 +1080,7 @@
         .attr('height', 50)
         .attr('stroke', 'black')
         .attr('fill', function(d){
-          if(dataset[48].value == "True"){
+          if(dataset[49].value == "True"){
             Choropleth = Choropleth + 1
             return "green"
           }
@@ -1100,7 +1116,7 @@
         .attr('height', 50)
         .attr('stroke', 'black')
         .attr('fill', function(d){
-          if(dataset[49].value == "True"){
+          if(dataset[50].value == "True"){
             Tree_map = Tree_map + 1
             return "green"
           }
@@ -1116,7 +1132,7 @@
         .attr('height', 50)
         .attr('stroke', 'black')
         .attr('fill', function(d){
-          if(dataset[50].value == "True"){
+          if(dataset[51].value == "True"){
             Tree_map = Tree_map + 1
             return "green"
           }
@@ -1132,7 +1148,7 @@
         .attr('height', 50)
         .attr('stroke', 'black')
         .attr('fill', function(d){
-          if(dataset[51].value == "True"){
+          if(dataset[52].value == "True"){
             Tree_map = Tree_map + 1
             return "green"
           }
@@ -1141,6 +1157,7 @@
           }
         });
 
+        
       svg.append('text')
         .attr('x', x-70)
         .attr('y', y+585)
